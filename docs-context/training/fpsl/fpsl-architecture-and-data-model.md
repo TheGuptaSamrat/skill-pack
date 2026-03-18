@@ -1,5 +1,5 @@
 Classification: training-derived-concepts
-Source basis: FPSL TRAINING DOCUMENT.pdf
+Source basis: reviewed training source for FPSL architecture and data-model concepts
 Trust usage: architecture and data-model framing
 Do not use for: version-specific field truth or local implementation names
 Topics covered: architecture, data model, FPSL relation to SAP S/4HANA

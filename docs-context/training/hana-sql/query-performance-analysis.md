@@ -1,5 +1,5 @@
 Classification: training-derived-concepts
-Source basis: openSAP_hanasql1_Week_3_All_Slides.pdf
+Source basis: reviewed training source for query-performance analysis concepts
 Trust usage: conceptual performance-analysis framing
 Do not use for: exact local performance metrics or plan claims
 Topics covered: query plan analysis, operator cost, runtime reasoning

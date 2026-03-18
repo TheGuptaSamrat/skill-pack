@@ -1,5 +1,5 @@
 Classification: training-derived-concepts
-Source basis: FPSL TRAINING DOCUMENT.pdf
+Source basis: reviewed training source for FPSL accounting process concepts
 Trust usage: conceptual accounting process explanation
 Do not use for: customer-specific accounting rules or local posting logic
 Topics covered: accounting process model, flow explanation, example-driven framing
