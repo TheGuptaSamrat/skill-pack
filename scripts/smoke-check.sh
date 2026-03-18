@@ -21,6 +21,12 @@ required_files=(
   "$repo_root/metadata-drop/fsdm/README.md"
   "$repo_root/metadata-drop/configuration/README.md"
   "$repo_root/metadata-drop/samples/README.md"
+  "$repo_root/metadata-drop/raw-excel/README.md"
+  "$repo_root/metadata-drop/normalized/README.md"
+  "$repo_root/metadata-drop/manifest.csv"
+  "$repo_root/metadata-drop/change-review.md"
+  "$repo_root/test-cases/README.md"
+  "$repo_root/test-cases/feedback-template.md"
 )
 
 for file in "${required_files[@]}"; do

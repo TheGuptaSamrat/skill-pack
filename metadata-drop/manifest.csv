@@ -1,0 +1,3 @@
+artifact_id,source_type,source_name,status,uploaded_on,normalized_on,active_path,notes
+sample-ddic-v1,synthetic-example,tables.sample.csv,active,2026-03-18,2026-03-18,metadata-drop/ddic/tables.sample.csv,Initial safe sample DDIC structure
+sample-fsdm-mapping-v1,synthetic-example,fsdm_to_fpsl_mapping.md,active,2026-03-18,2026-03-18,metadata-drop/samples/fsdm_to_fpsl_mapping.md,Initial safe mapping shape

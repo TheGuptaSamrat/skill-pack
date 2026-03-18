@@ -36,7 +36,8 @@ In VS Code, point Copilot to:
 
 - the relevant `skills/<skill-name>/SKILL.md`
 - one or two reference files from the same skill if needed
-- relevant files from `metadata-drop/` only for the current task
+- relevant files from `metadata-drop/normalized/` first
+- raw uploads only when normalization is missing or under review
 
 Keep context lean.
 
@@ -135,6 +136,13 @@ Best upgrades:
 - confirmed target fields
 
 The repo is designed so better metadata improves output quality.
+
+If a new raw Excel was uploaded recently, check:
+
+- `metadata-drop/manifest.csv`
+- `metadata-drop/change-review.md`
+
+If status says `reverify-required`, do not trust older generated mappings without rechecking them.
 
 ## 9. Keep The Team Consistent
 

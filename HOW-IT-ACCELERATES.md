@@ -62,6 +62,10 @@ The `metadata-drop/` area lets the team add:
 
 As metadata quality improves, output quality improves too.
 
+The active default should be normalized metadata.
+
+Trusted raw Excel remains the source input, and normalized files keep that source usable for day-to-day generation.
+
 ### 5. More consistent team output
 
 When multiple developers use the same skill pack:

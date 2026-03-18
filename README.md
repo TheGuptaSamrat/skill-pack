@@ -32,6 +32,12 @@ Included skills:
 
 Use `metadata-drop/` for reusable evidence that improves output quality without expanding prompts.
 
+Operating rule:
+
+- raw Excel is treated as trusted source metadata
+- normalized metadata is the active working format used by skills by default
+- when new source metadata changes the active model materially, impacted outputs should be reverified
+
 - `fpsl/`
   - core structure notes and sample table references
 - `fsdm/`
@@ -44,6 +50,16 @@ Use `metadata-drop/` for reusable evidence that improves output quality without 
   - CSV exports for tables, fields, keys, domains, and data elements
 - `samples/`
   - safe sample rows and source-to-target examples
+- `raw-excel/`
+  - trusted source Excel metadata
+- `normalized/`
+  - active working metadata used by skills by default
+- `manifest.csv`
+  - source-to-normalized tracking
+- `change-review.md`
+  - summary of structural changes and reverification needs
+- `test-cases/`
+  - developer trial cases and feedback pack
 
 ## How To Use
 

@@ -12,14 +12,18 @@ Use this skill when the user needs high-quality technical documentation or metad
 1. Read this file.
 2. Read [metadata-sources.md](./references/metadata-sources.md).
 3. Read [documentation-output-rules.md](./references/documentation-output-rules.md).
-4. Read `../../metadata-drop/` only for the specific input type provided by the user.
+4. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
+5. Read `../../metadata-drop/` only for the specific input type provided by the user.
 
 ## Workflow
 
 1. Inventory the available metadata.
-2. Separate confirmed metadata from inferred relationships.
-3. Build documentation that helps later generation, review, and validation.
-4. Prefer concise, structured, reusable technical artifacts.
+2. Prefer active normalized metadata as the default working source.
+3. Use trusted raw Excel only when normalization is missing or when comparing changes.
+4. If metadata changes are marked in `change-review.md`, tell the user whether reverification is needed.
+5. Separate confirmed metadata from inferred relationships.
+6. Build documentation that helps later generation, review, and validation.
+7. Prefer concise, structured, reusable technical artifacts.
 
 ## Accepted Inputs
 
@@ -38,6 +42,7 @@ Use this skill when the user needs high-quality technical documentation or metad
 - Keep docs generation-oriented, not presentation-heavy.
 - Produce output that can be reused for later code generation.
 - Prefer metadata-drop evidence over free-form assumptions whenever both exist.
+- If normalized metadata is marked `reverify-required`, tell the user impacted code or docs must be revalidated.
 
 ## Expected Output
 
