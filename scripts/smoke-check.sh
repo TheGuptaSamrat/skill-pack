@@ -14,6 +14,13 @@ required_files=(
   "$repo_root/skills/sap-fpsl-configuration/agents/openai.yaml"
   "$repo_root/skills/sap-fpsl-tech-docs/SKILL.md"
   "$repo_root/skills/sap-fpsl-tech-docs/agents/openai.yaml"
+  "$repo_root/metadata-drop/README.md"
+  "$repo_root/metadata-drop/ddic/README.md"
+  "$repo_root/metadata-drop/cds/README.md"
+  "$repo_root/metadata-drop/fpsl/README.md"
+  "$repo_root/metadata-drop/fsdm/README.md"
+  "$repo_root/metadata-drop/configuration/README.md"
+  "$repo_root/metadata-drop/samples/README.md"
 )
 
 for file in "${required_files[@]}"; do

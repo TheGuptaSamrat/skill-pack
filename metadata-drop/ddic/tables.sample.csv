@@ -1,0 +1,5 @@
+table_name,table_class,delivery_class,description
+/BA1/HFSPD,TRANSP,A,FPSL posting document header
+/BA1/HKTVR,TRANSP,A,FPSL valuation result header-like structure
+/BA1/HKTVL,TRANSP,A,FPSL valuation line-item-like structure
+/BA1/F1_CON_FLAT,TRANSP,A,FSDM flattened contract-style structure

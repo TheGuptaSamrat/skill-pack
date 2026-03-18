@@ -8,6 +8,11 @@ This repo is designed for:
 - GitLab mirroring
 - VS Code with GitHub Copilot as a reference and context repo
 
+For the developer-value summary, read:
+
+- `HOW-IT-ACCELERATES.md`
+- `VS_CODE_GHCP_STEP_BY_STEP.md`
+
 ## Repository Shape
 
 Each skill lives under `skills/<skill-name>/` and follows the standard skill layout:
@@ -23,6 +28,23 @@ Included skills:
 - `sap-fpsl-configuration`
 - `sap-fpsl-tech-docs`
 
+## Metadata Drop
+
+Use `metadata-drop/` for reusable evidence that improves output quality without expanding prompts.
+
+- `fpsl/`
+  - core structure notes and sample table references
+- `fsdm/`
+  - model notes and extension metadata
+- `cds/`
+  - CDS definitions or exported DDL snippets
+- `configuration/`
+  - sample navigation paths, setup examples, and validation references
+- `ddic/`
+  - CSV exports for tables, fields, keys, domains, and data elements
+- `samples/`
+  - safe sample rows and source-to-target examples
+
 ## How To Use
 
 For Codex:
@@ -34,6 +56,7 @@ For VS Code with GitHub Copilot:
 
 - keep this repo open beside the Eclipse ADT workspace
 - use the relevant skill folder as canonical context
+- load `metadata-drop/` evidence only for the current task
 - keep prompts short and task-specific
 
 Example:

@@ -1,0 +1,5 @@
+synthetic_example,true
+contract_id,cashflow_date,currency,amount,flow_type
+CNTR_1001,2026-01-31,EUR,1250.25,INT
+CNTR_1001,2026-02-29,EUR,1250.25,INT
+CNTR_2001,2026-01-15,USD,845.10,PRN

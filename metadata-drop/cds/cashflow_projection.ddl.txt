@@ -1,0 +1,13 @@
+-- synthetic-example
+-- not copied from SAP documentation
+-- use only for structure and prompt grounding
+
+@EndUserText.label: 'Sample FSDM Cashflow Projection'
+define view entity ZI_FSDM_CASHFLOW_SAMPLE
+  as select from /BA1/F1_CON_FLAT
+{
+  key contract_id      as ContractId,
+  key cashflow_date    as CashflowDate,
+      amount           as Amount,
+      currency         as Currency
+}

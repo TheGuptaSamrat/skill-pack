@@ -12,6 +12,7 @@ Use this skill when the user needs high-quality technical documentation or metad
 1. Read this file.
 2. Read [metadata-sources.md](./references/metadata-sources.md).
 3. Read [documentation-output-rules.md](./references/documentation-output-rules.md).
+4. Read `../../metadata-drop/` only for the specific input type provided by the user.
 
 ## Workflow
 
@@ -36,6 +37,7 @@ Use this skill when the user needs high-quality technical documentation or metad
 - Label inferred relationships explicitly.
 - Keep docs generation-oriented, not presentation-heavy.
 - Produce output that can be reused for later code generation.
+- Prefer metadata-drop evidence over free-form assumptions whenever both exist.
 
 ## Expected Output
 

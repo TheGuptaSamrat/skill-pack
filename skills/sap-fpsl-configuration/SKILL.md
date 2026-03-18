@@ -12,6 +12,7 @@ Use this skill for configuration-heavy FPSL tasks that still need disciplined te
 1. Read this file.
 2. Read [configuration-delivery-rules.md](./references/configuration-delivery-rules.md).
 3. Read [validation-and-tcodes.md](./references/validation-and-tcodes.md) when verification is needed.
+4. Read `../../metadata-drop/configuration/` artifacts when sample navigation, validation sequence, or setup examples are available.
 
 ## Workflow
 
@@ -26,6 +27,7 @@ Use this skill for configuration-heavy FPSL tasks that still need disciplined te
 - Use placeholders if screenshots, extracts, or metadata are missing.
 - Make prerequisites and downstream validation explicit.
 - Separate confirmed settings from assumptions.
+- Prefer repository navigation examples over generic SAP boilerplate when evidence is available.
 
 ## Expected Output
 
