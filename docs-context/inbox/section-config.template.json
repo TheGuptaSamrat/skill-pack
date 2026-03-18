@@ -1,13 +1,13 @@
 {
-  "target_root": "docs-context/full-source-md/sap/example-source",
+  "target_root": "docs-context/inbox/review-drafts/example-source",
   "sections": [
     {
       "filename": "01-overview.md",
       "title": "Overview",
-      "classification": "full-source-md",
+      "classification": "review-draft",
       "start_page": 1,
       "end_page": 3,
-      "trust_usage": "deeper lookup",
+      "trust_usage": "private review only",
       "do_not_use_for": "landscape-specific objects",
       "topics": ["overview", "scope"]
     }

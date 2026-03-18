@@ -1,1 +1,0 @@
-# Training Full Source Markdown

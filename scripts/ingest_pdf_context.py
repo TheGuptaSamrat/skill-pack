@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ingest a PDF or preconverted text into docs-context/full-source-md.
+"""Ingest a PDF or preconverted text into review drafts for curated summaries.
 
 This script is cross-platform. For PDF extraction it prefers ``pdftotext`` or
 an installed ``pypdf`` package. If neither is available, users can provide a

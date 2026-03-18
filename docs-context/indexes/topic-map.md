@@ -3,7 +3,7 @@
 This map points major SAP FPSL/FSDM topics to the best context files.
 
 Use this map to point skills to stable curated files.
-Do not point skills directly to versioned `full-source-md/` files unless deep lookup is required.
+Do not point skills to raw source conversions in the public repo.
 
 ## AMDP
 

@@ -83,8 +83,6 @@ Use `docs-context/` for markdown-derived document corpora.
   - crisp, trusted markdown for direct skill loading
 - `training/`
   - compact conceptual notes from training material
-- `full-source-md/`
-  - section-split markdown for deeper lookup only
 - `indexes/`
   - source and topic navigation
 - `inbox/`

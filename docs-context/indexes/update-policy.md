@@ -8,7 +8,7 @@ Newer source PDFs do not automatically change the active curated context.
 
 They must first be:
 
-1. ingested into `full-source-md/`
+1. reviewed outside the public repo if raw source conversion is needed
 2. reviewed against current curated files
 3. promoted into `official/` or `training/` only after review
 
