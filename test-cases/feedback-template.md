@@ -12,6 +12,8 @@
 - Did the output include tests:
 - Did the output include validation:
 - Were any names or fields invented:
+- Were assumptions clearly labeled:
+- Was the output immediately usable:
 - What was strong:
 - What was weak:
 - What metadata would have improved the result:

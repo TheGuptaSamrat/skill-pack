@@ -14,6 +14,7 @@ Use this skill for HANA pushdown work in FPSL and FSDM landscapes.
 3. Read [sql-and-performance-rules.md](./references/sql-and-performance-rules.md) when writing or reviewing SQLScript.
 4. Read [official-sources.md](./references/official-sources.md) when you need SAP-supported AMDP, ADT, or FPSL/FSDM anchors.
 5. Read [hana-query-analysis-concepts.md](./references/hana-query-analysis-concepts.md) when query-processing or performance-analysis concepts need strengthening.
+6. Use this skill for set-based SQL, reconciliation, and data-presence verification; route checklist-led operational walkthroughs to `sap-fpsl-configuration`.
 
 ## Trust Order
 
@@ -30,8 +31,10 @@ Do not derive landscape-specific class names, CDS entities, DDIC layouts, or pac
 1. Confirm source dataset, target dataset, and output grain.
 2. Keep orchestration and business checks in ABAP unless the task is clearly set-based.
 3. Use AMDP for heavy joins, windowing, aggregation, deduplication, or high-volume filtering.
-4. Keep SQL staged and readable.
-5. Return the smallest paste-ready artifact set:
+4. Generate reconciliation or data-flow-check queries when the task is investigative rather than implementation-heavy.
+5. Use DDIC-aware query shapes when metadata is available.
+6. Keep SQL staged and readable.
+7. Return the smallest paste-ready artifact set:
    - ABAP wrapper
    - AMDP method
    - test scaffold
@@ -53,3 +56,4 @@ Do not derive landscape-specific class names, CDS entities, DDIC layouts, or pac
 - production-style AMDP and wrapper code
 - ABAP Unit or integration test scaffold
 - validation and reconciliation checks
+- SQL checks for data flow or process-run verification when requested

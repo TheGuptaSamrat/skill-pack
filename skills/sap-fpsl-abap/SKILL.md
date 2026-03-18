@@ -28,8 +28,9 @@ Do not infer custom classes, interfaces, packages, or field lists from public SA
 1. Identify the minimal ABAP artifact needed.
 2. Keep methods small and responsibilities clear.
 3. Use ABAP for orchestration, validations, application semantics, and framework interactions.
-4. Split production code from test support cleanly.
-5. Return paste-ready artifact blocks for ADT.
+4. Generate functional test data, insert scripts, or fixture builders when scenario validation is requested.
+5. Split production code from test support cleanly.
+6. Return paste-ready artifact blocks for ADT.
 
 ## Non-Negotiables
 
@@ -47,3 +48,4 @@ Do not infer custom classes, interfaces, packages, or field lists from public SA
 - ABAP implementation
 - ABAP Unit scaffold with fixtures
 - validation steps
+- test-data setup and insert scripts when requested

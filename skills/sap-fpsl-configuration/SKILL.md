@@ -15,6 +15,7 @@ Use this skill for configuration-heavy FPSL tasks that still need disciplined te
 4. Read `../../metadata-drop/configuration/` artifacts when sample navigation, validation sequence, or setup examples are available.
 5. Read [official-sources.md](./references/official-sources.md) when you need official FPSL/FSDM scope anchors.
 6. Read [fpsl-admin-concepts.md](./references/fpsl-admin-concepts.md) when administration, setup, or operational lifecycle context is useful.
+7. Use this skill for guided operational verification, checklists, and evidence-led process review; route set-based SQL and data-presence checks to `sap-fpsl-amdp`.
 
 ## Trust Order
 
@@ -31,7 +32,9 @@ Do not derive actual IMG node names, customizing entries, or derivative rule con
 1. Identify the exact configuration area and expected business effect.
 2. Ask for evidence if the request depends on system-specific setup.
 3. Distinguish product-standard configuration from custom extensions.
-4. Return a configuration checklist, impact notes, and validation steps.
+4. Support guided walkthroughs when the user wants step-by-step configuration help.
+5. Include process-run verification for accounting processes, register runs, period-end style checkpoints, or setup validation when relevant.
+6. Return a configuration checklist, impact notes, and validation steps.
 
 ## Non-Negotiables
 
@@ -49,3 +52,5 @@ Do not derive actual IMG node names, customizing entries, or derivative rule con
 - upload or setup checklist
 - validation transactions, logs, or review points
 - risks and open assumptions
+- guided sequence when requested
+- process-run verification checks when requested

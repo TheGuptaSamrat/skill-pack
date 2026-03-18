@@ -4,6 +4,11 @@ This catalog lists every curated or converted source in `docs-context/`.
 
 Use `ingestion-manifest.csv` for machine-friendly tracking and this file for human navigation.
 
+For update and lifecycle rules, see:
+
+- `update-policy.md`
+- `versioning-convention.md`
+
 ## Official Source Derived
 
 ### SAP

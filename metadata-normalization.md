@@ -75,3 +75,16 @@ After normalization:
 - normalized files stay Git-friendly and Copilot-friendly
 - skills can consume smaller artifacts without loading a whole workbook
 - metadata refreshes become repeatable
+
+## Document Ingestion
+
+For PDF or text-based documentation ingestion, run:
+
+```bash
+python3 scripts/ingest_pdf_context.py docs-context/inbox/example.pdf docs-context/inbox/section-config.json
+```
+
+Cross-platform note:
+
+- On Windows 11, prefer installing `pdftotext` or providing a preconverted `.txt` or `.md` file.
+- The ingestion script does not depend on macOS-only `PDFKit`.

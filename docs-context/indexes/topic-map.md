@@ -2,6 +2,9 @@
 
 This map points major SAP FPSL/FSDM topics to the best context files.
 
+Use this map to point skills to stable curated files.
+Do not point skills directly to versioned `full-source-md/` files unless deep lookup is required.
+
 ## AMDP
 
 - `docs-context/official/sap/amdp-supported-capabilities.md`
@@ -22,6 +25,16 @@ This map points major SAP FPSL/FSDM topics to the best context files.
 - `docs-context/official/sap/fpsl-client-setup.md`
 - `docs-context/training/fpsl/fpsl-admin-and-operations.md`
 
+## Guided Configuration
+
+- `docs-context/official/sap/fpsl-guided-configuration.md`
+- `docs-context/official/sap/fpsl-process-run-validation.md`
+
+## Reconciliation Queries
+
+- `docs-context/training/hana-sql/query-performance-analysis.md`
+- `docs-context/official/sap/fpsl-process-run-validation.md`
+
 ## Accounting Process Model
 
 - `docs-context/training/fpsl/accounting-process-model.md`
@@ -29,3 +42,15 @@ This map points major SAP FPSL/FSDM topics to the best context files.
 ## FSDM Integration
 
 - `docs-context/official/sap/fsdm-fpsl-integration.md`
+
+## Mapping Specifications
+
+- `docs-context/training/fpsl/mapping-specification-concepts.md`
+
+## Test Data Generation
+
+- `docs-context/training/fpsl/test-data-generation-concepts.md`
+
+## Projections
+
+- `docs-context/training/fpsl/projection-and-sizing-concepts.md`

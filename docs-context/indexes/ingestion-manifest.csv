@@ -1,5 +1,5 @@
-source_id,source_file,origin_type,classification,target_area,status,notes
-fpsl-admin-guide-2306,FPSL_ADMINGUIDE_EN.pdf,official,official-source-derived,docs-context/official/sap,curated,Curated and section-split from user-provided PDF
-hana-sql-week1,openSAP_hanasql1_Week_1_All_Slides.pdf,training,training-derived-concepts,docs-context/training/hana-sql,curated,Concept extraction from user-provided deck
-hana-sql-week3,openSAP_hanasql1_Week_3_All_Slides.pdf,training,training-derived-concepts,docs-context/training/hana-sql,curated,Concept extraction from user-provided deck
-fpsl-training,FPSL TRAINING DOCUMENT.pdf,training,training-derived-concepts,docs-context/training/fpsl,curated,Concept extraction from user-provided training material
+source_id,source_file,origin_type,classification,target_area,source_version,status,replaces_source_id,review_state,notes
+fpsl-admin-guide-2306,FPSL_ADMINGUIDE_EN.pdf,official,official-source-derived,docs-context/official/sap,2306-sp04,active,,reviewed,Curated and section-split from user-provided PDF
+hana-sql-week1,openSAP_hanasql1_Week_1_All_Slides.pdf,training,training-derived-concepts,docs-context/training/hana-sql,week-1,active,,reviewed,Concept extraction from user-provided deck
+hana-sql-week3,openSAP_hanasql1_Week_3_All_Slides.pdf,training,training-derived-concepts,docs-context/training/hana-sql,week-3,active,,reviewed,Concept extraction from user-provided deck
+fpsl-training,FPSL TRAINING DOCUMENT.pdf,training,training-derived-concepts,docs-context/training/fpsl,rev-01,active,,reviewed,Concept extraction from user-provided training material

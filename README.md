@@ -10,10 +10,12 @@ This repo is designed for:
 
 For the developer-value summary, read:
 
-- `HOW-IT-ACCELERATES.md`
-- `VS_CODE_GHCP_STEP_BY_STEP.md`
-- `METADATA_NORMALIZATION.md`
+- `how-it-accelerates.md`
+- `vs-code-ghcp-step-by-step.md`
+- `metadata-normalization.md`
 - `docs-context/README.md`
+- `docs-context/indexes/update-policy.md`
+- `docs-context/indexes/versioning-convention.md`
 
 ## Repository Shape
 
@@ -23,12 +25,20 @@ Each skill lives under `skills/<skill-name>/` and follows the standard skill lay
 - `agents/openai.yaml`
 - `references/`
 
+For standard VS Code + GitHub Copilot use, the repo also includes:
+
+- `.github/copilot-instructions.md`
+- `.github/instructions/*.instructions.md`
+
+These instruction files provide a GHCP-friendly routing layer while keeping the `skills/` directory as the canonical design structure.
+
 Included skills:
 
 - `sap-fpsl-amdp`
 - `sap-fpsl-abap`
 - `sap-fpsl-configuration`
 - `sap-fpsl-tech-docs`
+- `sap-fpsl-projections`
 
 ## Metadata Drop
 
@@ -78,6 +88,12 @@ Use `docs-context/` for markdown-derived document corpora.
 - `inbox/`
   - new PDF intake
 
+Tech-head governance:
+
+- newer documents should enter as candidates, not automatically replace curated context
+- versioned source history should remain visible
+- curated topic files should stay stable even as source versions change
+
 ## How To Use
 
 For Codex:
@@ -88,6 +104,7 @@ For Codex:
 For VS Code with GitHub Copilot:
 
 - keep this repo open beside the Eclipse ADT workspace
+- let GitHub Copilot pick up `.github/copilot-instructions.md` and the relevant `.github/instructions/*.instructions.md` file
 - use the relevant skill folder as canonical context
 - load `metadata-drop/` evidence only for the current task
 - keep prompts short and task-specific

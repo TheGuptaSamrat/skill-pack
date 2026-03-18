@@ -16,6 +16,7 @@ Use this skill when the user needs high-quality technical documentation or metad
 5. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
 6. Read `../../metadata-drop/` only for the specific input type provided by the user.
 7. Read [fpsl-architecture-concepts.md](./references/fpsl-architecture-concepts.md) when architectural framing or process-model notes are helpful.
+8. Read [mapping-spec-format.md](./references/mapping-spec-format.md), [source-system-onboarding.md](./references/source-system-onboarding.md), and [mapping-completeness-checklist.md](./references/mapping-completeness-checklist.md) when the task is mapping-driven.
 
 ## Trust Order
 
@@ -33,9 +34,10 @@ Do not derive landscape-specific names, joins, or mappings from public SAP docum
 2. Prefer active normalized metadata as the default working source.
 3. Use trusted raw Excel only when normalization is missing or when comparing changes.
 4. If metadata changes are marked in `change-review.md`, tell the user whether reverification is needed.
-5. Separate confirmed metadata from inferred relationships.
-6. Build documentation that helps later generation, review, and validation.
-7. Prefer concise, structured, reusable technical artifacts.
+5. Build mapping specifications when the task is source-to-target design.
+6. Separate confirmed metadata from inferred relationships.
+7. Build documentation that helps later generation, review, and validation.
+8. Prefer concise, structured, reusable technical artifacts.
 
 ## Accepted Inputs
 
@@ -64,3 +66,4 @@ Do not derive landscape-specific names, joins, or mappings from public SAP docum
 - source-to-target mapping notes
 - code-generation guidance
 - validation references
+- confirmed, inferred, and unresolved mapping sections when mapping specs are requested
