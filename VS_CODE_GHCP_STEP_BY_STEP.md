@@ -14,6 +14,7 @@ Recommended setup:
 - open the ABAP project in Eclipse ADT
 - open this repository in VS Code
 - keep the target class, CDS artifact, or design note visible in Eclipse
+- if metadata was uploaded, keep the workbook in `metadata-drop/raw-excel/`
 
 ## 2. Pick The Right Skill
 
@@ -47,6 +48,12 @@ Good example:
 - `skills/sap-fpsl-amdp/references/sql-and-performance-rules.md`
 - `metadata-drop/ddic/fields.sample.csv`
 - `metadata-drop/samples/fsdm_to_fpsl_mapping.md`
+
+If a new workbook was uploaded, first run normalization from VS Code:
+
+1. `Terminal: Run Task`
+2. choose `Metadata: Normalize latest workbook`
+3. then use files under `metadata-drop/normalized/`
 
 ## 4. Write A Short Prompt
 

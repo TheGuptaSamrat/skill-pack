@@ -22,11 +22,28 @@ Current script support:
 python3 scripts/normalize_excel.py metadata-drop/raw-excel/<workbook>.xlsx
 ```
 
+Easier wrapper:
+
+```bash
+./scripts/run-normalization.sh <workbook>.xlsx
+```
+
+If you omit the workbook name, the wrapper picks the latest `.xlsx` file in `metadata-drop/raw-excel/`.
+
 Optional explicit artifact id:
 
 ```bash
 python3 scripts/normalize_excel.py metadata-drop/raw-excel/<workbook>.xlsx --artifact-id fpsl-fsdm-2023-drop-01
 ```
+
+## VS Code
+
+With this repo open in VS Code, run:
+
+1. `Terminal: Run Task`
+2. choose `Metadata: Normalize latest workbook`
+
+That runs the wrapper script and normalizes the newest workbook from `metadata-drop/raw-excel/`.
 
 ## Output
 

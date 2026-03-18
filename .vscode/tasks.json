@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Metadata: Normalize latest workbook",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/run-normalization.sh",
+      "problemMatcher": []
+    }
+  ]
+}
