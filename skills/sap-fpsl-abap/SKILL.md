@@ -10,9 +10,10 @@ Use this skill for ABAP-heavy work in FPSL and FSDM projects.
 ## Load Order
 
 1. Read this file.
-2. Read [abap-delivery-rules.md](./references/abap-delivery-rules.md) for design and code patterns.
-3. Read [test-and-exception-patterns.md](./references/test-and-exception-patterns.md) for ABAP Unit and exception handling.
-4. Read [official-sources.md](./references/official-sources.md) when supported ABAP/ADT behavior or official FPSL context matters.
+2. Read [abap-core-rules.md](./references/abap-core-rules.md) for design and senior-developer guidance.
+3. Read [abap-test-patterns.md](./references/abap-test-patterns.md) for ABAP Unit, fixtures, and scenario validation support.
+4. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse ADT paste or review.
+5. Read [official-sources.md](./references/official-sources.md) when supported ABAP/ADT behavior or official FPSL context matters.
 
 ## Trust Order
 
@@ -30,7 +31,7 @@ Do not infer custom classes, interfaces, packages, or field lists from public SA
 3. Use ABAP for orchestration, validations, application semantics, and framework interactions.
 4. Generate functional test data, insert scripts, or fixture builders when scenario validation is requested.
 5. Split production code from test support cleanly.
-6. Return paste-ready artifact blocks for ADT.
+6. Return one ADT-ready artifact block at a time with `Artifact`, `Paste target`, `Action`, code, and `Checks`.
 
 ## Non-Negotiables
 
@@ -45,6 +46,7 @@ Do not infer custom classes, interfaces, packages, or field lists from public SA
 
 - brief assumptions
 - class and method responsibility split
+- one artifact block at a time for ADT paste
 - ABAP implementation
 - ABAP Unit scaffold with fixtures
 - validation steps

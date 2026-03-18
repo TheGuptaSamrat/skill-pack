@@ -10,7 +10,7 @@ Scenario:
 
 Use this metadata:
 
-- `metadata-drop/ddic/fields.sample.csv`
+- `metadata-drop/ddic/current/fields-template.csv`
 - `metadata-drop/samples/cashflow_rows.sample.csv`
 - `metadata-drop/fsdm/model-notes.md`
 

@@ -45,6 +45,12 @@ For update and lifecycle rules, see:
 - `docs-context/training/fpsl/accounting-process-model.md`
   - source basis: `FPSL TRAINING DOCUMENT.pdf`
   - use for: accounting process explanation
-- `docs-context/training/fpsl/fpsl-admin-and-operations.md`
-  - source basis: `FPSL_ADMINGUIDE_EN.pdf`
-  - use for: administration and operational lifecycle framing
+- `docs-context/official/sap/fpsl-client-setup.md`
+  - source basis: curated official and admin-guide-derived summary
+  - use for: client setup framing
+- `docs-context/official/sap/fpsl-guided-configuration.md`
+  - source basis: curated official and admin-guide-derived summary
+  - use for: guided configuration framing
+- `docs-context/training/fpsl/worked-examples.md`
+  - source basis: older repo worked examples
+  - use for: compact scenario framing for reconciliation and FSDM-to-FPSL design

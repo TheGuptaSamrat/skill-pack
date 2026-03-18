@@ -11,12 +11,11 @@ Use this skill when the user needs high-quality technical documentation or metad
 
 1. Read this file.
 2. Read [metadata-sources.md](./references/metadata-sources.md).
-3. Read [documentation-output-rules.md](./references/documentation-output-rules.md).
-4. Read [official-sources.md](./references/official-sources.md) when you need official FPSL, FSDM, or data-model anchors.
-5. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
-6. Read `../../metadata-drop/` only for the specific input type provided by the user.
-7. Read [fpsl-architecture-concepts.md](./references/fpsl-architecture-concepts.md) when architectural framing or process-model notes are helpful.
-8. Read [mapping-spec-format.md](./references/mapping-spec-format.md), [source-system-onboarding.md](./references/source-system-onboarding.md), and [mapping-completeness-checklist.md](./references/mapping-completeness-checklist.md) when the task is mapping-driven.
+3. Read [documentation-core-rules.md](./references/documentation-core-rules.md).
+4. Read [mapping-spec-rules.md](./references/mapping-spec-rules.md) when the task is mapping-driven.
+5. Read [official-sources.md](./references/official-sources.md) when you need official FPSL, FSDM, or data-model anchors.
+6. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
+7. Read `../../metadata-drop/` only for the specific input type provided by the user.
 
 ## Trust Order
 

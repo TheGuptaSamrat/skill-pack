@@ -10,11 +10,13 @@ Use this skill for HANA pushdown work in FPSL and FSDM landscapes.
 ## Load Order
 
 1. Read this file.
-2. Read [amdp-delivery-rules.md](./references/amdp-delivery-rules.md) for implementation guidance.
-3. Read [sql-and-performance-rules.md](./references/sql-and-performance-rules.md) when writing or reviewing SQLScript.
-4. Read [official-sources.md](./references/official-sources.md) when you need SAP-supported AMDP, ADT, or FPSL/FSDM anchors.
-5. Read [hana-query-analysis-concepts.md](./references/hana-query-analysis-concepts.md) when query-processing or performance-analysis concepts need strengthening.
-6. Use this skill for set-based SQL, reconciliation, and data-presence verification; route checklist-led operational walkthroughs to `sap-fpsl-configuration`.
+2. Read [amdp-core-rules.md](./references/amdp-core-rules.md) for implementation and senior-developer guidance.
+3. Read [amdp-query-patterns.md](./references/amdp-query-patterns.md) when rerun safety, reconciliation, filtering, rounding, batching, or JOIN versus `FOR ALL ENTRIES` decisions matter.
+4. Read [sql-and-performance-rules.md](./references/sql-and-performance-rules.md) when writing or reviewing SQLScript.
+5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse ADT or SQL Console paste.
+6. Read [official-sources.md](./references/official-sources.md) when you need SAP-supported AMDP, ADT, or FPSL/FSDM anchors.
+7. Read [hana-query-analysis-concepts.md](./references/hana-query-analysis-concepts.md) when query-processing or performance-analysis concepts need strengthening.
+8. Use this skill for set-based SQL, reconciliation, and data-presence verification; route checklist-led operational walkthroughs to `sap-fpsl-configuration`.
 
 ## Trust Order
 
@@ -34,7 +36,8 @@ Do not derive landscape-specific class names, CDS entities, DDIC layouts, or pac
 4. Generate reconciliation or data-flow-check queries when the task is investigative rather than implementation-heavy.
 5. Use DDIC-aware query shapes when metadata is available.
 6. Keep SQL staged and readable.
-7. Return the smallest paste-ready artifact set:
+7. Return one ADT-ready artifact block at a time with `Artifact`, `Paste target`, `Action`, code, and `Checks`.
+8. Return the smallest paste-ready artifact set:
    - ABAP wrapper
    - AMDP method
    - test scaffold
@@ -53,6 +56,7 @@ Do not derive landscape-specific class names, CDS entities, DDIC layouts, or pac
 
 - short context and assumptions
 - ABAP versus AMDP responsibility split
+- one artifact block at a time for ADT or SQL Console paste
 - production-style AMDP and wrapper code
 - ABAP Unit or integration test scaffold
 - validation and reconciliation checks

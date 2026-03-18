@@ -46,7 +46,7 @@ Good example:
 
 - `skills/sap-fpsl-amdp/SKILL.md`
 - `skills/sap-fpsl-amdp/references/sql-and-performance-rules.md`
-- `metadata-drop/ddic/fields.sample.csv`
+- `metadata-drop/ddic/current/fields-template.csv`
 - `metadata-drop/samples/fsdm_to_fpsl_mapping.md`
 
 If a new workbook was uploaded, first run normalization from VS Code:

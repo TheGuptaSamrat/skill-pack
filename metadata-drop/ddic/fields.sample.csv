@@ -1,9 +1,0 @@
-table_name,field_name,key_flag,data_type,length,description
-/BA1/HFSPD,MANDT,X,CLNT,3,Client
-/BA1/HFSPD,RLDNR,X,CHAR,2,Ledger
-/BA1/HFSPD,RBUKRS,,CHAR,4,Company code
-/BA1/HFSPD,BUDAT,,DATS,8,Posting date
-/BA1/F1_CON_FLAT,MANDT,X,CLNT,3,Client
-/BA1/F1_CON_FLAT,CONTRACT_ID,X,CHAR,32,Contract identifier
-/BA1/F1_CON_FLAT,CASHFLOW_DATE,,DATS,8,Cashflow date
-/BA1/F1_CON_FLAT,AMOUNT,,CURR,15,Amount

@@ -35,4 +35,4 @@ Use these to confirm:
 
 Template headers are included in `current/`.
 
-Use the sample CSVs in this folder only as a seed until real DDIC exports are available.
+Use the template files in `current/` as the seed baseline until real DDIC exports are available.

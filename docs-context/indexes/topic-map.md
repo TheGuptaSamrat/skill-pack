@@ -23,7 +23,7 @@ Do not point skills to raw source conversions in the public repo.
 ## Client Setup
 
 - `docs-context/official/sap/fpsl-client-setup.md`
-- `docs-context/training/fpsl/fpsl-admin-and-operations.md`
+- `docs-context/official/sap/fpsl-guided-configuration.md`
 
 ## Guided Configuration
 
@@ -34,6 +34,7 @@ Do not point skills to raw source conversions in the public repo.
 
 - `docs-context/training/hana-sql/query-performance-analysis.md`
 - `docs-context/official/sap/fpsl-process-run-validation.md`
+- `docs-context/training/fpsl/worked-examples.md`
 
 ## Accounting Process Model
 

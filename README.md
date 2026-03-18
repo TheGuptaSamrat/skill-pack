@@ -104,8 +104,9 @@ For skill-pack consumers:
 For VS Code with GitHub Copilot:
 
 - keep this repo open beside the Eclipse ADT workspace
-- let GitHub Copilot pick up `.github/copilot-instructions.md` and the relevant `.github/instructions/*.instructions.md` file
-- use `.github/instructions/` as the GHCP-facing routing layer and `skills/` as the canonical detailed design layer
+- let GitHub Copilot pick up `.github/copilot-instructions.md` and the relevant `.github/instructions/*.instructions.md` file first
+- treat `.github/instructions/` as the primary GHCP activation and routing layer for day-to-day use
+- use `skills/` as the deeper canonical design layer when the task needs stricter delivery rules or more context
 - load `metadata-drop/` evidence only for the current task
 - keep prompts short and task-specific
 

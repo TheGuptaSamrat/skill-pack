@@ -12,10 +12,10 @@ Use this instruction set when the task is primarily about:
 Load in this order:
 
 1. `skills/sap-fpsl-amdp/SKILL.md`
-2. `skills/sap-fpsl-amdp/references/amdp-delivery-rules.md`
-3. `skills/sap-fpsl-amdp/references/sql-and-performance-rules.md`
-4. `skills/sap-fpsl-amdp/references/reconciliation-query-patterns.md` when the task is investigative
-5. `skills/sap-fpsl-amdp/references/ddic-aware-query-construction.md` when metadata exists
+2. `skills/sap-fpsl-amdp/references/amdp-core-rules.md`
+3. `skills/sap-fpsl-amdp/references/amdp-query-patterns.md`
+4. `skills/sap-fpsl-amdp/references/sql-and-performance-rules.md`
+5. `skills/sap-fpsl-amdp/references/adt-handoff-rules.md`
 
 Routing rule:
 
