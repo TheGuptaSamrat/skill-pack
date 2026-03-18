@@ -5,7 +5,9 @@ repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 
 required_files=(
   "$repo_root/README.md"
+  "$repo_root/METADATA_NORMALIZATION.md"
   "$repo_root/.github/copilot-instructions.md"
+  "$repo_root/scripts/normalize_excel.py"
   "$repo_root/skills/sap-fpsl-amdp/SKILL.md"
   "$repo_root/skills/sap-fpsl-amdp/agents/openai.yaml"
   "$repo_root/skills/sap-fpsl-abap/SKILL.md"

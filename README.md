@@ -12,6 +12,7 @@ For the developer-value summary, read:
 
 - `HOW-IT-ACCELERATES.md`
 - `VS_CODE_GHCP_STEP_BY_STEP.md`
+- `METADATA_NORMALIZATION.md`
 
 ## Repository Shape
 

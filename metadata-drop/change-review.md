@@ -15,7 +15,7 @@ Use this file to summarize whether a new source metadata drop changes active beh
 - current status:
   - `minor-review`
 - reason:
-- repository currently contains illustrative metadata and awaits real normalized FPSL/FSDM drops
+  - repository currently contains illustrative metadata and awaits real normalized FPSL/FSDM drops
 
 ## Review Rules
 
