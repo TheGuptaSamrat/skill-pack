@@ -1,12 +1,14 @@
 # SAP FPSL FSDM Skill Pack
 
-Trimmed multi-skill repository for SAP FPSL and FSDM development.
+Structured skill-pack and context repository for AI-assisted SAP FPSL and FSDM development.
 
 This repo is designed for:
 
 - Codex-style skill import
 - GitLab mirroring
 - VS Code with GitHub Copilot as a reference and context repo
+
+It is designed for teams developing in Eclipse ADT while using VS Code with GitHub Copilot as the AI interaction and context workspace.
 
 For the developer-value summary, read:
 
@@ -105,7 +107,7 @@ For VS Code with GitHub Copilot:
 
 - keep this repo open beside the Eclipse ADT workspace
 - let GitHub Copilot pick up `.github/copilot-instructions.md` and the relevant `.github/instructions/*.instructions.md` file
-- use the relevant skill folder as canonical context
+- use `.github/instructions/` as the GHCP-facing routing layer and `skills/` as the canonical detailed design layer
 - load `metadata-drop/` evidence only for the current task
 - keep prompts short and task-specific
 
