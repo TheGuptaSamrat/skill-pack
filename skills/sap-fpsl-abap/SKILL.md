@@ -12,6 +12,16 @@ Use this skill for ABAP-heavy work in FPSL and FSDM projects.
 1. Read this file.
 2. Read [abap-delivery-rules.md](./references/abap-delivery-rules.md) for design and code patterns.
 3. Read [test-and-exception-patterns.md](./references/test-and-exception-patterns.md) for ABAP Unit and exception handling.
+4. Read [official-sources.md](./references/official-sources.md) when supported ABAP/ADT behavior or official FPSL context matters.
+
+## Trust Order
+
+1. Official SAP documentation for supported ABAP and FPSL capabilities
+2. Active normalized repository metadata for actual names, fields, and structures
+3. Trusted raw metadata when normalization is missing
+4. Synthetic examples only for shape
+
+Do not infer custom classes, interfaces, packages, or field lists from public SAP help pages.
 
 ## Workflow
 
@@ -28,6 +38,7 @@ Use this skill for ABAP-heavy work in FPSL and FSDM projects.
 - Make type conversion and rounding behavior explicit.
 - Prefer constructor injection or seam-friendly collaborators for testability.
 - Use exception chaining with `previous =` when propagating technical failure context.
+- Do not assume public product documentation reflects landscape-specific implementation classes.
 
 ## Expected Output
 

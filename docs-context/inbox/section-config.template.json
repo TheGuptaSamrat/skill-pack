@@ -1,0 +1,15 @@
+{
+  "target_root": "docs-context/full-source-md/sap/example-source",
+  "sections": [
+    {
+      "filename": "01-overview.md",
+      "title": "Overview",
+      "classification": "full-source-md",
+      "start_page": 1,
+      "end_page": 3,
+      "trust_usage": "deeper lookup",
+      "do_not_use_for": "landscape-specific objects",
+      "topics": ["overview", "scope"]
+    }
+  ]
+}

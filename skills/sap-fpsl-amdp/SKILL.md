@@ -12,6 +12,18 @@ Use this skill for HANA pushdown work in FPSL and FSDM landscapes.
 1. Read this file.
 2. Read [amdp-delivery-rules.md](./references/amdp-delivery-rules.md) for implementation guidance.
 3. Read [sql-and-performance-rules.md](./references/sql-and-performance-rules.md) when writing or reviewing SQLScript.
+4. Read [official-sources.md](./references/official-sources.md) when you need SAP-supported AMDP, ADT, or FPSL/FSDM anchors.
+5. Read [hana-query-analysis-concepts.md](./references/hana-query-analysis-concepts.md) when query-processing or performance-analysis concepts need strengthening.
+
+## Trust Order
+
+1. Official SAP documentation for product scope and supported capabilities
+2. Active normalized metadata in the repository for actual object names and structures
+3. Trusted raw metadata only when normalization is missing or under comparison
+4. Training-derived conceptual guidance for performance reasoning only
+5. Synthetic examples only for output shape
+
+Do not derive landscape-specific class names, CDS entities, DDIC layouts, or package names from public SAP documentation alone.
 
 ## Workflow
 
@@ -32,6 +44,7 @@ Use this skill for HANA pushdown work in FPSL and FSDM landscapes.
 - Make client handling, null handling, deduplication keys, and currency logic explicit.
 - Prefer deterministic filters and multi-dimension predicates over broad scans.
 - Explain why AMDP is justified instead of plain ABAP SQL.
+- Do not use public SAP examples as proof that a custom landscape object exists.
 
 ## Expected Output
 

@@ -13,6 +13,7 @@ For the developer-value summary, read:
 - `HOW-IT-ACCELERATES.md`
 - `VS_CODE_GHCP_STEP_BY_STEP.md`
 - `METADATA_NORMALIZATION.md`
+- `docs-context/README.md`
 
 ## Repository Shape
 
@@ -62,6 +63,21 @@ Operating rule:
 - `test-cases/`
   - developer trial cases and feedback pack
 
+## Docs Context
+
+Use `docs-context/` for markdown-derived document corpora.
+
+- `official/`
+  - crisp, trusted markdown for direct skill loading
+- `training/`
+  - compact conceptual notes from training material
+- `full-source-md/`
+  - section-split markdown for deeper lookup only
+- `indexes/`
+  - source and topic navigation
+- `inbox/`
+  - new PDF intake
+
 ## How To Use
 
 For Codex:
@@ -88,6 +104,7 @@ Use the sap-fpsl-amdp skill in this repo. Design the smallest AMDP plus ABAP wra
 - prompts should carry only the task delta
 - references should ground output in FPSL, FSDM, CDS, and metadata evidence
 - placeholder names must remain placeholders unless repo or DDIC evidence confirms exact SAP objects
+- user-provided training material should be integrated as derived conceptual guidance, not as the top trust source for object names or active metadata
 
 ## Validation
 

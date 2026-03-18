@@ -7,6 +7,8 @@ When responding:
 - load only one skill folder unless the task clearly spans multiple skills
 - treat `skills/<skill-name>/SKILL.md` as the primary instruction file
 - load references from that same skill only when needed
+- prefer official SAP references for supported product behavior and repository metadata for actual landscape structure
+- prefer `docs-context/official/` and `docs-context/training/` over `docs-context/full-source-md/` unless a deeper lookup is required
 - do not invent SAP object names, package names, CDS names, DDIC fields, or `Z*` artifacts
 - use placeholders when exact objects are not confirmed by repository metadata or user input
 - keep outputs compact, modular, and paste-friendly for Eclipse ADT

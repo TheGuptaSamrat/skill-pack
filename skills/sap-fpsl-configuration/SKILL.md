@@ -13,6 +13,18 @@ Use this skill for configuration-heavy FPSL tasks that still need disciplined te
 2. Read [configuration-delivery-rules.md](./references/configuration-delivery-rules.md).
 3. Read [validation-and-tcodes.md](./references/validation-and-tcodes.md) when verification is needed.
 4. Read `../../metadata-drop/configuration/` artifacts when sample navigation, validation sequence, or setup examples are available.
+5. Read [official-sources.md](./references/official-sources.md) when you need official FPSL/FSDM scope anchors.
+6. Read [fpsl-admin-concepts.md](./references/fpsl-admin-concepts.md) when administration, setup, or operational lifecycle context is useful.
+
+## Trust Order
+
+1. Official SAP documentation for product scope and standard integration concepts
+2. Confirmed repository metadata, screenshots, extracts, or setup evidence
+3. Trusted raw metadata where relevant
+4. Training-derived conceptual guidance for operational context
+5. Synthetic samples only for checklist shape
+
+Do not derive actual IMG node names, customizing entries, or derivative rule content from public documentation alone.
 
 ## Workflow
 
@@ -28,6 +40,7 @@ Use this skill for configuration-heavy FPSL tasks that still need disciplined te
 - Make prerequisites and downstream validation explicit.
 - Separate confirmed settings from assumptions.
 - Prefer repository navigation examples over generic SAP boilerplate when evidence is available.
+- Clearly state when a response is based on generic product knowledge rather than confirmed system setup.
 
 ## Expected Output
 

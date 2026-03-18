@@ -12,8 +12,20 @@ Use this skill when the user needs high-quality technical documentation or metad
 1. Read this file.
 2. Read [metadata-sources.md](./references/metadata-sources.md).
 3. Read [documentation-output-rules.md](./references/documentation-output-rules.md).
-4. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
-5. Read `../../metadata-drop/` only for the specific input type provided by the user.
+4. Read [official-sources.md](./references/official-sources.md) when you need official FPSL, FSDM, or data-model anchors.
+5. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
+6. Read `../../metadata-drop/` only for the specific input type provided by the user.
+7. Read [fpsl-architecture-concepts.md](./references/fpsl-architecture-concepts.md) when architectural framing or process-model notes are helpful.
+
+## Trust Order
+
+1. Official SAP documentation for product scope, standard data-model framing, and supported terminology
+2. Active normalized repository metadata for actual structures and mappings
+3. Trusted raw metadata when normalization is missing or under comparison
+4. Training-derived conceptual guidance for architecture and process framing
+5. Synthetic examples only for shape
+
+Do not derive landscape-specific names, joins, or mappings from public SAP documentation alone.
 
 ## Workflow
 
@@ -43,6 +55,7 @@ Use this skill when the user needs high-quality technical documentation or metad
 - Produce output that can be reused for later code generation.
 - Prefer metadata-drop evidence over free-form assumptions whenever both exist.
 - If normalized metadata is marked `reverify-required`, tell the user impacted code or docs must be revalidated.
+- When using public SAP help as a source, label clearly what is official framing versus what comes from landscape metadata.
 
 ## Expected Output
 
