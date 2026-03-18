@@ -28,6 +28,10 @@ Choose only one skill first.
   - configuration guidance, derivative rules, setup validation, upload checks
 - `sap-fpsl-tech-docs`
   - technical specs, mapping docs, metadata interpretation, handoff docs
+- `sap-fpsl-projections`
+  - sizing estimates, volume trends, DB growth assumptions, sensitivity views
+
+Use `sap-fpsl-projections` for estimation and sizing outputs. Use `sap-fpsl-tech-docs` for documentation, mapping, and metadata interpretation.
 
 Do not load all skills at once unless the task genuinely spans them.
 
@@ -58,6 +62,8 @@ If a new workbook was uploaded, first run normalization from VS Code:
 ## 4. Write A Short Prompt
 
 The prompt should contain only the task delta.
+
+GHCP should often route correctly from the task wording, but the most reliable pilot pattern is still to name the intended skill explicitly.
 
 Example for ABAP:
 
@@ -150,6 +156,8 @@ If a new raw Excel was uploaded recently, check:
 - `metadata-drop/change-review.md`
 
 If status says `reverify-required`, do not trust older generated mappings without rechecking them.
+
+In pilot use, watch whether developers normalize new metadata before prompting. The repo is designed to work best when normalized files, not raw uploads, are used as the default context.
 
 ## 9. Keep The Team Consistent
 

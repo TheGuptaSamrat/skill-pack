@@ -28,18 +28,23 @@ In day-to-day work, the developer uses:
 
 ### 1. Choose the right skill
 
-The developer chooses one of four skills:
+The developer chooses one of five skills:
 
 - `sap-fpsl-amdp`
 - `sap-fpsl-abap`
 - `sap-fpsl-configuration`
 - `sap-fpsl-tech-docs`
+- `sap-fpsl-projections`
 
 Each skill is focused on one type of work.
+
+Use `sap-fpsl-projections` for sizing and estimation. Use `sap-fpsl-tech-docs` for documentation, mapping, and metadata-driven technical interpretation.
 
 ### 2. Give a short prompt
 
 The developer does not need to write a long prompt.
+
+GHCP may often infer the right route from the task wording, but the most reliable pilot pattern is to name the skill explicitly in the prompt.
 
 Example:
 
@@ -81,6 +86,8 @@ If trusted Excel metadata is available:
 3. the normalized files become the default context for later AI use
 
 This makes future prompts shorter and more accurate.
+
+One thing to watch in pilot use is whether developers normalize new metadata before prompting, because that is what keeps the context lightweight and reusable.
 
 ## Why This Is Useful
 

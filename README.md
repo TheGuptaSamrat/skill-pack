@@ -108,6 +108,7 @@ For VS Code with GitHub Copilot:
 - treat `.github/instructions/` as the primary GHCP activation and routing layer for day-to-day use
 - use `skills/` as the deeper canonical design layer when the task needs stricter delivery rules or more context
 - load `metadata-drop/` evidence only for the current task
+- for the most reliable pilot behavior, name the skill explicitly in the prompt even when the task intent is clear
 - keep prompts short and task-specific
 
 Example:

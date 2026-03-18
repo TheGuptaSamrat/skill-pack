@@ -4,16 +4,19 @@ This repository is a compact SAP FPSL/FSDM skill pack.
 
 When responding:
 
-- load only one skill folder unless the task clearly spans multiple skills
-- prefer `.github/instructions/*.instructions.md` in standard VS Code + GitHub Copilot workflows
-- use `skills/<skill-name>/SKILL.md` as the canonical detailed guidance behind each instruction set
-- treat `skills/<skill-name>/SKILL.md` as the primary instruction file
+- load only one skill area unless the task clearly spans multiple skills
+- use `.github/instructions/*.instructions.md` as the primary GHCP routing layer in standard VS Code workflows
+- use `skills/<skill-name>/SKILL.md` as the deeper canonical guidance behind each instruction set
 - load references from that same skill only when needed
 - prefer official SAP references for supported product behavior and repository metadata for actual landscape structure
-- prefer `docs-context/official/` and `docs-context/training/` over `docs-context/full-source-md/` unless a deeper lookup is required
+- prefer `docs-context/official/` and `docs-context/training/` for public-repo document context
 - do not invent SAP object names, package names, CDS names, DDIC fields, or `Z*` artifacts
 - use placeholders when exact objects are not confirmed by repository metadata or user input
 - keep outputs compact, modular, and paste-friendly for Eclipse ADT
+
+Routing note:
+
+- GHCP should usually route correctly from task intent, but pilot users should name the skill explicitly in the prompt when they want the most reliable behavior.
 
 Recommended mapping:
 
