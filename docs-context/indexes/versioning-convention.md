@@ -10,7 +10,7 @@ Recommended pattern:
 
 Examples:
 
-- `fpsl-admin-guide-2306-sp04`
+- `official-source-01-2306-sp04`
 - `fpsl-admin-guide-2025-q4`
 - `fsdm-fpsl-integration-2026-01`
 - `hana-sql-training-week3-2020`

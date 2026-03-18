@@ -1,5 +1,5 @@
 source_id,source_label,origin_type,classification,target_area,source_version,status,replaces_source_id,review_state,notes
-fpsl-admin-guide-2306,operational-reference,official,official-source-derived,docs-context/official/sap,2306-sp04,active,,reviewed,Curated from reviewed operational reference material
-hana-sql-week1,query-concepts-week-1,training,training-derived-concepts,docs-context/training/hana-sql,week-1,active,,reviewed,Concept extraction from reviewed training source
-hana-sql-week3,query-concepts-week-3,training,training-derived-concepts,docs-context/training/hana-sql,week-3,active,,reviewed,Concept extraction from reviewed training source
-fpsl-training,fpsl-concepts,training,training-derived-concepts,docs-context/training/fpsl,rev-01,active,,reviewed,Concept extraction from reviewed training source
+official-source-01,operational-reference,official,official-source-derived,docs-context/official/sap,2306-sp04,active,,reviewed,Curated from reviewed operational reference material
+training-source-01,query-concepts-week-1,training,training-derived-concepts,docs-context/training/hana-sql,week-1,active,,reviewed,Concept extraction from reviewed training source
+training-source-02,query-concepts-week-3,training,training-derived-concepts,docs-context/training/hana-sql,week-3,active,,reviewed,Concept extraction from reviewed training source
+training-source-03,fpsl-concepts,training,training-derived-concepts,docs-context/training/fpsl,rev-01,active,,reviewed,Concept extraction from reviewed training source
