@@ -4,7 +4,7 @@ Structured skill-pack and context repository for AI-assisted SAP FPSL and FSDM d
 
 This repo is designed for:
 
-- Codex-style skill import
+- structured skill-pack import
 - GitLab mirroring
 - VS Code with GitHub Copilot as a reference and context repo
 
@@ -24,7 +24,7 @@ For the developer-value summary, read:
 Each skill lives under `skills/<skill-name>/` and follows the standard skill layout:
 
 - `SKILL.md`
-- `agents/openai.yaml`
+- `agents/`
 - `references/`
 
 For standard VS Code + GitHub Copilot use, the repo also includes:
@@ -98,7 +98,7 @@ Tech-head governance:
 
 ## How To Use
 
-For Codex:
+For skill-pack consumers:
 
 - import the required skill folder or the full repo
 - activate only the skill relevant to the task
