@@ -1,0 +1,4 @@
+version: 1
+display_name: SAP FPSL Configuration
+short_description: Configuration and validation skill for FPSL setup and change guidance
+default_prompt: Analyze or document SAP FPSL configuration changes with evidence-first assumptions, validation steps, and risk notes.
