@@ -11,7 +11,7 @@ Use this instruction set when the task is primarily about:
 Load in this order:
 
 1. `skills/test-data/SKILL.md`
-2. `skills/test-data/references/test-data-rules.md`
+2. `skills/test-data/references/test-data-core-rules.md`
 3. `docs-context/shared/adt-handoff-rules.md`
 4. `docs-context/shared/official-sources-router.md`
 
