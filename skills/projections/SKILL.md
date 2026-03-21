@@ -7,6 +7,8 @@ description: Estimate FPSL and FSDM transaction volume, storage growth, and DB-s
 
 Use this skill for planning and estimation work around FPSL and FSDM data growth.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

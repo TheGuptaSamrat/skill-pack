@@ -7,6 +7,8 @@ description: Guide FPSL calculation and valuation process design using evidence-
 
 Use this skill for FPSL calculation and valuation process design and review.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

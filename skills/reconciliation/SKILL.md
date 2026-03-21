@@ -7,6 +7,8 @@ description: Business data verification - DDIC-aware reconciliation SQL, data-fl
 
 Use this skill for investigative SQL and process-level validation. Do not use for structural schema compliance—use `quality` for DDIC rule definitions. Use `reconciliation` only for cross-process totals, control balancing, and operational run verification.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

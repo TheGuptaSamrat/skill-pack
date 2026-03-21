@@ -7,6 +7,8 @@ description: Generate synthetic FPSL and FSDM test data, insert scripts, and fix
 
 Use this skill for synthetic scenario data and functional test preparation.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

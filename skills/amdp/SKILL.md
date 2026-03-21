@@ -7,6 +7,8 @@ description: Design and review AMDP, SQLScript, CDS table-function, and pushdown
 
 Use this skill for HANA pushdown work in FPSL and FSDM landscapes.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

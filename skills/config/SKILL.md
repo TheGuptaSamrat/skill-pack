@@ -7,6 +7,8 @@ description: Guide FPSL configuration work such as derivative rules, setup, uplo
 
 Use this skill for configuration-heavy FPSL tasks that still need disciplined technical guidance.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

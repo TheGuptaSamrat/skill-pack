@@ -7,6 +7,8 @@ description: Guide HANA partitioning strategy for FPSL-relevant tables using SAP
 
 Use this skill for HANA table partitioning strategy and review in FPSL-relevant landscapes.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

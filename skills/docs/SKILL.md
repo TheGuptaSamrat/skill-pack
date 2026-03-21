@@ -7,6 +7,8 @@ description: Generate technical documentation and code-generation context from F
 
 Use this skill when the user needs high-quality technical documentation or metadata-driven context building for code generation.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.
