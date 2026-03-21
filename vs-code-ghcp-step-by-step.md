@@ -38,6 +38,10 @@ Choose only one skill first.
   - source-to-target mapping specs, onboarding inputs, confirmed versus inferred fields
 - `test-data`
   - synthetic batch-oriented test data, insert scripts, fixture builders, scenario shaping
+- `cvpm`
+  - FPSL calculation and valuation process-step design, method framing, worklist and thread guidance
+- `partitioning`
+  - HANA partitioning strategy for FPSL-relevant tables using volume, growth, and access-pattern evidence
 
 Use `quality` for SDL/RDL-style quality rules. Use `projections` for estimation and sizing outputs. Use `docs` for documentation and metadata interpretation. Use `mapping` for mapping specifications.
 
@@ -161,11 +165,13 @@ The repo is designed so better metadata improves output quality.
 If a new raw Excel was uploaded recently, check:
 
 - `metadata-drop/manifest.csv`
-- `metadata-drop/change-review.md`
+- `metadata-drop/change-log.md`
 
 If status says `reverify-required`, do not trust older generated mappings without rechecking them.
 
 In pilot use, watch whether developers normalize new metadata before prompting. The repo is designed to work best when normalized files, not raw uploads, are used as the default context.
+
+For CVPM asks, prefer skill references in `skills/cvpm/references/` and OCR evidence under `metadata-drop/OtherDocs/CVPM/` rather than ad-hoc root summaries.
 
 ## 9. Keep The Team Consistent
 

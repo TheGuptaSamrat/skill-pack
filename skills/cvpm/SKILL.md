@@ -1,6 +1,6 @@
 ---
 name: cvpm
-description: Guide FPSL calculation and valuation process design using evidence-first process-step, method, worklist, and threading guidance. Use for CVPM job structure, run design, and validation planning.
+description: "Use for FPSL CVPM design and review, including process-step sequencing, method selection, worklist and threading decisions, run-structure planning, and validation framing based on confirmed evidence, when users need practical calculation and valuation job guidance without fabricating implementation-specific customer objects."
 ---
 
 # CVPM
@@ -18,10 +18,11 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 5. Read [cvpm-process-design-guide.md](./references/cvpm-process-design-guide.md) for complete FPSL process-step deep dives, method mapping, and run strategy.
 6. Read [cvpm-configuration-tables.md](./references/cvpm-configuration-tables.md) for configuration object hierarchy and customizing setup.
 7. Read [cvpm-method-design.md](./references/cvpm-method-design.md) for method type patterns and implementation guidance.
-8. Read [cvpm-data-integration.md](./references/cvpm-data-integration.md) for data staging and integration workflows.
-9. Read [cvpm-validation.md](./references/cvpm-validation.md).
-10. Read [fpsl-cvpm-operational-monitoring.md](./references/fpsl-cvpm-operational-monitoring.md) for FPSL CVPM Monitor guidance, periodic task verification, system setup, and troubleshooting frameworks.
-11. Read [official-sources.md](./references/official-sources.md) when standard FPSL framing matters.
+8. Read [cvpm-balance-snapshot-implementation.md](./references/cvpm-balance-snapshot-implementation.md) for image-derived implementation order, sequence design, and monitor evidence patterns.
+9. Read [cvpm-data-integration.md](./references/cvpm-data-integration.md) for data staging and integration workflows.
+10. Read [cvpm-validation.md](./references/cvpm-validation.md).
+11. Read [fpsl-cvpm-operational-monitoring.md](./references/fpsl-cvpm-operational-monitoring.md) for FPSL CVPM Monitor guidance, periodic task verification, system setup, and troubleshooting frameworks.
+12. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when standard FPSL framing matters.
 
 ## Progressive Reading Paths
 
@@ -32,7 +33,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 
 **Read Steps:**
 1. This file
-2. fpsl-process-steps-reference.md → **[Fast Path only](#navigate)** (pages 1-50: Register only)
+2. fpsl-process-steps-reference.md → **[Fast Path only](./references/fpsl-process-steps-reference.md)** (pages 1-50: Register only)
 3. cvpm-core-rules.md
 4. cvpm-implementation-patterns.md (skim patterns only, don't memorize)
 5. cvpm-process-design-guide.md → Introduction section only
@@ -47,7 +48,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 ### 📖 Full Path (100% of content, ~2 hours)
 *Goal: Production-ready CVPM design and implementation*
 
-**Read Steps:** All 11 steps in Load Order sequence
+**Read Steps:** All 12 steps in Load Order sequence
 
 **Depth:** Read all sections, reference sections, code examples
 
@@ -63,7 +64,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 2. cvpm-core-rules.md (rules section only)
 3. cvpm-validation.md (all)
 4. fpsl-cvpm-operational-monitoring.md (all)
-5. fpsl-process-steps-reference.md → **[Troubleshooting Path](#navigate)** (operations sections only)
+5. fpsl-process-steps-reference.md → **[Troubleshooting Path](./references/fpsl-process-steps-reference.md)** (operations sections only)
 
 **Skip:** method design, configuration hierarchy (unless config issue)
 
@@ -89,9 +90,37 @@ Do not derive actual customer class names, worklist IDs, thread settings, or job
 4. Ask for or preserve placeholders for customer-specific class, method, worklist, and threading evidence.
 5. Return the smallest useful CVPM design artifact first.
 
+## Image-Derived Implementation Guidance
+
+Use the OCR-derived CVPM evidence for practical implementation asks:
+
+1. server/worklist class
+2. CVPM execution class
+3. server entry for primary data source
+4. primary data source (PDS)
+5. analytical process
+6. custom step sequence
+7. run + monitor
+
+When the user asks for "where to configure", provide navigation as:
+
+- `Financial Products Subledger -> Data Loading Process -> Data Sources for Worklists`
+- `Financial Products Subledger -> Calculation and Valuation Process Manager (CVPM) -> General Settings for Custom Processes -> Edit Analytical Processes`
+- `Financial Products Subledger -> Calculation and Valuation Process Manager (CVPM) -> General Settings for Custom Processes -> Edit Custom Step Sequences for Analytical Processes`
+- `Financial Products Subledger -> Calculation and Valuation Process Manager (CVPM) -> /BAL/PW_PROCMON`
+
+Use these observed sample controls when shaping checklists (as placeholders, not defaults):
+
+- process parameters: `/BA1/C11SRCSY`, `/BA1/C55LGENT`, `/BA1/C55POSTD`, `/BA1/CROTSTMP`
+- step sequence pattern: `15 Enrich Parameters`, `20 Worklist Creation`, `30 Data Enrichment`
+- monitor evidence style: run start/end, step sequence, source-data timestamp, package and record counts
+
+Treat screenshot metrics (for example, package/record volumes) as scale indicators only.
+
 ## Non-Negotiables
 
 - Do not invent CVPM job names, class names, worklist objects, or thread configuration values.
+- Do not reuse screenshot-specific `Z*` object names as customer defaults.
 - Keep confirmed setup separate from inferred implementation guidance.
 - Make process-step sequence and method dependencies explicit.
 - Route mapping work to `mapping`, validation SQL to `reconciliation`, quality rules to `quality`, and code artifacts to `abap` or `amdp`.
@@ -103,3 +132,8 @@ Do not derive actual customer class names, worklist IDs, thread settings, or job
 - job, worklist, and threading guidance with placeholders when needed
 - confirmed versus inferred setup
 - validation and follow-up actions
+
+## Local Evidence Pack
+
+- [extracted-ocr.md](../../metadata-drop/OtherDocs/CVPM/extracted-ocr.md)
+- [cvpm-balance-snapshot-implementation.md](./references/cvpm-balance-snapshot-implementation.md)

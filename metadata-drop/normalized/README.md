@@ -9,7 +9,7 @@ Rules:
 - stable filenames are preferred
 - separate evidence from interpretation
 - update `../manifest.csv` when replacing active normalized files
-- if structure changes materially, update `../change-review.md`
+- if structure changes materially, update `../change-log.md`
 
 Suggested contents:
 

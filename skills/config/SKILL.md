@@ -1,6 +1,6 @@
 ---
 name: config
-description: Guide FPSL configuration work such as derivative rules, setup, uploads, and validation sequences. Use for evidence-first configuration guidance, impact review, and operational checklists.
+description: "Use for FPSL configuration guidance across setup flows, derivative-rule framing, upload sequencing, and validation checkpoints, with evidence-first recommendations, operational checklists, and impact review notes when users need reliable configuration direction without inventing customer-specific IMG entries or objects."
 ---
 
 # Configuration
@@ -16,7 +16,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 3. Read [fpsl-installation-configuration.md](./references/fpsl-installation-configuration.md) for FPSL system installation, client setup, and business content deployment guidance.
 4. Read [validation-and-tcodes.md](./references/validation-and-tcodes.md) when verification is needed.
 5. Read `../../metadata-drop/configuration/` artifacts when sample navigation, validation sequence, or setup examples are available.
-6. Read [official-sources.md](./references/official-sources.md) when you need official FPSL/FSDM scope anchors.
+6. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when you need official FPSL/FSDM scope anchors.
 7. Use this skill for guided operational verification, checklists, and evidence-led process review; route set-based SQL and data-presence checks to `reconciliation` or `amdp`.
 
 ## Trust Order

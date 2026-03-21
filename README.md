@@ -80,7 +80,7 @@ Operating rule:
   - active working metadata used by skills by default
 - `manifest.csv`
   - source-to-normalized tracking
-- `change-review.md`
+- `change-log.md`
   - summary of structural changes and reverification needs
 - `test-cases/`
   - developer trial cases and feedback pack
@@ -148,6 +148,7 @@ Additional focused engineering skills:
 - references should ground output in FPSL, FSDM, CDS, and metadata evidence
 - placeholder names must remain placeholders unless repo or DDIC evidence confirms exact SAP objects
 - user-provided training material should be integrated as derived conceptual guidance, not as the top trust source for object names or active metadata
+- keep durable guidance in skill references and indexed docs; avoid session or review-style summary files in the root workflow
 
 ## Validation
 
@@ -155,4 +156,12 @@ Run:
 
 ```bash
 ./scripts/smoke-check.sh
+```
+
+Smoke check now includes filename-convention validation (`scripts/validate_file_naming.py`) so non-special files remain lowercase kebab-style.
+
+For redundancy and context-efficiency auditing, run:
+
+```bash
+./scripts/run-context-optimization.sh
 ```

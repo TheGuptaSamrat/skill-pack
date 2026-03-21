@@ -41,6 +41,7 @@ Use the <skill-name> skill in this repo. Work only from confirmed repository met
 
 - use normalized metadata before prompting when available
 - keep CVPM responses evidence-first because customer-specific class, worklist, and thread details may still be missing
+- CVPM image-derived implementation evidence is maintained in `skills/cvpm/references/cvpm-balance-snapshot-implementation.md` with raw OCR in `metadata-drop/OtherDocs/CVPM/extracted-ocr.md`
 - keep partitioning recommendations tied to table volume, growth, access pattern, and operational evidence
 - use `reconciliation` for SQL validation even when the broader topic is CVPM or partitioning
 

@@ -1,6 +1,6 @@
 ---
 name: reconciliation
-description: Business data verification - DDIC-aware reconciliation SQL, data-flow checks, totals validation, key integrity across processes, and process-run verification queries for FPSL and FSDM flows.
+description: "Use for business data verification in FPSL/FSDM processes through DDIC-aware reconciliation SQL, data-flow checks, totals and count validation, cross-process key integrity tests, and process-run verification queries when users need investigative evidence for balancing and control outcomes rather than structural quality-rule authoring."
 ---
 
 # Reconciliation (Business Data Verification)
@@ -15,8 +15,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 2. Read [reconciliation-core-rules.md](./references/reconciliation-core-rules.md) for rule types (totals, row counts, key integrity, data flow, cross-system) and core principles.
 3. Read [reconciliation-core-patterns.md](./references/reconciliation-core-patterns.md) for 4 real-world SQL patterns (daily totals, source-to-target completeness, FK orphans, amount reconciliation).
 4. Read [fpsl-monitoring-operations.md](./references/fpsl-monitoring-operations.md) for FPSL process-run validation, periodic task verification, error handling, and operational checkpoints.
-5. Read [official-sources.md](./references/official-sources.md).
-6. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse SQL Console or ADT paste.
+5. Read [official-sources.md](../../docs-context/shared/official-sources-router.md).
+6. Read [adt-handoff-rules.md](../../docs-context/shared/adt-handoff-rules.md) when output is meant for Eclipse SQL Console or ADT paste.
 
 ## Trust Order
 

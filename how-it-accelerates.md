@@ -40,6 +40,10 @@ Each skill already carries task-specific rules:
   - evidence-first configuration guidance
 - `docs`
   - metadata-driven technical documentation
+- `cvpm`
+  - process-step, method, worklist, and monitor-first design guidance
+- `partitioning`
+  - SAP-aligned partition reasoning for high-volume FPSL tables
 
 That helps the AI return output that is more usable on the first pass.
 
@@ -74,6 +78,8 @@ When multiple developers use the same skill pack:
 - generated output becomes more predictable
 - reviews become easier
 - knowledge is shared through the repo instead of hidden in individual prompting style
+
+This works best when durable insights are moved into skill references and indexed docs, not kept in temporary summary files.
 
 ## What To Measure
 

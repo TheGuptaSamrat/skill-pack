@@ -13,7 +13,7 @@ Load in this order:
 1. `skills/partitioning/SKILL.md`
 2. `skills/partitioning/references/partitioning-core-rules.md`
 3. `skills/partitioning/references/partitioning-validation.md`
-4. `skills/partitioning/references/official-sources.md`
+4. `docs-context/shared/official-sources-router.md`
 
 Routing rule:
 

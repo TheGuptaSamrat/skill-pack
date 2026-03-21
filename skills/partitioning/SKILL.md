@@ -1,6 +1,6 @@
 ---
 name: partitioning
-description: Guide HANA partitioning strategy for FPSL-relevant tables using SAP-aligned volume, access-pattern, and operational reasoning. Use for partition review, recommendation, and validation planning.
+description: "Use for HANA partitioning strategy and review for FPSL-relevant tables, including volume and growth assessment, access-pattern analysis, SAP-aligned partition recommendations, and validation planning when users need operationally safe partition guidance grounded in evidence rather than assumed table behavior or unsupported layouts."
 ---
 
 # Partitioning
@@ -17,7 +17,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 4. Read [fpsl-partitioning-sap-notes.md](./references/fpsl-partitioning-sap-notes.md) for critical SAP Notes on FPSL partitioning strategy, data tiering, scale-out architecture, and performance optimization.
 5. Read [partitioning-examples.md](./references/partitioning-examples.md) for real-world examples (HFPPD date-range, HKTVR hash, reference tables).
 6. Read [partitioning-validation.md](./references/partitioning-validation.md).
-7. Read [official-sources.md](./references/official-sources.md).
+7. Read [official-sources.md](../../docs-context/shared/official-sources-router.md).
 
 ## Trust Order
 

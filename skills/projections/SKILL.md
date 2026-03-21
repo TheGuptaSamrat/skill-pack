@@ -1,6 +1,6 @@
 ---
 name: projections
-description: Estimate FPSL and FSDM transaction volume, storage growth, and DB-size trends from input assumptions. Use for forward-looking projections, storage planning, and sensitivity notes, not implementation work.
+description: "Use for FPSL/FSDM volume and storage projections, including transaction growth estimates, database sizing trends, assumption-driven scenarios, and sensitivity notes that support planning decisions, capacity conversations, and roadmap discussions when users need forward-looking projections instead of implementation-level ABAP, AMDP, or configuration output."
 ---
 
 # Projections
@@ -16,7 +16,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 3. Read [projections-core-concepts.md](./references/projections-core-concepts.md) for sizing assumptions, storage formulas, and projection methods.
 4. Read [sizing-assumptions.md](./references/sizing-assumptions.md) when translating business inputs into storage or trend outputs.
 5. Read [projections-examples.md](./references/projections-examples.md) for real-world examples (HFPPD 3-year projection, intra-daily growth patterns).
-6. Read [official-sources.md](./references/official-sources.md) when official product framing is needed.
+6. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when official product framing is needed.
 7. Read [projection-context-routes.md](./references/projection-context-routes.md) when you need the exact curated concept and metadata sources to load.
 
 ## Trust Order

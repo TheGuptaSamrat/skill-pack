@@ -1,6 +1,6 @@
 ---
 name: mapping
-description: Generate source-to-target mapping specifications for FSDM, FPSL, and adjacent source-system flows using DDIC, CDS, and metadata evidence.
+description: "Use for source-to-target mapping specifications across FSDM, FPSL, and adjacent source systems, with evidence-based field mapping, transformation notes, confirmed versus inferred sections, and unresolved-gap tracking using DDIC, CDS, and repository metadata when implementation handoff requires precise and auditable mapping artifacts."
 ---
 
 # Mapping
@@ -16,8 +16,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 3. Read [mapping-core-patterns.md](./references/mapping-core-patterns.md) for 6 real-world mapping patterns (direct, derived, multi-join, conditional, lookup, aggregation) with examples.
 4. Read [metadata-sources.md](./references/metadata-sources.md) for evidence hierarchy and metadata artifact types.
 5. Read [mapping-edge-cases.md](./references/mapping-edge-cases.md) for complex scenarios (nullable fields, duplicate keys, type incompatibility, cardinality mismatches, temporal changes).
-6. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is mapping specs ready for implementation handoff.
-7. Read [official-sources.md](./references/official-sources.md) when cross-system mapping requires standard SAP terminology.
+6. Read [adt-handoff-rules.md](../../docs-context/shared/adt-handoff-rules.md) when output is mapping specs ready for implementation handoff.
+7. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when cross-system mapping requires standard SAP terminology.
 
 ## Trust Order
 

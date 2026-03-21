@@ -20,6 +20,10 @@ required_files=(
   "$repo_root/.github/instructions/cvpm.instructions.md"
   "$repo_root/.github/instructions/partitioning.instructions.md"
   "$repo_root/scripts/normalize_excel.py"
+  "$repo_root/scripts/audit_skill_pack_redundancy.py"
+  "$repo_root/scripts/validate_skill_pack_links.py"
+  "$repo_root/scripts/validate_file_naming.py"
+  "$repo_root/scripts/run-context-optimization.sh"
   "$repo_root/scripts/run-normalization.sh"
   "$repo_root/scripts/ingest_pdf_context.py"
   "$repo_root/.vscode/tasks.json"
@@ -63,7 +67,7 @@ required_files=(
   "$repo_root/metadata-drop/raw-excel/README.md"
   "$repo_root/metadata-drop/normalized/README.md"
   "$repo_root/metadata-drop/manifest.csv"
-  "$repo_root/metadata-drop/change-review.md"
+  "$repo_root/metadata-drop/change-log.md"
   "$repo_root/test-cases/README.md"
   "$repo_root/test-cases/feedback-template.md"
   "$repo_root/test-cases/test-case-05-guided-configuration.md"
@@ -85,5 +89,12 @@ for file in "${required_files[@]}"; do
     exit 1
   fi
 done
+
+python3 "$repo_root/scripts/validate_skill_pack_links.py" \
+  --repo-root "$repo_root" \
+  --out-json "docs-context/indexes/validation-skill-pack.json"
+
+python3 "$repo_root/scripts/validate_file_naming.py" \
+  --repo-root "$repo_root"
 
 echo "Smoke check passed."

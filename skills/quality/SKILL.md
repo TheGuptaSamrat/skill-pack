@@ -1,6 +1,6 @@
 ---
 name: quality
-description: Structural data conformance - DDIC-driven data quality rules for FPSL and FSDM flows. Use for completeness, consistency, key, null, type, domain, and cross-field checks.
+description: "Use for structural data conformance in FPSL/FSDM flows using DDIC-driven quality rules, including completeness, consistency, key uniqueness, null handling, type and domain validation, and cross-field checks when users need schema-level rule definitions and validation logic rather than business-process reconciliation outcomes."
 ---
 
 # Quality (Structural Data Conformance)
@@ -16,8 +16,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 3. Read [quality-core-patterns.md](./references/quality-core-patterns.md) for 7 real-world patterns: null checks, domain validation, key uniqueness, FK referential integrity, type/format validation, cross-field business logic, completeness checks.
 4. Read [metadata-sources.md](./references/metadata-sources.md) for DDIC evidence hierarchy and artifact types.
 5. Read [quality-validation-checklist.md](./references/quality-validation-checklist.md) for pre-deployment validation, testing strategies, and production readiness guidance.
-6. Read [official-sources.md](./references/official-sources.md) for standard FPSL/FSDM terminology when framing quality rules.
-7. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when quality rule output is meant for SQL Console or automated deployment.
+6. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) for standard FPSL/FSDM terminology when framing quality rules.
+7. Read [adt-handoff-rules.md](../../docs-context/shared/adt-handoff-rules.md) when quality rule output is meant for SQL Console or automated deployment.
 
 ## Trust Order
 

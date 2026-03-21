@@ -1,6 +1,6 @@
 ---
 name: docs
-description: Generate technical documentation and code-generation context from FPSL/FSDM metadata. Use for design notes, technical specs, handoff docs, and metadata-driven interpretation of DDIC, CDS, interfaces, and existing code.
+description: "Use for technical documentation and code-generation context in FPSL/FSDM work, including design notes, implementation specs, handoff artifacts, and metadata-driven interpretation of DDIC, CDS, interfaces, and existing code when the goal is accurate, structured, evidence-backed documentation rather than speculative object creation."
 ---
 
 # Docs
@@ -17,7 +17,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 4. Read [mapping-spec-rules.md](./references/mapping-spec-rules.md) when the task is mapping-driven.
 5. Read [fpsl-architecture-overview.md](./references/fpsl-architecture-overview.md) for FPSL product architecture, Universal Journal, and multi-GAAP data model framing.
 6. Read [fpsl-deployment-architecture.md](./references/fpsl-deployment-architecture.md) for FPSL system architecture, deployment options, and landscape planning.
-7. Read [official-sources.md](./references/official-sources.md) when you need official FPSL, FSDM, or data-model anchors.
+7. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when you need official FPSL, FSDM, or data-model anchors.
 8. Read `../../metadata-drop/normalized/` first when active normalized metadata exists.
 9. Read `../../metadata-drop/` only for the specific input type provided by the user.
 
@@ -36,7 +36,7 @@ Do not derive landscape-specific names, joins, or mappings from public SAP docum
 1. Inventory the available metadata.
 2. Prefer active normalized metadata as the default working source.
 3. Use trusted raw Excel only when normalization is missing or when comparing changes.
-4. If metadata changes are marked in `change-review.md`, tell the user whether reverification is needed.
+4. If metadata changes are marked in `change-log.md`, tell the user whether reverification is needed.
 5. Build mapping specifications when the task is source-to-target design.
 6. Separate confirmed metadata from inferred relationships.
 7. Build documentation that helps later generation, review, and validation.

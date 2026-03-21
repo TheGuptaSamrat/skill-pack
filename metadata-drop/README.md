@@ -33,5 +33,5 @@ Operating standard:
 
 - raw Excel is trusted source input
 - normalized metadata is the default active context
-- if a new raw upload changes the data model, mark it in `manifest.csv` and `change-review.md`
+- if a new raw upload changes the data model, mark it in `manifest.csv` and `change-log.md`
 - skills should ask for reverification when active metadata is marked `reverify-required`

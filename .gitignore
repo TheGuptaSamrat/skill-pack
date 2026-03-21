@@ -1,1 +1,7 @@
 *.swp
+*.pyc
+__pycache__/
+.DS_Store
+docs-context/indexes/redundancy-audit.md
+docs-context/indexes/redundancy-audit.json
+docs-context/indexes/validation-skill-pack.json
