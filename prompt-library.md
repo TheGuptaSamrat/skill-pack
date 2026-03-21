@@ -87,3 +87,8 @@ Add one line if needed:
 - `Do not invent object names; keep placeholders explicit.`
 - `Separate confirmed setup from inferred setup.`
 - `Route any follow-up coding to abap or amdp.`
+
+Repository hygiene note:
+
+- keep prompts and outputs anchored to skill-owned references and indexed metadata
+- avoid relying on root-level session or review summary files for active guidance

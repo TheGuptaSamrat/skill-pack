@@ -39,10 +39,13 @@ The developer chooses one of the core or focused skills:
 - `reconciliation`
 - `mapping`
 - `test-data`
+- `cvpm`
+- `partitioning`
 
 Use core skills for general work. Use focused skills for narrower jobs.
 
 Use `quality` for DDIC-driven data quality rules. Use `projections` for sizing and estimation. Use `docs` for documentation and general technical interpretation. Use `mapping` for source-to-target mapping work.
+Use `cvpm` for FPSL calculation and valuation process design. Use `partitioning` for HANA partition strategy and operational scaling guidance.
 
 ### 2. Give a short prompt
 

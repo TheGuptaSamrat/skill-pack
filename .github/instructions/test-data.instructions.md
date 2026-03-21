@@ -12,7 +12,7 @@ Load in this order:
 
 1. `skills/test-data/SKILL.md`
 2. `skills/test-data/references/test-data-rules.md`
-3. `skills/test-data/references/adt-handoff-rules.md`
-4. `skills/test-data/references/official-sources.md`
+3. `docs-context/shared/adt-handoff-rules.md`
+4. `docs-context/shared/official-sources-router.md`
 
 Keep synthetic values labeled and do not fabricate confirmed structures when metadata is incomplete.

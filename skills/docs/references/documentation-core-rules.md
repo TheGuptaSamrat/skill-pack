@@ -3,7 +3,7 @@
 - inventory the available metadata first
 - prefer active normalized metadata as the default working source
 - use trusted raw Excel only when normalization is missing or when comparing changes
-- if metadata changes are marked in `change-review.md`, state whether reverification is needed
+- if metadata changes are marked in `change-log.md`, state whether reverification is needed
 - build documentation that helps later generation, review, and validation
 - prefer concise, structured, reusable technical artifacts
 - keep docs generation-oriented, not presentation-heavy

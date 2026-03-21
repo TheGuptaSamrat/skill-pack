@@ -1,6 +1,6 @@
 ---
 name: abap
-description: Build and review modular ABAP for FPSL and FSDM. Use for orchestration, validation, exception handling, ABAP Unit, wrapper classes, and supportable batch-oriented implementation.
+description: "Use for OO ABAP design and review in FPSL/FSDM delivery, including orchestration around AMDP and SQL flows, validation and exception handling, wrapper classes, ABAP Unit coverage, and batch-safe implementation patterns when the expected result is ADT-ready code grounded in confirmed metadata evidence."
 ---
 
 # ABAP
@@ -14,8 +14,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 1. Read this file.
 2. Read [abap-core-rules.md](./references/abap-core-rules.md) for design and senior-developer guidance.
 3. Read [abap-test-patterns.md](./references/abap-test-patterns.md) for ABAP Unit, fixtures, and scenario validation support.
-4. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse ADT paste or review.
-5. Read [official-sources.md](./references/official-sources.md) when supported ABAP/ADT behavior or official FPSL context matters.
+4. Read [adt-handoff-rules.md](../../docs-context/shared/adt-handoff-rules.md) when output is meant for Eclipse ADT paste or review.
+5. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when supported ABAP/ADT behavior or official FPSL context matters.
 
 ## Trust Order
 

@@ -15,7 +15,7 @@ Load in this order:
 2. `skills/amdp/references/amdp-core-rules.md`
 3. `skills/amdp/references/amdp-query-patterns.md`
 4. `skills/amdp/references/sql-and-performance-rules.md`
-5. `skills/amdp/references/adt-handoff-rules.md`
+5. `docs-context/shared/adt-handoff-rules.md`
 
 Routing rule:
 

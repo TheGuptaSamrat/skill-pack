@@ -47,3 +47,9 @@ Review these questions before promoting a new source version:
 - does this change integration framing?
 - does this invalidate older curated notes?
 - do any skill-routing files need updating?
+
+## Operational Notes (From Prior Extraction Sessions)
+
+- Prefer deterministic ingestion via `scripts/ingest_pdf_context.py` with explicit JSON configs over manual copy or ad-hoc extraction.
+- Stage extracted material under `docs-context/inbox/review-drafts/` first, then promote only reviewed content to skill references.
+- When a source benefits multiple skills, distribute by topic once and update affected `SKILL.md` load-order references in the same change.

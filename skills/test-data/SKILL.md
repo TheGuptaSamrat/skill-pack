@@ -1,6 +1,6 @@
 ---
 name: test-data
-description: Generate synthetic FPSL and FSDM test data, insert scripts, and fixture builders for batch-oriented functional scenarios using repository metadata and sample evidence.
+description: "Use for synthetic FPSL/FSDM test-data design, including insert scripts, fixture builders, scenario datasets, and batch-oriented functional test preparation based on repository metadata and sample evidence when users need safe, labeled, reproducible test inputs without claiming production-confirmed object names or live business values."
 ---
 
 # Test Data
@@ -15,8 +15,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 2. Read [test-data-core-rules.md](./references/test-data-core-rules.md).
 3. Read [test-data-builders.md](./references/test-data-builders.md) for fixture builder patterns and parametrized dataset generation.
 4. Read [test-data-scenarios.md](./references/test-data-scenarios.md) for scenario-based test design (happy path, boundary, error cases, volume).
-5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md).
-6. Read [official-sources.md](./references/official-sources.md).
+5. Read [adt-handoff-rules.md](../../docs-context/shared/adt-handoff-rules.md).
+6. Read [official-sources.md](../../docs-context/shared/official-sources-router.md).
 
 ## Trust Order
 

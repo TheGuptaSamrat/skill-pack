@@ -163,7 +163,7 @@ def update_manifest(repo_root: Path, artifact_id: str, source_name: str, output_
 
 
 def update_change_review(repo_root: Path, artifact_id: str, source_name: str, sheet_count: int) -> None:
-    review_path = repo_root / "metadata-drop" / "change-review.md"
+    review_path = repo_root / "metadata-drop" / "change-log.md"
     today = dt.date.today().isoformat()
     note = (
         "\n## Latest Normalization Event\n\n"

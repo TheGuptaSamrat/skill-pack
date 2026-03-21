@@ -58,7 +58,7 @@ For each sheet it creates:
 It also updates:
 
 - `metadata-drop/manifest.csv`
-- `metadata-drop/change-review.md`
+- `metadata-drop/change-log.md`
 
 ## Review Standard
 
@@ -66,7 +66,7 @@ After normalization:
 
 1. inspect the generated CSV files
 2. compare them with previous active normalized metadata
-3. decide whether `change-review.md` should remain `minor-review` or be raised to `reverify-required`
+3. decide whether `change-log.md` should remain `minor-review` or be raised to `reverify-required`
 4. use normalized files as the default context for skills
 
 ## Why This Works
@@ -75,6 +75,7 @@ After normalization:
 - normalized files stay Git-friendly and Copilot-friendly
 - skills can consume smaller artifacts without loading a whole workbook
 - metadata refreshes become repeatable
+- change impact stays visible in `metadata-drop/change-log.md` for reverification decisions
 
 ## Document Ingestion
 

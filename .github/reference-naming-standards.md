@@ -170,7 +170,7 @@ When adding a new skill:
 2. Optionally add `[new-skill]-core-patterns.md` (recommended)
 3. Document in this registry
 4. Run compliance check above
-5. Update OPTIMIZATION-METRICS.md
+5. Update optimization-metrics.md
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: amdp
-description: Design and review AMDP, SQLScript, CDS table-function, and pushdown-heavy FPSL/FSDM implementations. Use for set-based transformations, aggregation, performance-sensitive joins, and ABAP wrapper design.
+description: "Use for AMDP and SQLScript pushdown work in FPSL/FSDM scenarios, including set-based transformations, aggregation logic, join strategy, performance-sensitive query design, CDS table-function integration, and ABAP wrapper boundaries when the deliverable must be HANA-executed and ADT or SQL Console ready."
 ---
 
 # AMDP
@@ -15,8 +15,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 2. Read [amdp-core-rules.md](./references/amdp-core-rules.md) for implementation and senior-developer guidance.
 3. Read [amdp-query-patterns.md](./references/amdp-query-patterns.md) when rerun safety, reconciliation, filtering, rounding, batching, or JOIN versus `FOR ALL ENTRIES` decisions matter.
 4. Read [sql-and-performance-rules.md](./references/sql-and-performance-rules.md) when writing or reviewing SQLScript.
-5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse ADT or SQL Console paste.
-6. Read [official-sources.md](./references/official-sources.md) when you need SAP-supported AMDP, ADT, or FPSL/FSDM anchors.
+5. Read [adt-handoff-rules.md](../../docs-context/shared/adt-handoff-rules.md) when output is meant for Eclipse ADT or SQL Console paste.
+6. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when you need SAP-supported AMDP, ADT, or FPSL/FSDM anchors.
 7. Read [hana-query-analysis-concepts.md](./references/hana-query-analysis-concepts.md) when query-processing or performance-analysis concepts need strengthening.
 8. Use this skill for pushdown-heavy implementation; route specialist reconciliation work to `reconciliation` and checklist-led operational walkthroughs to `config`.
 
