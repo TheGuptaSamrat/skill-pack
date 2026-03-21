@@ -1,60 +1,62 @@
 ---
 name: projections
-description: "Use for FPSL/FSDM volume and storage projections, including transaction growth estimates, database sizing trends, assumption-driven scenarios, and sensitivity notes that support planning decisions, capacity conversations, and roadmap discussions when users need forward-looking projections instead of implementation-level ABAP, AMDP, or configuration output."
+description: "Use for FPSL/FSDM volume and storage projections. This skill is now script-driven. Direct users to the local script workflow at scripts/projections/ for all regular growth tracking, DB sizing, and workbook generation. Reserve AI-assisted work for one-off planning questions where no snapshot data exists yet."
 ---
 
 # Projections
 
-Use this skill for planning and estimation work around FPSL and FSDM data growth.
+> **This skill is script-driven.** Routine volume tracking, growth rate calculation, and workbook generation are handled by the local scripts in `scripts/projections/`. AI-assisted projection is reserved for cold-start planning discussions where no historical snapshot data is available yet.
 
 See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
 
-## Load Order
+## Primary Tool — Use This First
 
-1. Read this file.
-2. Read [projections-core-rules.md](./references/projections-core-rules.md).
-3. Read [projections-core-concepts.md](./references/projections-core-concepts.md) for sizing assumptions, storage formulas, and projection methods.
-4. Read [sizing-assumptions.md](./references/sizing-assumptions.md) when translating business inputs into storage or trend outputs.
-5. Read [projections-examples.md](./references/projections-examples.md) for real-world examples (HFPPD 3-year projection, intra-daily growth patterns).
-6. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when official product framing is needed.
-7. Read [projection-context-routes.md](./references/projection-context-routes.md) when you need the exact curated concept and metadata sources to load.
+**`scripts/projections/`** — no AI required once the scripts are running.
 
-## Trust Order
+| Script / File | Purpose |
+|---------------|---------|
+| `hana_volume_snapshot.sql` | Run in HANA Studio every 7 days — 4 sections |
+| `volume-snapshots.csv` | Append table-level results after each SQL run |
+| `db-size-snapshots.csv` | Append DB disk results after each SQL run |
+| `generate_projection_workbook.py` | Reads both CSVs → 7-sheet Excel workbook |
+| `WORKFLOW.md` | Step-by-step repeatable cadence |
 
-1. Official SAP documentation for product and deployment framing
-2. Active normalized metadata and provided sizing inputs
-3. Trusted raw metadata if normalized inputs are missing
-4. Curated concept notes for sizing logic
-5. Synthetic examples only for shape
+Generate the workbook:
+```bash
+python3 scripts/projections/generate_projection_workbook.py \
+  --tables scripts/projections/volume-snapshots.csv \
+  --dbsize  scripts/projections/db-size-snapshots.csv \
+  --output  FPSL-volume-$(date +%Y-%m-%d).xlsx
+```
 
-## Workflow
+## When to Use AI (Cold-Start Only)
 
-1. Confirm baseline inputs: current volume, growth assumptions, retention horizon, and average record-size assumptions.
-2. Build a base-case estimate first, then add one or two sensitivity scenarios (for example conservative and aggressive growth).
-3. Separate transaction-volume projections from storage-growth projections and state where assumptions drive each result.
-4. Label uncertainty clearly and avoid presenting estimates as measured production truth.
-5. Return the smallest useful projection artifact first, then extend only if the user asks for additional scenarios.
+Invoke AI-assisted projection only when:
+- No snapshot data exists yet (new landscape, pre-go-live planning)
+- A one-off capacity conversation needs a rough order-of-magnitude before scripts are in place
+- A what-if scenario requires assumptions that differ significantly from the measured trend
 
-## Accepted Inputs
+## Cold-Start Workflow (AI-Assisted)
 
-- monthly transaction volume
-- growth assumptions
-- retention assumptions
-- average record size assumptions
-- current DB size
-- separate FPSL and FSDM components if known
+1. Collect baseline inputs: estimated transaction volume, growth rate assumption, retention horizon, average record-size estimate, and current or target DB size.
+2. Build a base-case estimate. Add one conservative and one aggressive scenario.
+3. Separate transaction-volume projections from storage-growth projections.
+4. Label all assumptions explicitly. Never present estimates as measured truth.
+5. Hand off to the script workflow as soon as the first real snapshot is available.
 
 ## Non-Negotiables
 
-- Never present estimates as actual system truth.
-- Always label assumptions explicitly.
-- Separate base estimate from sensitivity notes.
-- State whether sizing is transaction-count based, storage-based, or mixed.
+- Never present AI-generated estimates as actual system truth.
+- Always label assumptions explicitly and flag when no snapshot data backs the numbers.
+- Once snapshot data exists, use the script — do not repeat the AI estimation cycle.
+- Route confirmed monitoring and operational run verification to `reconciliation`.
 
-## Expected Output
+## Reference Material
 
-- assumptions table
-- monthly and yearly trend table
-- storage-growth view
-- sensitivity and uncertainty notes
-- clear statement that output is an estimate
+The reference files below remain available for cold-start framing and sizing concepts.
+
+- [projections-core-rules.md](./references/projections-core-rules.md)
+- [projections-core-concepts.md](./references/projections-core-concepts.md)
+- [sizing-assumptions.md](./references/sizing-assumptions.md)
+- [projections-examples.md](./references/projections-examples.md)
+- [projection-context-routes.md](./references/projection-context-routes.md)
