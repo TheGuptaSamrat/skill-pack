@@ -10,6 +10,7 @@ required_files=(
   "$repo_root/.github/instructions/amdp.instructions.md"
   "$repo_root/.github/instructions/abap.instructions.md"
   "$repo_root/.github/instructions/config.instructions.md"
+  "$repo_root/.github/instructions/quality.instructions.md"
   "$repo_root/.github/instructions/docs.instructions.md"
   "$repo_root/.github/instructions/projections.instructions.md"
   "$repo_root/.github/instructions/reconciliation.instructions.md"
@@ -33,6 +34,8 @@ required_files=(
   "$repo_root/skills/abap/agents/openai.yaml"
   "$repo_root/skills/config/SKILL.md"
   "$repo_root/skills/config/agents/openai.yaml"
+  "$repo_root/skills/quality/SKILL.md"
+  "$repo_root/skills/quality/agents/openai.yaml"
   "$repo_root/skills/docs/SKILL.md"
   "$repo_root/skills/docs/agents/openai.yaml"
   "$repo_root/skills/projections/SKILL.md"
@@ -61,6 +64,10 @@ required_files=(
   "$repo_root/test-cases/test-case-07-mapping-spec.md"
   "$repo_root/test-cases/test-case-08-test-data.md"
   "$repo_root/test-cases/test-case-09-projections.md"
+  "$repo_root/test-cases/test-case-10-reconciliation-focused.md"
+  "$repo_root/test-cases/test-case-11-mapping-focused.md"
+  "$repo_root/test-cases/test-case-12-test-data-focused.md"
+  "$repo_root/test-cases/test-case-13-quality-focused.md"
 )
 
 for file in "${required_files[@]}"; do

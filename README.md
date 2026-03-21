@@ -42,8 +42,9 @@ Core skills:
 - `docs`
 - `projections`
 
-Specialist skills:
+Focused skills:
 
+- `quality`
 - `reconciliation`
 - `mapping`
 - `test-data`
@@ -122,6 +123,15 @@ Example:
 ```text
 Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for transforming FSDM contract cashflow rows into FPSL posting input. Include tests and validation.
 ```
+
+Use-case mapping:
+
+- `config` for setup and navigation guidance
+- `quality` for SDL/RDL-style data quality rules
+- `mapping` for source-to-target mapping specs
+- `reconciliation` for SQL checks, counts, totals, and data-flow validation
+- `test-data` for synthetic FPSL/FSDM test data
+- `projections` for trend and size estimation
 
 ## Design Principles
 

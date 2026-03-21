@@ -1,6 +1,6 @@
 ---
 name: docs
-description: Generate and maintain technical documentation for SAP FPSL and FSDM development using metadata evidence such as DDIC extracts, CDS definitions, FPSL structures, FSDM 2023 model details, interfaces, and existing code artifacts. Use for design notes, technical specs, mapping docs, handoff docs, and metadata-driven context for high-quality code generation.
+description: Generate technical documentation and code-generation context from FPSL/FSDM metadata. Use for design notes, technical specs, handoff docs, and metadata-driven interpretation of DDIC, CDS, interfaces, and existing code.
 ---
 
 # Docs

@@ -8,6 +8,8 @@ Goals:
 - verify output quality
 - verify Eclipse ADT handoff quality
 - identify missing metadata or weak guidance
+- compare broad core skills versus narrower focused skills
+- verify the 6 use cases map cleanly to one primary skill each
 
 How to run:
 

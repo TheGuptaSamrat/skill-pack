@@ -1,6 +1,6 @@
 ---
 name: abap
-description: Design, implement, review, and refactor modular ABAP for SAP FPSL and FSDM delivery. Use for orchestration logic, validations, exception handling, ABAP Unit, clean OO design, wrapper classes, batch flows, and supportable code generation around FPSL and FSDM processing.
+description: Build and review modular ABAP for FPSL and FSDM. Use for orchestration, validation, exception handling, ABAP Unit, wrapper classes, and supportable batch-oriented implementation.
 ---
 
 # ABAP

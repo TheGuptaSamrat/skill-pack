@@ -23,6 +23,7 @@ Recommended mapping:
 - `amdp` for HANA pushdown, SQLScript, AMDP wrappers, and CDS table functions
 - `abap` for OO ABAP, orchestration, validations, exceptions, and ABAP Unit
 - `config` for FPSL configuration flows, derivative rules, setup guidance, and validation checklists
+- `quality` for DDIC-driven quality rules such as completeness, consistency, key, null, and domain checks
 - `docs` for technical documentation, metadata-driven descriptions, and general handoff docs
 - `projections` for yearly or monthly volume growth, DB-size estimation, and trend projections
 - `reconciliation` for SQL checks, data-flow validation, totals, keys, and process-run verification from data
@@ -34,6 +35,7 @@ VS Code routing files:
 - `.github/instructions/amdp.instructions.md`
 - `.github/instructions/abap.instructions.md`
 - `.github/instructions/config.instructions.md`
+- `.github/instructions/quality.instructions.md`
 - `.github/instructions/docs.instructions.md`
 - `.github/instructions/projections.instructions.md`
 - `.github/instructions/reconciliation.instructions.md`

@@ -1,6 +1,6 @@
 ---
 name: config
-description: Analyze, document, and guide SAP FPSL configuration work including derivative rules, processing setup, posting-related configuration, master data upload flows, and validation sequences. Use for evidence-first configuration guidance, impact review, configuration handoff, and testing checklists.
+description: Guide FPSL configuration work such as derivative rules, setup, uploads, and validation sequences. Use for evidence-first configuration guidance, impact review, and operational checklists.
 ---
 
 # Configuration

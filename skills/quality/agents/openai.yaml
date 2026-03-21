@@ -1,0 +1,4 @@
+version: 1
+display_name: Quality
+short_description: DDIC-driven data-quality rule skill for FPSL and FSDM flows
+default_prompt: Generate completeness, consistency, key, null, domain, and type checks from repository metadata without inventing fields.

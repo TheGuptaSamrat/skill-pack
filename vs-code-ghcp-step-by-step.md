@@ -26,6 +26,8 @@ Choose only one skill first.
   - ABAP OO, orchestration, validation, exceptions, ABAP Unit
 - `config`
   - configuration guidance, derivative rules, setup validation, upload checks
+- `quality`
+  - DDIC-driven completeness, consistency, key, null, type, and domain checks
 - `docs`
   - technical specs, mapping docs, metadata interpretation, handoff docs
 - `projections`
@@ -37,7 +39,7 @@ Choose only one skill first.
 - `test-data`
   - synthetic batch-oriented test data, insert scripts, fixture builders, scenario shaping
 
-Use `projections` for estimation and sizing outputs. Use `docs` for documentation and metadata interpretation. Use `mapping` for mapping specifications.
+Use `quality` for SDL/RDL-style quality rules. Use `projections` for estimation and sizing outputs. Use `docs` for documentation and metadata interpretation. Use `mapping` for mapping specifications.
 
 Do not load all skills at once unless the task genuinely spans them.
 

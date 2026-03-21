@@ -1,6 +1,6 @@
 ---
 name: projections
-description: Estimate SAP FPSL and FSDM 2023 transaction volume, storage growth, and DB-size trends from monthly input assumptions. Use for year-long or forward-looking volume projections, storage planning, sensitivity notes, and simple trend-line estimation. Do not use for implementation or operational SAP changes.
+description: Estimate FPSL and FSDM transaction volume, storage growth, and DB-size trends from input assumptions. Use for forward-looking projections, storage planning, and sensitivity notes, not implementation work.
 ---
 
 # Projections

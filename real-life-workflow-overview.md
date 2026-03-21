@@ -28,20 +28,21 @@ In day-to-day work, the developer uses:
 
 ### 1. Choose the right skill
 
-The developer chooses one of the core or specialist skills:
+The developer chooses one of the core or focused skills:
 
 - `amdp`
 - `abap`
 - `config`
+- `quality`
 - `docs`
 - `projections`
 - `reconciliation`
 - `mapping`
 - `test-data`
 
-Use core skills for general work. Use specialist skills for narrower jobs.
+Use core skills for general work. Use focused skills for narrower jobs.
 
-Use `projections` for sizing and estimation. Use `docs` for documentation and general technical interpretation. Use `mapping` for source-to-target mapping work.
+Use `quality` for DDIC-driven data quality rules. Use `projections` for sizing and estimation. Use `docs` for documentation and general technical interpretation. Use `mapping` for source-to-target mapping work.
 
 ### 2. Give a short prompt
 

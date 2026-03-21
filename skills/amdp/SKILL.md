@@ -1,6 +1,6 @@
 ---
 name: amdp
-description: Design, review, and troubleshoot SAP FPSL and FSDM AMDP, SQLScript, CDS table-function, and pushdown-heavy implementations. Use for HANA set-based transformations, performance-sensitive joins, aggregation logic, SQL writing standards, and ABAP wrapper design around AMDP artifacts.
+description: Design and review AMDP, SQLScript, CDS table-function, and pushdown-heavy FPSL/FSDM implementations. Use for set-based transformations, aggregation, performance-sensitive joins, and ABAP wrapper design.
 ---
 
 # AMDP
