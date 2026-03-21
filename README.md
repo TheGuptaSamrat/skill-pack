@@ -34,13 +34,19 @@ For standard VS Code + GitHub Copilot use, the repo also includes:
 
 These instruction files provide a GHCP-friendly routing layer while keeping the `skills/` directory as the canonical design structure.
 
-Included skills:
+Core skills:
 
-- `sap-fpsl-amdp`
-- `sap-fpsl-abap`
-- `sap-fpsl-configuration`
-- `sap-fpsl-tech-docs`
-- `sap-fpsl-projections`
+- `amdp`
+- `abap`
+- `config`
+- `docs`
+- `projections`
+
+Specialist skills:
+
+- `reconciliation`
+- `mapping`
+- `test-data`
 
 ## Metadata Drop
 
@@ -114,7 +120,7 @@ For VS Code with GitHub Copilot:
 Example:
 
 ```text
-Use the sap-fpsl-amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for transforming FSDM contract cashflow rows into FPSL posting input. Include tests and validation.
+Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for transforming FSDM contract cashflow rows into FPSL posting input. Include tests and validation.
 ```
 
 ## Design Principles

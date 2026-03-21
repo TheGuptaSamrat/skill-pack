@@ -1,0 +1,4 @@
+version: 1
+display_name: Reconciliation
+short_description: Reconciliation and data-check skill for FPSL and FSDM flows
+default_prompt: Generate DDIC-aware SQL checks for totals, keys, data flow, and process validation using repository metadata first.

@@ -11,9 +11,9 @@ Use this instruction set when the task is primarily about:
 
 Load in this order:
 
-1. `skills/sap-fpsl-abap/SKILL.md`
-2. `skills/sap-fpsl-abap/references/abap-core-rules.md`
-3. `skills/sap-fpsl-abap/references/abap-test-patterns.md`
-4. `skills/sap-fpsl-abap/references/adt-handoff-rules.md`
+1. `skills/abap/SKILL.md`
+2. `skills/abap/references/abap-core-rules.md`
+3. `skills/abap/references/abap-test-patterns.md`
+4. `skills/abap/references/adt-handoff-rules.md`
 
 Keep outputs paste-friendly for Eclipse ADT and do not invent object or field names.

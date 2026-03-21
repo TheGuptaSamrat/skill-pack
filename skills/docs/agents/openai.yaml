@@ -1,0 +1,4 @@
+version: 1
+display_name: Docs
+short_description: Metadata-driven technical documentation skill for FPSL and FSDM
+default_prompt: Build technical documentation and code-generation context from FPSL, FSDM, CDS, and DDIC metadata.

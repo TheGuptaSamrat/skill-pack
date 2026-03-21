@@ -20,16 +20,22 @@ Routing note:
 
 Recommended mapping:
 
-- `sap-fpsl-amdp` for HANA pushdown, SQLScript, AMDP wrappers, CDS table functions, and set-based transformations
-- `sap-fpsl-abap` for OO ABAP, orchestration, validations, exceptions, ABAP Unit, and clean modular implementation
-- `sap-fpsl-configuration` for FPSL configuration flows, derivative rules, CVPM-style setup, master data upload guidance, and validation checklists
-- `sap-fpsl-tech-docs` for technical documentation, metadata-driven descriptions, handoff docs, and code-generation context from DDIC, CDS, and FSDM metadata
-- `sap-fpsl-projections` for yearly or monthly volume growth, DB-size estimation, and trend projections with explicit assumptions
+- `amdp` for HANA pushdown, SQLScript, AMDP wrappers, and CDS table functions
+- `abap` for OO ABAP, orchestration, validations, exceptions, and ABAP Unit
+- `config` for FPSL configuration flows, derivative rules, setup guidance, and validation checklists
+- `docs` for technical documentation, metadata-driven descriptions, and general handoff docs
+- `projections` for yearly or monthly volume growth, DB-size estimation, and trend projections
+- `reconciliation` for SQL checks, data-flow validation, totals, keys, and process-run verification from data
+- `mapping` for source-to-target mapping specs with confirmed, inferred, and unresolved sections
+- `test-data` for synthetic scenario data, insert scripts, fixture builders, and batch-style functional test preparation
 
 VS Code routing files:
 
 - `.github/instructions/amdp.instructions.md`
 - `.github/instructions/abap.instructions.md`
-- `.github/instructions/configuration.instructions.md`
-- `.github/instructions/tech-docs.instructions.md`
+- `.github/instructions/config.instructions.md`
+- `.github/instructions/docs.instructions.md`
 - `.github/instructions/projections.instructions.md`
+- `.github/instructions/reconciliation.instructions.md`
+- `.github/instructions/mapping.instructions.md`
+- `.github/instructions/test-data.instructions.md`

@@ -2,7 +2,7 @@
 
 Skill:
 
-- `sap-fpsl-amdp`
+- `amdp`
 
 Scenario:
 

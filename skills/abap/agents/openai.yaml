@@ -1,0 +1,4 @@
+version: 1
+display_name: ABAP
+short_description: Modular ABAP skill for FPSL and FSDM implementation and review
+default_prompt: Generate or review clean ABAP for SAP FPSL and FSDM with modular structure, tests, and validation.

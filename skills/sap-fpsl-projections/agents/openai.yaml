@@ -1,4 +1,0 @@
-version: 1
-display_name: SAP FPSL Projections
-short_description: Volume and DB-size projection skill for FPSL and FSDM planning
-default_prompt: Estimate FPSL and FSDM monthly volume and storage growth using explicit assumptions and uncertainty notes.

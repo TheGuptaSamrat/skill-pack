@@ -2,7 +2,7 @@
 
 Skill:
 
-- `sap-fpsl-configuration`
+- `config`
 
 Scenario:
 

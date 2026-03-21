@@ -1,4 +1,0 @@
-version: 1
-display_name: SAP FPSL AMDP
-short_description: HANA pushdown and AMDP skill for FPSL and FSDM delivery
-default_prompt: Design or review AMDP, SQLScript, and ABAP wrapper logic for SAP FPSL and FSDM work using repository evidence first.

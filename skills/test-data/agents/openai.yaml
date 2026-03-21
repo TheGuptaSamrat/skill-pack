@@ -1,0 +1,4 @@
+version: 1
+display_name: Test Data
+short_description: Synthetic test-data and fixture skill for FPSL and FSDM scenarios
+default_prompt: Generate meaningful synthetic test data, insert scripts, or fixture builders for FPSL and FSDM validation scenarios.

@@ -1,0 +1,4 @@
+version: 1
+display_name: Mapping
+short_description: Source-to-target mapping skill for FPSL and FSDM flows
+default_prompt: Build a mapping specification from repository metadata, keeping confirmed, inferred, and unresolved sections separate.

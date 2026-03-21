@@ -2,7 +2,7 @@
 
 Skill:
 
-- `sap-fpsl-abap`
+- `abap`
 
 Scenario:
 

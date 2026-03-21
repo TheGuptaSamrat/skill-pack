@@ -28,17 +28,20 @@ In day-to-day work, the developer uses:
 
 ### 1. Choose the right skill
 
-The developer chooses one of five skills:
+The developer chooses one of the core or specialist skills:
 
-- `sap-fpsl-amdp`
-- `sap-fpsl-abap`
-- `sap-fpsl-configuration`
-- `sap-fpsl-tech-docs`
-- `sap-fpsl-projections`
+- `amdp`
+- `abap`
+- `config`
+- `docs`
+- `projections`
+- `reconciliation`
+- `mapping`
+- `test-data`
 
-Each skill is focused on one type of work.
+Use core skills for general work. Use specialist skills for narrower jobs.
 
-Use `sap-fpsl-projections` for sizing and estimation. Use `sap-fpsl-tech-docs` for documentation, mapping, and metadata-driven technical interpretation.
+Use `projections` for sizing and estimation. Use `docs` for documentation and general technical interpretation. Use `mapping` for source-to-target mapping work.
 
 ### 2. Give a short prompt
 
@@ -49,7 +52,7 @@ GHCP may often infer the right route from the task wording, but the most reliabl
 Example:
 
 ```text
-Use sap-fpsl-amdp from this repo. Build the smallest ABAP wrapper and AMDP method for FSDM cashflow to FPSL posting input. Include tests and validation.
+Use amdp from this repo. Build the smallest ABAP wrapper and AMDP method for FSDM cashflow to FPSL posting input. Include tests and validation.
 ```
 
 ### 3. AI reads the repository context

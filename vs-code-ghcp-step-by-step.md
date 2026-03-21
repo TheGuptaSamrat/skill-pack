@@ -20,18 +20,24 @@ Recommended setup:
 
 Choose only one skill first.
 
-- `sap-fpsl-amdp`
+- `amdp`
   - AMDP, SQLScript, CDS table functions, pushdown-heavy logic
-- `sap-fpsl-abap`
+- `abap`
   - ABAP OO, orchestration, validation, exceptions, ABAP Unit
-- `sap-fpsl-configuration`
+- `config`
   - configuration guidance, derivative rules, setup validation, upload checks
-- `sap-fpsl-tech-docs`
+- `docs`
   - technical specs, mapping docs, metadata interpretation, handoff docs
-- `sap-fpsl-projections`
+- `projections`
   - sizing estimates, volume trends, DB growth assumptions, sensitivity views
+- `reconciliation`
+  - reconciliation SQL, data-flow checks, totals, keys, and process-run data validation
+- `mapping`
+  - source-to-target mapping specs, onboarding inputs, confirmed versus inferred fields
+- `test-data`
+  - synthetic batch-oriented test data, insert scripts, fixture builders, scenario shaping
 
-Use `sap-fpsl-projections` for estimation and sizing outputs. Use `sap-fpsl-tech-docs` for documentation, mapping, and metadata interpretation.
+Use `projections` for estimation and sizing outputs. Use `docs` for documentation and metadata interpretation. Use `mapping` for mapping specifications.
 
 Do not load all skills at once unless the task genuinely spans them.
 
@@ -48,8 +54,8 @@ Keep context lean.
 
 Good example:
 
-- `skills/sap-fpsl-amdp/SKILL.md`
-- `skills/sap-fpsl-amdp/references/sql-and-performance-rules.md`
+- `skills/amdp/SKILL.md`
+- `skills/amdp/references/sql-and-performance-rules.md`
 - `metadata-drop/ddic/current/fields-template.csv`
 - `metadata-drop/samples/fsdm_to_fpsl_mapping.md`
 
@@ -68,19 +74,19 @@ GHCP should often route correctly from the task wording, but the most reliable p
 Example for ABAP:
 
 ```text
-Use sap-fpsl-abap from this repo. Generate a modular class for validating and preparing FPSL posting input from FSDM cashflow rows. Include ABAP Unit and validation steps.
+Use abap from this repo. Generate a modular class for validating and preparing FPSL posting input from FSDM cashflow rows. Include ABAP Unit and validation steps.
 ```
 
 Example for AMDP:
 
 ```text
-Use sap-fpsl-amdp from this repo. Design the smallest ABAP wrapper and AMDP method for transforming FSDM cashflow rows into FPSL posting input. Use repository metadata only and keep placeholders where names are not confirmed.
+Use amdp from this repo. Design the smallest ABAP wrapper and AMDP method for transforming FSDM cashflow rows into FPSL posting input. Use repository metadata only and keep placeholders where names are not confirmed.
 ```
 
 Example for configuration:
 
 ```text
-Use sap-fpsl-configuration from this repo. Review this derivative-rule change request and produce a configuration checklist, validation sequence, and risks. Use sample navigation only as guidance, not as confirmed setup.
+Use config from this repo. Review this derivative-rule change request and produce a configuration checklist, validation sequence, and risks. Use sample navigation only as guidance, not as confirmed setup.
 ```
 
 ## 5. Ask For The Smallest Useful Output
@@ -185,7 +191,7 @@ Daily working sequence:
 Instead of a long custom prompt, a developer should be able to say:
 
 ```text
-Use sap-fpsl-tech-docs from this repo. Build a technical mapping note from the attached DDIC and CDS evidence for FSDM cashflow to FPSL posting input. Separate confirmed metadata from assumptions and include code-generation guidance.
+Use docs from this repo. Build a technical mapping note from the attached DDIC and CDS evidence for FSDM cashflow to FPSL posting input. Separate confirmed metadata from assumptions and include code-generation guidance.
 ```
 
 That is the intended working model.

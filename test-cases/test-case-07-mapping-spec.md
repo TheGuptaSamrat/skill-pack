@@ -2,7 +2,7 @@
 
 Skill:
 
-- `sap-fpsl-tech-docs`
+- `mapping`
 
 Scenario:
 
