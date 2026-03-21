@@ -10,9 +10,12 @@ Use this skill for mapping-spec work rather than general technical documentation
 ## Load Order
 
 1. Read this file.
-2. Read [mapping-rules.md](./references/mapping-rules.md).
-3. Read [metadata-sources.md](./references/metadata-sources.md).
-4. Read [official-sources.md](./references/official-sources.md).
+2. Read [mapping-core-rules.md](./references/mapping-core-rules.md) for foundational guardrails on evidence, section discipline, artifact clarity.
+3. Read [mapping-core-patterns.md](./references/mapping-core-patterns.md) for 6 real-world mapping patterns (direct, derived, multi-join, conditional, lookup, aggregation) with examples.
+4. Read [metadata-sources.md](./references/metadata-sources.md) for evidence hierarchy and metadata artifact types.
+5. Read [mapping-edge-cases.md](./references/mapping-edge-cases.md) for complex scenarios (nullable fields, duplicate keys, type incompatibility, cardinality mismatches, temporal changes).
+6. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is mapping specs ready for implementation handoff.
+7. Read [official-sources.md](./references/official-sources.md) when cross-system mapping requires standard SAP terminology.
 
 ## Trust Order
 
