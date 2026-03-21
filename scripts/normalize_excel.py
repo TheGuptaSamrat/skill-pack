@@ -162,7 +162,7 @@ def update_manifest(repo_root: Path, artifact_id: str, source_name: str, output_
         writer.writerows(existing)
 
 
-def update_change_review(repo_root: Path, artifact_id: str, source_name: str, sheet_count: int) -> None:
+def update_change_log(repo_root: Path, artifact_id: str, source_name: str, sheet_count: int) -> None:
     review_path = repo_root / "metadata-drop" / "change-log.md"
     today = dt.date.today().isoformat()
     note = (
@@ -175,7 +175,7 @@ def update_change_review(repo_root: Path, artifact_id: str, source_name: str, sh
         "- next action: compare normalized output with prior active metadata and upgrade to "
         "`reverify-required` if model-critical structures changed\n"
     )
-    content = review_path.read_text(encoding="utf-8") if review_path.exists() else "# Change Review\n"
+    content = review_path.read_text(encoding="utf-8") if review_path.exists() else "# Change Log\n"
     marker = "## Latest Normalization Event"
     if marker in content:
         content = content.split(marker)[0].rstrip() + "\n"
@@ -211,7 +211,7 @@ def normalize_workbook(repo_root: Path, workbook_path: Path, artifact_id: str) -
 
     (output_dir / "SUMMARY.md").write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
     update_manifest(repo_root, artifact_id, workbook_path.name, output_dir)
-    update_change_review(repo_root, artifact_id, workbook_path.name, len(sheets))
+    update_change_log(repo_root, artifact_id, workbook_path.name, len(sheets))
     return output_dir
 
 
