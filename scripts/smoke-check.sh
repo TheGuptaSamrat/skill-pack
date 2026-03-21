@@ -5,6 +5,7 @@ repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 
 required_files=(
   "$repo_root/README.md"
+  "$repo_root/prompt-library.md"
   "$repo_root/metadata-normalization.md"
   "$repo_root/.github/copilot-instructions.md"
   "$repo_root/.github/instructions/amdp.instructions.md"

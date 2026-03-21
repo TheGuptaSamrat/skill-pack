@@ -15,6 +15,7 @@ For the developer-value summary, read:
 - `how-it-accelerates.md`
 - `vs-code-ghcp-step-by-step.md`
 - `metadata-normalization.md`
+- `prompt-library.md`
 - `docs-context/README.md`
 - `docs-context/indexes/update-policy.md`
 - `docs-context/indexes/versioning-convention.md`

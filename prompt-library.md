@@ -1,0 +1,89 @@
+# Prompt Library
+
+Use these as short starting prompts in VS Code with GitHub Copilot.
+
+Working rule:
+
+- name the skill explicitly
+- keep the prompt to the task delta
+- rely on repo metadata instead of prompt bloat
+
+## Core Skills
+
+### `abap`
+
+```text
+Use the abap skill in this repo. Generate the smallest clean ABAP artifact for this FPSL task. Keep placeholders explicit where object names are not confirmed. Include tests and validation.
+```
+
+### `amdp`
+
+```text
+Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for this FPSL or FSDM transformation. Keep SQL staged and explain why AMDP is justified.
+```
+
+### `config`
+
+```text
+Use the config skill in this repo. Give me an evidence-first FPSL configuration walkthrough with prerequisites, impact notes, and validation steps. Keep assumptions explicit.
+```
+
+### `docs`
+
+```text
+Use the docs skill in this repo. Build a concise technical design note from the available metadata. Separate confirmed structures from inferred relationships and list unresolved gaps.
+```
+
+### `projections`
+
+```text
+Use the projections skill in this repo. Estimate monthly and yearly FPSL or FSDM volume growth from the given assumptions. Show the storage impact and label uncertainty clearly.
+```
+
+## Focused Skills
+
+### `quality`
+
+```text
+Use the quality skill in this repo. Generate DDIC-driven quality checks for the provided layer. Separate confirmed rules from inferred rules and return SQL or a rule-spec note.
+```
+
+### `reconciliation`
+
+```text
+Use the reconciliation skill in this repo. Generate the smallest DDIC-aware query set to validate counts, totals, keys, and data flow for this FPSL or FSDM step.
+```
+
+### `mapping`
+
+```text
+Use the mapping skill in this repo. Build a source-to-target mapping specification from the provided metadata. Keep confirmed, inferred, and unresolved sections separate.
+```
+
+### `test-data`
+
+```text
+Use the test-data skill in this repo. Generate meaningful synthetic data and insert scripts for this FPSL scenario. Keep synthetic assumptions explicit and populate all required attributes.
+```
+
+### `cvpm`
+
+```text
+Use the cvpm skill in this repo. Propose the smallest useful CVPM design note for this requirement. Include process-step sequence, method guidance, worklist or thread placeholders where needed, and validation follow-up actions.
+```
+
+### `partitioning`
+
+```text
+Use the partitioning skill in this repo. Review whether partitioning is justified for the given FPSL-relevant table. Base the answer on volume, growth, access pattern, and operational implications.
+```
+
+## Prompt Extensions
+
+Add one line if needed:
+
+- `Use normalized metadata first.`
+- `Return one ADT-ready artifact block at a time.`
+- `Do not invent object names; keep placeholders explicit.`
+- `Separate confirmed setup from inferred setup.`
+- `Route any follow-up coding to abap or amdp.`

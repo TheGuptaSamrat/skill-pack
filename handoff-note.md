@@ -17,6 +17,7 @@ Use this note to resume work in GitHub Copilot from the current repo state.
    - the relevant `.github/instructions/*.instructions.md` file
 3. Name the skill explicitly in the prompt for the most reliable routing.
 4. Load only the task-specific metadata from `metadata-drop/`.
+5. Start from `prompt-library.md` if the user needs a ready-made prompt shape.
 
 ## Recommended Prompt Pattern
 
