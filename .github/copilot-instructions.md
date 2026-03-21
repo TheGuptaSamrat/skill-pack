@@ -24,8 +24,8 @@ Recommended mapping:
 - `abap` for OO ABAP, orchestration, validations, exceptions, and ABAP Unit
 - `config` for FPSL configuration flows, derivative rules, setup guidance, and validation checklists
 - `quality` for structural data conformance validation: DDIC-driven rules such as completeness, consistency, key, null, and domain checks
-- `docs` for technical documentation, metadata-driven descriptions, and general handoff docs
-- `projections` for yearly or monthly volume growth, DB-size estimation, and trend projections
+- `docs` — retired as routing target; guardrails folded into `mapping` and `abap`; reference files still available for those skills to load
+- `projections` — script-driven; run `scripts/projections/WORKFLOW.md` for all regular volume tracking; invoke AI only for cold-start planning when no snapshot data exists
 - `reconciliation` for business data verification: SQL checks, data-flow validation, totals, cross-process key integrity, and process-run verification from data
 - `mapping` for source-to-target mapping specs with confirmed, inferred, and unresolved sections
 - `test-data` for synthetic scenario data, insert scripts, fixture builders, and batch-style functional test preparation

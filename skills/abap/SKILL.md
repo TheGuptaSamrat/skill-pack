@@ -43,6 +43,9 @@ Do not infer custom classes, interfaces, packages, or field lists from public SA
 - Prefer constructor injection or seam-friendly collaborators for testability.
 - Use exception chaining with `previous =` when propagating technical failure context.
 - Do not assume public product documentation reflects landscape-specific implementation classes.
+- Prefer metadata-drop evidence over free-form assumptions whenever both exist.
+- If normalized metadata is marked `reverify-required`, tell the user impacted code must be revalidated before use.
+- When using public SAP help as a source, label clearly what is official framing versus what comes from landscape metadata.
 
 ## Expected Output
 

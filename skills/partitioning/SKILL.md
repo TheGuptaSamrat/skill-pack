@@ -29,13 +29,24 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 
 Do not invent table volumes, filter patterns, or approved partition layouts.
 
+## Evidence Feed
+
+This skill now has a live data source. Before forming any recommendation, check whether snapshot data is available from the volume tracker:
+
+- **`scripts/projections/volume-snapshots.csv`** — per-table record count and memory MB over time
+- **`scripts/projections/db-size-snapshots.csv`** — DATA / LOG / TRACE disk usage over time
+- **`scripts/projections/generate_projection_workbook.py`** — generates the Growth Rates and Projection sheets that quantify week-over-week delta per table
+
+When snapshot data exists, use it as the primary volume and growth evidence. Do not estimate growth from assumptions when measured data is available.
+
 ## Workflow
 
-1. Confirm the exact table, result type, or storage area under discussion.
-2. Measure or request evidence for volume, growth, access pattern, and runtime pain points.
-3. Evaluate partitioning together with archiving, residence time, and Basis/HANA operations.
-4. Return a recommendation only when the evidence supports it.
-5. Include validation steps and operational cautions.
+1. Check whether snapshot CSV data is available in `scripts/projections/`. If yes, use it as the evidence base.
+2. Confirm the exact table, result type, or storage area under discussion.
+3. Measure or request evidence for volume, growth, access pattern, and runtime pain points.
+4. Evaluate partitioning together with archiving, residence time, and Basis/HANA operations.
+5. Return a recommendation only when the evidence supports it.
+6. Include validation steps and operational cautions.
 
 ## Non-Negotiables
 

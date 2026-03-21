@@ -40,8 +40,6 @@ Core skills:
 - `amdp`
 - `abap`
 - `config`
-- `docs`
-- `projections`
 
 Focused skills:
 
@@ -51,6 +49,14 @@ Focused skills:
 - `test-data`
 - `cvpm`
 - `partitioning`
+
+Script-driven (no AI invocation):
+
+- `projections` — use `scripts/projections/` workflow; AI only for cold-start planning
+
+Retired routing (guardrails folded into primary skills):
+
+- `docs` — route to `mapping`, `abap`, or `amdp` instead
 
 ## Metadata Drop
 
@@ -134,7 +140,7 @@ Use-case mapping:
 - `mapping` for source-to-target mapping specs
 - `reconciliation` for SQL checks, counts, totals, and data-flow validation
 - `test-data` for synthetic FPSL/FSDM test data
-- `projections` for trend and size estimation
+- `projections` — script-driven; use `scripts/projections/WORKFLOW.md` for all regular tracking; AI only for cold-start planning without snapshot data
 
 Additional focused engineering skills:
 

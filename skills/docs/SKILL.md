@@ -1,11 +1,41 @@
 ---
 name: docs
-description: "Use for technical documentation and code-generation context in FPSL/FSDM work, including design notes, implementation specs, handoff artifacts, and metadata-driven interpretation of DDIC, CDS, interfaces, and existing code when the goal is accurate, structured, evidence-backed documentation rather than speculative object creation."
+description: "RETIRED as a direct-invocation skill. Its guardrails have been folded into mapping and abap. Route documentation and metadata-driven tasks to the appropriate primary skill."
 ---
 
-# Docs
+# Docs — Retired
 
-Use this skill when the user needs high-quality technical documentation or metadata-driven context building for code generation.
+> **This skill is no longer a direct-invocation entry point.**
+> Its evidence-hierarchy guardrails and metadata discipline rules have been folded into `mapping` and `abap` non-negotiables where they belong. Routing `docs` as a standalone skill added no value beyond those two skills already provide.
+
+## Where to Route Instead
+
+| Task | Skill |
+|------|-------|
+| Source-to-target mapping spec | `mapping` |
+| ABAP code generation from metadata | `abap` |
+| AMDP / SQLScript with DDIC context | `amdp` |
+| Configuration documentation | `config` |
+| Architecture overview or deployment framing | Use `docs` references directly (read-only) |
+
+## Retained Reference Files
+
+The reference files below remain available for other skills to load when architecture or metadata framing is needed. They are not retired.
+
+- [metadata-sources.md](./references/metadata-sources.md)
+- [documentation-core-rules.md](./references/documentation-core-rules.md)
+- [fpsl-architecture-overview.md](./references/fpsl-architecture-overview.md)
+- [fpsl-deployment-architecture.md](./references/fpsl-deployment-architecture.md)
+- [mapping-spec-rules.md](./references/mapping-spec-rules.md)
+
+## Guardrails Now in Primary Skills
+
+These rules were previously only in `docs`. They now live in `mapping` and `abap` non-negotiables:
+
+- Prefer metadata-drop evidence over free-form assumptions whenever both exist
+- If normalized metadata is marked `reverify-required`, tell the user impacted code or specs must be revalidated
+- When using public SAP help as a source, label clearly what is official framing versus what comes from landscape metadata
+- Label inferred relationships explicitly; never present them as confirmed
 
 See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
 

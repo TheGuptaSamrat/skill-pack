@@ -38,6 +38,10 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 - Do not fabricate fields, joins, or mapping logic.
 - Keep confirmed, inferred, and unresolved sections explicit.
 - State what evidence is still required.
+- Prefer metadata-drop evidence over free-form assumptions whenever both exist.
+- If normalized metadata is marked `reverify-required`, tell the user impacted mapping specs must be revalidated before implementation.
+- When using public SAP help as a source, label clearly what is official framing versus what comes from landscape metadata.
+- Label all inferred relationships explicitly; never present them as confirmed.
 
 ## Expected Output
 
