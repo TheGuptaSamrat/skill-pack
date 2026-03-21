@@ -1,8 +1,9 @@
 Classification: official-source-derived
 Source basis: FPSL_ADMINGUIDE_EN.pdf, pages 40-55
-Trust usage: monitoring tools, periodic maintenance tasks, troubleshooting framework
+Trust usage: CVPM operational monitoring, BW client setup, periodic maintenance tasks, troubleshooting framework
 Do not use for: specific error resolution without investigation
-Topics covered: monitoring, CVPM monitor, periodic tasks, troubleshooting, operational tasks, data archiving, performance tuning
+Topics covered: CVPM Monitor, BW client setup, parallel processing monitors, periodic tasks, namespace configuration, business partner setup, troubleshooting frameworks
+Skill domain: CVPM operational implementation and run verification
 
 # Operations, Monitoring, and Periodic Tasks
 •    /BIC/

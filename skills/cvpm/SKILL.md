@@ -18,7 +18,8 @@ Use this skill for FPSL calculation and valuation process design and review.
 7. Read [cvpm-method-design.md](./references/cvpm-method-design.md) for method type patterns and implementation guidance.
 8. Read [cvpm-data-integration.md](./references/cvpm-data-integration.md) for data staging and integration workflows.
 9. Read [cvpm-validation.md](./references/cvpm-validation.md).
-10. Read [official-sources.md](./references/official-sources.md) when standard FPSL framing matters.
+10. Read [fpsl-cvpm-operational-monitoring.md](./references/fpsl-cvpm-operational-monitoring.md) for FPSL CVPM Monitor guidance, periodic task verification, system setup, and troubleshooting frameworks.
+11. Read [official-sources.md](./references/official-sources.md) when standard FPSL framing matters.
 
 ## Trust Order
 
