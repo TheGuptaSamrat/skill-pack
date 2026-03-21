@@ -27,6 +27,14 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 4. Curated concept notes for sizing logic
 5. Synthetic examples only for shape
 
+## Workflow
+
+1. Confirm baseline inputs: current volume, growth assumptions, retention horizon, and average record-size assumptions.
+2. Build a base-case estimate first, then add one or two sensitivity scenarios (for example conservative and aggressive growth).
+3. Separate transaction-volume projections from storage-growth projections and state where assumptions drive each result.
+4. Label uncertainty clearly and avoid presenting estimates as measured production truth.
+5. Return the smallest useful projection artifact first, then extend only if the user asks for additional scenarios.
+
 ## Accepted Inputs
 
 - monthly transaction volume
