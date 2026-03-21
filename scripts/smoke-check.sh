@@ -16,6 +16,8 @@ required_files=(
   "$repo_root/.github/instructions/reconciliation.instructions.md"
   "$repo_root/.github/instructions/mapping.instructions.md"
   "$repo_root/.github/instructions/test-data.instructions.md"
+  "$repo_root/.github/instructions/cvpm.instructions.md"
+  "$repo_root/.github/instructions/partitioning.instructions.md"
   "$repo_root/scripts/normalize_excel.py"
   "$repo_root/scripts/run-normalization.sh"
   "$repo_root/scripts/ingest_pdf_context.py"
@@ -46,6 +48,10 @@ required_files=(
   "$repo_root/skills/mapping/agents/openai.yaml"
   "$repo_root/skills/test-data/SKILL.md"
   "$repo_root/skills/test-data/agents/openai.yaml"
+  "$repo_root/skills/cvpm/SKILL.md"
+  "$repo_root/skills/cvpm/agents/openai.yaml"
+  "$repo_root/skills/partitioning/SKILL.md"
+  "$repo_root/skills/partitioning/agents/openai.yaml"
   "$repo_root/metadata-drop/README.md"
   "$repo_root/metadata-drop/ddic/README.md"
   "$repo_root/metadata-drop/cds/README.md"
@@ -68,6 +74,8 @@ required_files=(
   "$repo_root/test-cases/test-case-11-mapping-focused.md"
   "$repo_root/test-cases/test-case-12-test-data-focused.md"
   "$repo_root/test-cases/test-case-13-quality-focused.md"
+  "$repo_root/test-cases/test-case-14-cvpm-focused.md"
+  "$repo_root/test-cases/test-case-15-partitioning-focused.md"
 )
 
 for file in "${required_files[@]}"; do

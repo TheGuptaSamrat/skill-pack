@@ -1,0 +1,4 @@
+version: 1
+display_name: Partitioning
+short_description: HANA partitioning strategy skill for FPSL-relevant tables
+default_prompt: Review or recommend HANA partitioning for FPSL-relevant tables using measured volume, access-pattern, and operational evidence without inventing DB settings.

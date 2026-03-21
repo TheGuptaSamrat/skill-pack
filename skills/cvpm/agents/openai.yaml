@@ -1,0 +1,4 @@
+version: 1
+display_name: CVPM
+short_description: FPSL calculation and valuation process design and review skill
+default_prompt: Design or review FPSL CVPM structure with explicit process-step, method, worklist, and thread assumptions, without inventing customer-specific objects.

@@ -10,6 +10,7 @@ Goals:
 - identify missing metadata or weak guidance
 - compare broad core skills versus narrower focused skills
 - verify the 6 use cases map cleanly to one primary skill each
+- verify added engineering-focused skills stay modular and do not blur into neighboring skills
 
 How to run:
 

@@ -48,6 +48,8 @@ Focused skills:
 - `reconciliation`
 - `mapping`
 - `test-data`
+- `cvpm`
+- `partitioning`
 
 ## Metadata Drop
 
@@ -132,6 +134,11 @@ Use-case mapping:
 - `reconciliation` for SQL checks, counts, totals, and data-flow validation
 - `test-data` for synthetic FPSL/FSDM test data
 - `projections` for trend and size estimation
+
+Additional focused engineering skills:
+
+- `cvpm` for FPSL calculation and valuation process job design, method framing, worklists, and thread configuration guidance
+- `partitioning` for HANA partition strategy and SAP-aligned partition recommendations for FPSL-relevant tables
 
 ## Design Principles
 

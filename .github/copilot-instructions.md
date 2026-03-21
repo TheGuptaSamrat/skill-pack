@@ -29,6 +29,8 @@ Recommended mapping:
 - `reconciliation` for SQL checks, data-flow validation, totals, keys, and process-run verification from data
 - `mapping` for source-to-target mapping specs with confirmed, inferred, and unresolved sections
 - `test-data` for synthetic scenario data, insert scripts, fixture builders, and batch-style functional test preparation
+- `cvpm` for FPSL calculation and valuation process design, method framing, worklist guidance, and thread-aware implementation review
+- `partitioning` for HANA partitioning strategy, table-growth review, and SAP-aligned operational partition guidance
 
 VS Code routing files:
 
@@ -41,3 +43,5 @@ VS Code routing files:
 - `.github/instructions/reconciliation.instructions.md`
 - `.github/instructions/mapping.instructions.md`
 - `.github/instructions/test-data.instructions.md`
+- `.github/instructions/cvpm.instructions.md`
+- `.github/instructions/partitioning.instructions.md`
