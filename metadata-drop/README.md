@@ -27,6 +27,7 @@ Suggested folders:
 - `samples/`
 - `raw-excel/`
 - `normalized/`
+- `pdf-resources/` (source PDFs for knowledge extraction)
 
 Operating standard:
 

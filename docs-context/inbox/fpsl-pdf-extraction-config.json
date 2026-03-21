@@ -1,0 +1,115 @@
+{
+  "target_root": "docs-context/inbox/review-drafts/fpsl-pdfs",
+  "sections": [
+    {
+      "filename": "01-fpsl-architecture-overview.md",
+      "title": "FPSL Architecture Overview",
+      "classification": "training-derived-concepts",
+      "start_page": 1,
+      "end_page": 20,
+      "trust_usage": "product framing, architecture understanding, data model concepts",
+      "do_not_use_for": "customer-specific implementation details, local configuration assumptions",
+      "topics": ["FPSL scope", "Universal Journal", "multi-GAAP approach", "subledger architecture", "HANA integration"]
+    },
+    {
+      "filename": "02-ffpsl-process-steps-complete.md",
+      "title": "Complete FPSL Process Steps Reference",
+      "classification": "training-derived-concepts",
+      "start_page": 50,
+      "end_page": 100,
+      "trust_usage": "standard FPSL process nomenclature, sequence understanding, process-step dependencies",
+      "do_not_use_for": "customer configuration or method names",
+      "topics": ["Register", "Accrue", "Defer", "Value", "Classify", "FX revaluation", "process sequence"]
+    },
+    {
+      "filename": "03-loan-example-worked-flow.md",
+      "title": "Loan Example - Worked Process Flow",
+      "classification": "training-derived-concepts",
+      "start_page": 100,
+      "end_page": 150,
+      "trust_usage": "process flow illustration, method evaluation order, GL account mapping concepts",
+      "do_not_use_for": "production data, customer-specific rules",
+      "topics": ["loan accounting", "interest accrual", "amortized cost", "GL posting", "period-end processing"]
+    },
+    {
+      "filename": "04-bond-example-basic.md",
+      "title": "Bond Example - Basic Valuation",
+      "classification": "training-derived-concepts",
+      "start_page": 150,
+      "end_page": 200,
+      "trust_usage": "bond accounting concepts, fair value vs. amortized cost, IFRS 9 classification",
+      "do_not_use_for": "production valuation models",
+      "topics": ["bond accounting", "fair value", "amortized cost", "IFRS 9", "financial instruments"]
+    },
+    {
+      "filename": "05-bond-example-fx-oci-recycling.md",
+      "title": "Bond Example - FX Revaluation and OCI Recycling",
+      "classification": "training-derived-concepts",
+      "start_page": 200,
+      "end_page": 250,
+      "trust_usage": "FX mechanics, OCI conceptual flow, recycling on position exit",
+      "do_not_use_for": "specific FX calculation formulas or rates",
+      "topics": ["FX revaluation", "Monetary Asset Revaluation (MAR)", "OCI", "recycling", "multi-currency accounting"]
+    },
+    {
+      "filename": "06-ifrs9-classification-matrix.md",
+      "title": "IFRS 9 Classification and Measurement Framework",
+      "classification": "training-derived-concepts",
+      "start_page": 180,
+      "end_page": 210,
+      "trust_usage": "IFRS 9 business model assessment, SPPI test, classification categories",
+      "do_not_use_for": "regulatory interpretation or customer-specific classification",
+      "topics": ["IFRS 9", "classification", "business model", "SPPI test", "amortized cost", "fair value", "accounting treatment"]
+    },
+    {
+      "filename": "08-admin-architecture-deployment.md",
+      "title": "FPSL System Architecture and Deployment Options",
+      "classification": "official-source-derived",
+      "start_page": 1,
+      "end_page": 10,
+      "trust_usage": "supported deployment patterns, system components, architecture framing",
+      "do_not_use_for": "specific customer deployment decisions without assessment",
+      "topics": ["system architecture", "deployment options", "embedded vs. hub", "front-end/back-end", "landscape planning"]
+    },
+    {
+      "filename": "09-admin-security-authorization.md",
+      "title": "Security, User Management, and Authorization",
+      "classification": "official-source-derived",
+      "start_page": 10,
+      "end_page": 25,
+      "trust_usage": "user types, role concepts, authorization object structure, security framework",
+      "do_not_use_for": "specific customer security policies or role assignments",
+      "topics": ["security", "user management", "authorization objects", "roles", "access control", "authentication"]
+    },
+    {
+      "filename": "10-admin-installation-setup.md",
+      "title": "Installation, Setup, and Client Configuration",
+      "classification": "official-source-derived",
+      "start_page": 25,
+      "end_page": 45,
+      "trust_usage": "installation sequence, pre-install checks, post-install tasks, business content",
+      "do_not_use_for": "specific landscape details without adaptation",
+      "topics": ["installation", "client setup", "business content", "BC sets", "configuration sequence", "pre-checks"]
+    },
+    {
+      "filename": "11-admin-operations-monitoring.md",
+      "title": "Operations, Monitoring, and Periodic Tasks",
+      "classification": "official-source-derived",
+      "start_page": 45,
+      "end_page": 62,
+      "trust_usage": "monitoring tools, periodic maintenance tasks, troubleshooting framework",
+      "do_not_use_for": "specific error resolution without investigation",
+      "topics": ["monitoring", "CVPM monitor", "periodic tasks", "troubleshooting", "operational tasks", "data archiving", "performance tuning"]
+    },
+    {
+      "filename": "12-admin-sap-notes-dependencies.md",
+      "title": "Critical SAP Notes and Dependencies",
+      "classification": "official-source-derived",
+      "start_page": 8,
+      "end_page": 11,
+      "trust_usage": "required SAP Notes, dependencies, support tracking",
+      "do_not_use_for": "determining specific patch requirements (verify with SAP directly)",
+      "topics": ["SAP Notes", "dependencies", "release information", "partitioning", "data tiering", "scale-out"]
+    }
+  ]
+}

@@ -1,15 +1,5 @@
-# Official Sources Router
+# Official Sources
 
-Load these curated docs from `docs-context/official/sap/`:
+→ See centralized router: [docs-context/shared/official-sources-router.md](../../../../../docs-context/shared/official-sources-router.md)
 
-- `fpsl-product-overview.md`
-- `fpsl-client-setup.md`
-- `fsdm-fpsl-integration.md`
-
-Use them for:
-
-- standard product areas
-- client setup framing
-- integration boundaries
-
-Do not use them as proof of customer-specific configuration values or IMG navigation.
+For config-specific guidance, reference the router sections above for relevant official SAP documentation.
