@@ -23,6 +23,54 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 10. Read [fpsl-cvpm-operational-monitoring.md](./references/fpsl-cvpm-operational-monitoring.md) for FPSL CVPM Monitor guidance, periodic task verification, system setup, and troubleshooting frameworks.
 11. Read [official-sources.md](./references/official-sources.md) when standard FPSL framing matters.
 
+## Progressive Reading Paths
+
+**Choose your path based on your goal:**
+
+### ⚡ Fast Path (25% of content, ~30 min)
+*Goal: Understand CVPM job structure and design basics*
+
+**Read Steps:**
+1. This file
+2. fpsl-process-steps-reference.md → **[Fast Path only](#navigate)** (pages 1-50: Register only)
+3. cvpm-core-rules.md
+4. cvpm-implementation-patterns.md (skim patterns only, don't memorize)
+5. cvpm-process-design-guide.md → Introduction section only
+6. cvpm-configuration-tables.md → Process Type Master section only
+
+**Skip:** validation, data-integration details, operational monitoring (for now)
+
+**Output:** Job structure sketch, threading decision, basic pattern selection
+
+---
+
+### 📖 Full Path (100% of content, ~2 hours)
+*Goal: Production-ready CVPM design and implementation*
+
+**Read Steps:** All 11 steps in Load Order sequence
+
+**Depth:** Read all sections, reference sections, code examples
+
+**Output:** Complete CVPM design document, implementation roadmap, method specifications
+
+---
+
+### 🔧 Troubleshooting Path (30% of content, ~40 min)
+*Goal: Debug failing CVPM job or periodic task*
+
+**Read Steps:**
+1. This file
+2. cvpm-core-rules.md (rules section only)
+3. cvpm-validation.md (all)
+4. fpsl-cvpm-operational-monitoring.md (all)
+5. fpsl-process-steps-reference.md → **[Troubleshooting Path](#navigate)** (operations sections only)
+
+**Skip:** method design, configuration hierarchy (unless config issue)
+
+**Output:** Debugging checklist, error resolution, operational guidance
+
+---
+
 ## Trust Order
 
 1. Official SAP documentation and confirmed customer evidence for actual CVPM setup

@@ -4,6 +4,28 @@ Trust usage: standard FPSL process nomenclature, sequence understanding, process
 Do not use for: customer configuration or method names
 Topics covered: Register, Accrue, Defer, Value, Classify, FX revaluation, process sequence
 
+---
+
+## QUICK NAVIGATION: FPSL PROCESS STEPS REFERENCE
+
+**⚡ Fast Path (25% read) - Job Structure Only:** [→ Register](#register) (pages 1-50)
+
+**📖 Full Path (100% read) - Complete Process Steps:**
+- [Register](#register) - Day processing, unpaid principal balance (pages 1-50)
+- [Accrue](#accrue) - Accruals, accrued income/expense (pages 51-80)
+- [Defer](#defer) - Deferrals, deferred income/expense (pages 81-120)
+- [Value FX](#valuefx) - Fair value, FX revaluation, hedged fair value (pages 121-180)
+- [Classify](#classify) - IFRS 9 classification, measurement categories (pages 181-220)
+- [Write Down](#writedown) - Write-down valuation, credit risk (pages 221-250)
+- [Supplementary Steps](#supplementary) - Credit risk, amortized cost (pages 251-300+)
+
+**🔧 Troubleshooting Path (30% read) - Operations Only:**
+- [Process Run Errors](#errors)
+- [Periodic Task Validation](#validation)
+- [Reconciliation Checkpoints](#reconciliation)
+
+---
+
 # Complete FPSL Process Steps Reference
 Accounting Process Model and Book Value Components - Register
 
