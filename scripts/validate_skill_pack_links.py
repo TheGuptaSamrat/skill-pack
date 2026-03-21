@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Dict, List
 
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+BACKTICK_PATH_RE = re.compile(r"`((?:skills|docs-context|\.github)/[^`]+)`")
 
 
 def is_external_link(link: str) -> bool:
@@ -43,9 +44,29 @@ def validate_links(repo_root: Path, path: Path) -> List[str]:
         if not raw_target or is_external_link(raw_target):
             continue
         resolved = (path.parent / raw_target).resolve()
+        try:
+            resolved.relative_to(repo_root)
+        except ValueError:
+            rel_path = path.relative_to(repo_root).as_posix()
+            errors.append(f"{rel_path}: link escapes repo root -> {raw_target}")
+            continue
         if not resolved.exists():
             rel_path = path.relative_to(repo_root).as_posix()
             errors.append(f"{rel_path}: missing link target -> {raw_target}")
+
+    for match in BACKTICK_PATH_RE.finditer(text):
+        raw_target = match.group(1)
+        resolved = (repo_root / raw_target).resolve()
+        try:
+            resolved.relative_to(repo_root)
+        except ValueError:
+            rel_path = path.relative_to(repo_root).as_posix()
+            errors.append(f"{rel_path}: backtick path escapes repo root -> {raw_target}")
+            continue
+        if not resolved.exists():
+            rel_path = path.relative_to(repo_root).as_posix()
+            errors.append(f"{rel_path}: missing backtick path reference -> {raw_target}")
+
     return errors
 
 
