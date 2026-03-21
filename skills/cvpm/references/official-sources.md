@@ -1,12 +1,5 @@
-# Official Sources Router
+# Official Sources
 
-Load curated FPSL context from `docs-context/official/sap/` when needed:
+→ See centralized router: [docs-context/shared/official-sources-router.md](../../../../../docs-context/shared/official-sources-router.md)
 
-- `fpsl-product-overview.md`
-- `fpsl-client-setup.md`
-
-Use them for:
-
-- standard FPSL terminology
-- process and setup framing
-- non-customer-specific context
+For cvpm-specific guidance, reference the router sections above for relevant official SAP documentation.

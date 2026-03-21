@@ -1,9 +1,5 @@
-# Official Sources Router
+# Official Sources
 
-Use official SAP guidance for:
+→ See centralized router: [docs-context/shared/official-sources-router.md](../../../../../docs-context/shared/official-sources-router.md)
 
-- supported HANA partitioning behavior
-- ABAP-managed object access constraints
-- FPSL archiving and data-lifecycle framing
-
-Use them as support boundaries and terminology anchors, not as proof of customer-specific DB design.
+For partitioning-specific guidance, reference the router sections above for relevant official SAP documentation.

@@ -1,7 +1,5 @@
-# Official Sources Router
+# Official Sources
 
-Load curated context from:
+→ See centralized router: [docs-context/shared/official-sources-router.md](../../../../../docs-context/shared/official-sources-router.md)
 
-- `docs-context/official/sap/fpsl-product-overview.md`
-
-Use it for product framing only, not sizing truth.
+For projections-specific guidance, reference the router sections above for relevant official SAP documentation.
