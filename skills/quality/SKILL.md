@@ -10,10 +10,12 @@ Use this skill for structural data quality rule generation (schema compliance, f
 ## Load Order
 
 1. Read this file.
-2. Read [quality-rules.md](./references/quality-rules.md).
-3. Read [metadata-sources.md](./references/metadata-sources.md).
-4. Read [official-sources.md](./references/official-sources.md).
-5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for SQL Console or ADT paste.
+2. Read [quality-core-rules.md](./references/quality-core-rules.md) for rule generation hierarchy (confirmed/inferred/unresolved), rule categories (null, domain, key, type, cross-field, referential integrity).
+3. Read [quality-core-patterns.md](./references/quality-core-patterns.md) for 7 real-world patterns: null checks, domain validation, key uniqueness, FK referential integrity, type/format validation, cross-field business logic, completeness checks.
+4. Read [metadata-sources.md](./references/metadata-sources.md) for DDIC evidence hierarchy and artifact types.
+5. Read [quality-validation-checklist.md](./references/quality-validation-checklist.md) for pre-deployment validation, testing strategies, and production readiness guidance.
+6. Read [official-sources.md](./references/official-sources.md) for standard FPSL/FSDM terminology when framing quality rules.
+7. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when quality rule output is meant for SQL Console or automated deployment.
 
 ## Trust Order
 
