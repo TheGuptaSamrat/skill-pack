@@ -7,6 +7,8 @@ description: Structural data conformance - DDIC-driven data quality rules for FP
 
 Use this skill for structural data quality rule generation (schema compliance, field validation). Do not use for cross-process verification or business logic validation—use `reconciliation` for that.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

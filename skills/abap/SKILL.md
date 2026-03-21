@@ -7,6 +7,8 @@ description: Build and review modular ABAP for FPSL and FSDM. Use for orchestrat
 
 Use this skill for ABAP-heavy work in FPSL and FSDM projects.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.

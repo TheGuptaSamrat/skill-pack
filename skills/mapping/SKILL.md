@@ -7,6 +7,8 @@ description: Generate source-to-target mapping specifications for FSDM, FPSL, an
 
 Use this skill for mapping-spec work rather than general technical documentation.
 
+See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.md) for clarification on when to use this skill vs. others.
+
 ## Load Order
 
 1. Read this file.
