@@ -23,10 +23,10 @@ Recommended mapping:
 - `amdp` for HANA pushdown, SQLScript, AMDP wrappers, and CDS table functions
 - `abap` for OO ABAP, orchestration, validations, exceptions, and ABAP Unit
 - `config` for FPSL configuration flows, derivative rules, setup guidance, and validation checklists
-- `quality` for DDIC-driven quality rules such as completeness, consistency, key, null, and domain checks
+- `quality` for structural data conformance validation: DDIC-driven rules such as completeness, consistency, key, null, and domain checks
 - `docs` for technical documentation, metadata-driven descriptions, and general handoff docs
 - `projections` for yearly or monthly volume growth, DB-size estimation, and trend projections
-- `reconciliation` for SQL checks, data-flow validation, totals, keys, and process-run verification from data
+- `reconciliation` for business data verification: SQL checks, data-flow validation, totals, cross-process key integrity, and process-run verification from data
 - `mapping` for source-to-target mapping specs with confirmed, inferred, and unresolved sections
 - `test-data` for synthetic scenario data, insert scripts, fixture builders, and batch-style functional test preparation
 - `cvpm` for FPSL calculation and valuation process design, method framing, worklist guidance, and thread-aware implementation review

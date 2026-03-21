@@ -1,11 +1,11 @@
 ---
 name: quality
-description: Generate DDIC-driven data quality rules for FPSL and FSDM flows. Use for completeness, consistency, key, null, type, domain, and cross-field checks.
+description: Structural data conformance - DDIC-driven data quality rules for FPSL and FSDM flows. Use for completeness, consistency, key, null, type, domain, and cross-field checks.
 ---
 
-# Quality
+# Quality (Structural Data Conformance)
 
-Use this skill for data quality rule generation rather than general reconciliation or mapping work.
+Use this skill for structural data quality rule generation (schema compliance, field validation). Do not use for cross-process verification or business logic validation—use `reconciliation` for that.
 
 ## Load Order
 

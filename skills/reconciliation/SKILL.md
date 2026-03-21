@@ -1,11 +1,11 @@
 ---
 name: reconciliation
-description: Generate and review DDIC-aware reconciliation SQL, data-flow checks, totals validation, key integrity checks, and process-run verification queries for FPSL and FSDM flows.
+description: Business data verification - DDIC-aware reconciliation SQL, data-flow checks, totals validation, key integrity across processes, and process-run verification queries for FPSL and FSDM flows.
 ---
 
-# Reconciliation
+# Reconciliation (Business Data Verification)
 
-Use this skill for investigative SQL and data-validation work.
+Use this skill for investigative SQL and process-level validation. Do not use for structural schema compliance—use `quality` for DDIC rule definitions. Use `reconciliation` only for cross-process totals, control balancing, and operational run verification.
 
 ## Load Order
 
