@@ -1,0 +1,65 @@
+{
+  "target_root": "docs-context/inbox/review-drafts/fpsl-training-extracted",
+  "sections": [
+    {
+      "filename": "01-fpsl-architecture-overview.md",
+      "title": "FPSL Architecture Overview",
+      "classification": "training-derived-concepts",
+      "start_page": 1,
+      "end_page": 20,
+      "trust_usage": "product framing, architecture understanding, data model concepts",
+      "do_not_use_for": "customer-specific implementation details, local configuration assumptions",
+      "topics": ["FPSL scope", "Universal Journal", "multi-GAAP approach", "subledger architecture", "HANA integration"]
+    },
+    {
+      "filename": "02-fpsl-process-steps-complete.md",
+      "title": "Complete FPSL Process Steps Reference",
+      "classification": "training-derived-concepts",
+      "start_page": 50,
+      "end_page": 100,
+      "trust_usage": "standard FPSL process nomenclature, sequence understanding, process-step dependencies",
+      "do_not_use_for": "customer configuration or method names",
+      "topics": ["Register", "Accrue", "Defer", "Value", "Classify", "FX revaluation", "process sequence"]
+    },
+    {
+      "filename": "03-loan-example-worked-flow.md",
+      "title": "Loan Example - Worked Process Flow",
+      "classification": "training-derived-concepts",
+      "start_page": 100,
+      "end_page": 150,
+      "trust_usage": "process flow illustration, method evaluation order, GL account mapping concepts",
+      "do_not_use_for": "production data, customer-specific rules",
+      "topics": ["loan accounting", "interest accrual", "amortized cost", "GL posting", "period-end processing"]
+    },
+    {
+      "filename": "04-bond-example-basic.md",
+      "title": "Bond Example - Basic Valuation",
+      "classification": "training-derived-concepts",
+      "start_page": 150,
+      "end_page": 180,
+      "trust_usage": "bond accounting concepts, fair value vs. amortized cost, IFRS 9 classification",
+      "do_not_use_for": "production valuation models",
+      "topics": ["bond accounting", "fair value", "amortized cost", "IFRS 9", "financial instruments"]
+    },
+    {
+      "filename": "05-bond-example-fx-oci-recycling.md",
+      "title": "Bond Example - FX Revaluation and OCI Recycling",
+      "classification": "training-derived-concepts",
+      "start_page": 180,
+      "end_page": 220,
+      "trust_usage": "FX mechanics, OCI conceptual flow, recycling on position exit",
+      "do_not_use_for": "specific FX calculation formulas or rates",
+      "topics": ["FX revaluation", "Monetary Asset Revaluation (MAR)", "OCI", "recycling", "multi-currency accounting"]
+    },
+    {
+      "filename": "06-ifrs9-classification-matrix.md",
+      "title": "IFRS 9 Classification and Measurement Framework",
+      "classification": "training-derived-concepts",
+      "start_page": 75,
+      "end_page": 110,
+      "trust_usage": "IFRS 9 business model assessment, SPPI test, classification categories",
+      "do_not_use_for": "regulatory interpretation or customer-specific classification",
+      "topics": ["IFRS 9", "classification", "business model", "SPPI test", "amortized cost", "fair value", "accounting treatment"]
+    }
+  ]
+}

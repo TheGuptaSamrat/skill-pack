@@ -1,0 +1,55 @@
+{
+  "target_root": "docs-context/inbox/review-drafts/fpsl-admin-extracted",
+  "sections": [
+    {
+      "filename": "01-admin-architecture-deployment.md",
+      "title": "FPSL System Architecture and Deployment Options",
+      "classification": "official-source-derived",
+      "start_page": 6,
+      "end_page": 10,
+      "trust_usage": "supported deployment patterns, system components, architecture framing",
+      "do_not_use_for": "specific customer deployment decisions without assessment",
+      "topics": ["system architecture", "deployment options", "embedded vs. hub", "front-end/back-end", "landscape planning"]
+    },
+    {
+      "filename": "02-admin-security-authorization.md",
+      "title": "Security, User Management, and Authorization",
+      "classification": "official-source-derived",
+      "start_page": 10,
+      "end_page": 22,
+      "trust_usage": "user types, role concepts, authorization object structure, security framework",
+      "do_not_use_for": "specific customer security policies or role assignments",
+      "topics": ["security", "user management", "authorization objects", "roles", "access control", "authentication"]
+    },
+    {
+      "filename": "03-admin-installation-setup.md",
+      "title": "Installation, Setup, and Client Configuration",
+      "classification": "official-source-derived",
+      "start_page": 23,
+      "end_page": 40,
+      "trust_usage": "installation sequence, pre-install checks, post-install tasks, business content",
+      "do_not_use_for": "specific landscape details without adaptation",
+      "topics": ["installation", "client setup", "business content", "BC sets", "configuration sequence", "pre-checks"]
+    },
+    {
+      "filename": "04-admin-operations-monitoring.md",
+      "title": "Operations, Monitoring, and Periodic Tasks",
+      "classification": "official-source-derived",
+      "start_page": 40,
+      "end_page": 55,
+      "trust_usage": "monitoring tools, periodic maintenance tasks, troubleshooting framework",
+      "do_not_use_for": "specific error resolution without investigation",
+      "topics": ["monitoring", "CVPM monitor", "periodic tasks", "troubleshooting", "operational tasks", "data archiving", "performance tuning"]
+    },
+    {
+      "filename": "05-admin-sap-notes-dependencies.md",
+      "title": "Critical SAP Notes and Dependencies",
+      "classification": "official-source-derived",
+      "start_page": 8,
+      "end_page": 11,
+      "trust_usage": "required SAP Notes, dependencies, support tracking, partitioning strategy, scale-out guidance",
+      "do_not_use_for": "determining specific patch requirements (verify with SAP directly)",
+      "topics": ["SAP Notes", "dependencies", "release information", "partitioning", "data tiering", "scale-out", "performance"]
+    }
+  ]
+}
