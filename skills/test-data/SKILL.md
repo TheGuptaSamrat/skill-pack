@@ -11,8 +11,10 @@ Use this skill for synthetic scenario data and functional test preparation.
 
 1. Read this file.
 2. Read [test-data-rules.md](./references/test-data-rules.md).
-3. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md).
-4. Read [official-sources.md](./references/official-sources.md).
+3. Read [test-data-builders.md](./references/test-data-builders.md) for fixture builder patterns and parametrized dataset generation.
+4. Read [test-data-scenarios.md](./references/test-data-scenarios.md) for scenario-based test design (happy path, boundary, error cases, volume).
+5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md).
+6. Read [official-sources.md](./references/official-sources.md).
 
 ## Trust Order
 

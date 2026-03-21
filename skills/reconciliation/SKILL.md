@@ -10,10 +10,12 @@ Use this skill for investigative SQL and process-level validation. Do not use fo
 ## Load Order
 
 1. Read this file.
-2. Read [query-rules.md](./references/query-rules.md).
-3. Read [fpsl-monitoring-operations.md](./references/fpsl-monitoring-operations.md) for FPSL process-run validation, periodic task verification, error handling, and operational checkpoints.
-4. Read [official-sources.md](./references/official-sources.md).
-5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse SQL Console or ADT paste.
+2. Read [reconciliation-core-rules.md](./references/reconciliation-core-rules.md) for rule types (totals, row counts, key integrity, data flow, cross-system) and core principles.
+3. Read [reconciliation-core-patterns.md](./references/reconciliation-core-patterns.md) for 4 real-world SQL patterns (daily totals, source-to-target completeness, FK orphans, amount reconciliation).
+4. Read [query-rules.md](./references/query-rules.md).
+5. Read [fpsl-monitoring-operations.md](./references/fpsl-monitoring-operations.md) for FPSL process-run validation, periodic task verification, error handling, and operational checkpoints.
+6. Read [official-sources.md](./references/official-sources.md).
+7. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse SQL Console or ADT paste.
 
 ## Trust Order
 

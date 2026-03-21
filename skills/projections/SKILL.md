@@ -11,9 +11,11 @@ Use this skill for planning and estimation work around FPSL and FSDM data growth
 
 1. Read this file.
 2. Read [projection-rules.md](./references/projection-rules.md).
-3. Read [sizing-assumptions.md](./references/sizing-assumptions.md) when translating business inputs into storage or trend outputs.
-4. Read [official-sources.md](./references/official-sources.md) when official product framing is needed.
-5. Read [projection-context-routes.md](./references/projection-context-routes.md) when you need the exact curated concept and metadata sources to load.
+3. Read [projections-core-concepts.md](./references/projections-core-concepts.md) for sizing assumptions, storage formulas, and projection methods.
+4. Read [sizing-assumptions.md](./references/sizing-assumptions.md) when translating business inputs into storage or trend outputs.
+5. Read [projections-examples.md](./references/projections-examples.md) for real-world examples (HFPPD 3-year projection, intra-daily growth patterns).
+6. Read [official-sources.md](./references/official-sources.md) when official product framing is needed.
+7. Read [projection-context-routes.md](./references/projection-context-routes.md) when you need the exact curated concept and metadata sources to load.
 
 ## Trust Order
 

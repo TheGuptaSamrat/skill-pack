@@ -11,9 +11,11 @@ Use this skill for HANA table partitioning strategy and review in FPSL-relevant 
 
 1. Read this file.
 2. Read [partitioning-core-rules.md](./references/partitioning-core-rules.md).
-3. Read [fpsl-partitioning-sap-notes.md](./references/fpsl-partitioning-sap-notes.md) for critical SAP Notes on FPSL partitioning strategy, data tiering, scale-out architecture, and performance optimization.
-4. Read [partitioning-validation.md](./references/partitioning-validation.md).
-5. Read [official-sources.md](./references/official-sources.md).
+3. Read [partitioning-core-concepts.md](./references/partitioning-core-concepts.md) for partitioning types (range, hash, round-robin) and key SAP Notes references.
+4. Read [fpsl-partitioning-sap-notes.md](./references/fpsl-partitioning-sap-notes.md) for critical SAP Notes on FPSL partitioning strategy, data tiering, scale-out architecture, and performance optimization.
+5. Read [partitioning-examples.md](./references/partitioning-examples.md) for real-world examples (HFPPD date-range, HKTVR hash, reference tables).
+6. Read [partitioning-validation.md](./references/partitioning-validation.md).
+7. Read [official-sources.md](./references/official-sources.md).
 
 ## Trust Order
 
