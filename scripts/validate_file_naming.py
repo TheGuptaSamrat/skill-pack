@@ -2,7 +2,7 @@
 """Validate repository filename conventions.
 
 Rules:
-- prefer lowercase kebab-case for non-special files
+- prefer lowercase with hyphens or underscores for non-special files (no uppercase, no spaces)
 - allow conventional special names: README.md and SKILL.md
 - allow source PDFs in metadata-drop/pdf-resources as authoritative artifacts
 """
@@ -65,7 +65,7 @@ def main() -> int:
         for path in violations:
             print(f"- {path}", file=sys.stderr)
         print(
-            "Rule: use lowercase kebab-style filenames unless explicitly allowed (README.md, SKILL.md, source PDFs).",
+            "Rule: use lowercase filenames with hyphens or underscores unless explicitly allowed (README.md, SKILL.md, source PDFs).",
             file=sys.stderr,
         )
         return 1

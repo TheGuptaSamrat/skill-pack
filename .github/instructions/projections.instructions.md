@@ -11,7 +11,7 @@ Use this instruction set when the task is primarily about:
 Load in this order:
 
 1. `skills/projections/SKILL.md`
-2. `skills/projections/references/projection-rules.md`
+2. `skills/projections/references/projections-core-rules.md`
 3. `skills/projections/references/sizing-assumptions.md`
 4. `skills/projections/references/projection-context-routes.md`
 
