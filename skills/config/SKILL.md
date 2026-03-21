@@ -11,10 +11,11 @@ Use this skill for configuration-heavy FPSL tasks that still need disciplined te
 
 1. Read this file.
 2. Read [configuration-core-rules.md](./references/configuration-core-rules.md).
-3. Read [validation-and-tcodes.md](./references/validation-and-tcodes.md) when verification is needed.
-4. Read `../../metadata-drop/configuration/` artifacts when sample navigation, validation sequence, or setup examples are available.
-5. Read [official-sources.md](./references/official-sources.md) when you need official FPSL/FSDM scope anchors.
-6. Use this skill for guided operational verification, checklists, and evidence-led process review; route set-based SQL and data-presence checks to `reconciliation` or `amdp`.
+3. Read [fpsl-installation-configuration.md](./references/fpsl-installation-configuration.md) for FPSL system installation, client setup, and business content deployment guidance.
+4. Read [validation-and-tcodes.md](./references/validation-and-tcodes.md) when verification is needed.
+5. Read `../../metadata-drop/configuration/` artifacts when sample navigation, validation sequence, or setup examples are available.
+6. Read [official-sources.md](./references/official-sources.md) when you need official FPSL/FSDM scope anchors.
+7. Use this skill for guided operational verification, checklists, and evidence-led process review; route set-based SQL and data-presence checks to `reconciliation` or `amdp`.
 
 ## Trust Order
 

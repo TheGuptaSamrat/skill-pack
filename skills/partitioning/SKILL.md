@@ -11,8 +11,9 @@ Use this skill for HANA table partitioning strategy and review in FPSL-relevant 
 
 1. Read this file.
 2. Read [partitioning-core-rules.md](./references/partitioning-core-rules.md).
-3. Read [partitioning-validation.md](./references/partitioning-validation.md).
-4. Read [official-sources.md](./references/official-sources.md).
+3. Read [fpsl-partitioning-sap-notes.md](./references/fpsl-partitioning-sap-notes.md) for critical SAP Notes on FPSL partitioning strategy, data tiering, scale-out architecture, and performance optimization.
+4. Read [partitioning-validation.md](./references/partitioning-validation.md).
+5. Read [official-sources.md](./references/official-sources.md).
 
 ## Trust Order
 

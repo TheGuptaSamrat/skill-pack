@@ -11,8 +11,9 @@ Use this skill for investigative SQL and data-validation work.
 
 1. Read this file.
 2. Read [query-rules.md](./references/query-rules.md).
-3. Read [official-sources.md](./references/official-sources.md).
-4. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse SQL Console or ADT paste.
+3. Read [fpsl-monitoring-operations.md](./references/fpsl-monitoring-operations.md) for FPSL process-run validation, periodic task verification, error handling, and operational checkpoints.
+4. Read [official-sources.md](./references/official-sources.md).
+5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for Eclipse SQL Console or ADT paste.
 
 ## Trust Order
 

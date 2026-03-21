@@ -11,9 +11,10 @@ Use this skill for data quality rule generation rather than general reconciliati
 
 1. Read this file.
 2. Read [quality-rules.md](./references/quality-rules.md).
-3. Read [metadata-sources.md](./references/metadata-sources.md).
-4. Read [official-sources.md](./references/official-sources.md).
-5. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for SQL Console or ADT paste.
+3. Read [fpsl-data-quality-monitoring.md](./references/fpsl-data-quality-monitoring.md) for FPSL operational monitoring, data quality validation points, and periodic task guidance.
+4. Read [metadata-sources.md](./references/metadata-sources.md).
+5. Read [official-sources.md](./references/official-sources.md).
+6. Read [adt-handoff-rules.md](./references/adt-handoff-rules.md) when output is meant for SQL Console or ADT paste.
 
 ## Trust Order
 

@@ -10,10 +10,15 @@ Use this skill for FPSL calculation and valuation process design and review.
 ## Load Order
 
 1. Read this file.
-2. Read [cvpm-core-rules.md](./references/cvpm-core-rules.md).
-3. Read [cvpm-implementation-patterns.md](./references/cvpm-implementation-patterns.md).
-4. Read [cvpm-validation.md](./references/cvpm-validation.md).
-5. Read [official-sources.md](./references/official-sources.md) when standard FPSL framing matters.
+2. Read [fpsl-process-steps-reference.md](./references/fpsl-process-steps-reference.md) for authoritative FPSL standard process steps (Register, Accrue, Defer, Value FX, Classify, etc.).
+3. Read [cvpm-core-rules.md](./references/cvpm-core-rules.md).
+4. Read [cvpm-implementation-patterns.md](./references/cvpm-implementation-patterns.md).
+5. Read [cvpm-process-design-guide.md](./references/cvpm-process-design-guide.md) for complete FPSL process-step deep dives, method mapping, and run strategy.
+6. Read [cvpm-configuration-tables.md](./references/cvpm-configuration-tables.md) for configuration object hierarchy and customizing setup.
+7. Read [cvpm-method-design.md](./references/cvpm-method-design.md) for method type patterns and implementation guidance.
+8. Read [cvpm-data-integration.md](./references/cvpm-data-integration.md) for data staging and integration workflows.
+9. Read [cvpm-validation.md](./references/cvpm-validation.md).
+10. Read [official-sources.md](./references/official-sources.md) when standard FPSL framing matters.
 
 ## Trust Order
 
