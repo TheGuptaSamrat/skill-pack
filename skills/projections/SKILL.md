@@ -10,7 +10,7 @@ Use this skill for planning and estimation work around FPSL and FSDM data growth
 ## Load Order
 
 1. Read this file.
-2. Read [projection-rules.md](./references/projection-rules.md).
+2. Read [projections-core-rules.md](./references/projections-core-rules.md).
 3. Read [projections-core-concepts.md](./references/projections-core-concepts.md) for sizing assumptions, storage formulas, and projection methods.
 4. Read [sizing-assumptions.md](./references/sizing-assumptions.md) when translating business inputs into storage or trend outputs.
 5. Read [projections-examples.md](./references/projections-examples.md) for real-world examples (HFPPD 3-year projection, intra-daily growth patterns).
