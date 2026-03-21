@@ -10,20 +10,37 @@
 
 ## Available PDFs
 
-### fpsl-training.pdf
-- **Status:** [To be uploaded]
-- **Source:** [Add source once uploaded]
-- **Coverage:** FPSL training material
+### FPSL_TRAINING DOCUMENT.pdf (23MB)
+- **Status:** ✅ Uploaded and extracted
+- **Source:** SAP S/4HANA for Financial Products Subledger Training (Collection 01, Revision 01, May 2020, Material #50152712)
+- **Coverage:** Comprehensive FPSL training with worked examples
 - **Key Topics:**
-  - [ ] FPSL process models
-  - [ ] CVPM concepts
-  - [ ] Method examples
-  - [ ] Data models
-  - [ ] Configuration guidance
-  - [ ] Worked examples
+  - ✅ FPSL architecture and data model
+  - ✅ Standard process steps (Register, Accrue, Value FX, Classify, etc.)
+  - ✅ CVPM (Calculation and Valuation Process Management) concepts
+  - ✅ Loan and bond accounting examples
+  - ✅ IFRS 9 classification logic
+  - ✅ Fair value vs. amortized cost methods
+  - ✅ OCI and recycling mechanics
+  - ✅ FX revaluation (MAR - Monetary Asset Revaluation)
 
 **Extracted Reference Files:**
-- (Will be populated as extraction is completed)
+- ✅ cvpm-process-design-guide.md (FPSL standard process steps, CVPM methods, run strategy)
+
+### FPSL_ADMINGUIDE_EN.pdf (789KB)
+- **Status:** ✅ Uploaded
+- **Source:** SAP S/4HANA for Financial Products Subledger 2306 Administration Guide (Version 1.0, June 2023)
+- **Coverage:** System administration, installation, security, operations
+- **Key Topics:**
+  - ✅ System architecture and deployment options
+  - ✅ Security and authorization
+  - ✅ Required SAP Notes and dependencies
+  - ✅ Installation and upgrade procedures
+  - ✅ Monitoring and troubleshooting
+  - ✅ Periodic tasks and year-end processing
+
+**Extracted Reference Files:**
+- ⏳ (Will create operational guidance file)
 
 ---
 
