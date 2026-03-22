@@ -1,0 +1,677 @@
+{
+  "summary": {
+    "skill_count": 11,
+    "mean_entrypoint_tokens": 1043.8,
+    "mean_full_load_tokens": 13186.1,
+    "max_full_load_skill": "cvpm",
+    "max_full_load_tokens": 82658,
+    "min_full_load_skill": "projections",
+    "min_full_load_tokens": 1036
+  },
+  "skills": [
+    {
+      "skill": "cvpm",
+      "instruction": {
+        "path": ".github/instructions/cvpm.instructions.md",
+        "lines": 24,
+        "chars": 845,
+        "estimated_tokens": 212
+      },
+      "skill_file": {
+        "path": "skills/cvpm/SKILL.md",
+        "lines": 147,
+        "chars": 7552,
+        "estimated_tokens": 1888
+      },
+      "references": [
+        {
+          "path": "skills/cvpm/references/cvpm-process-steps-quick-reference.md",
+          "lines": 50,
+          "chars": 2105,
+          "estimated_tokens": 527
+        },
+        {
+          "path": "skills/cvpm/references/fpsl-2306-core-engines.md",
+          "lines": 278,
+          "chars": 10325,
+          "estimated_tokens": 2582
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-core-rules.md",
+          "lines": 17,
+          "chars": 1024,
+          "estimated_tokens": 256
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-implementation-patterns.md",
+          "lines": 13,
+          "chars": 1181,
+          "estimated_tokens": 296
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-process-design-guide.md",
+          "lines": 412,
+          "chars": 13922,
+          "estimated_tokens": 3481
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-configuration-tables.md",
+          "lines": 291,
+          "chars": 13172,
+          "estimated_tokens": 3293
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-method-design.md",
+          "lines": 389,
+          "chars": 13240,
+          "estimated_tokens": 3310
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-balance-snapshot-implementation.md",
+          "lines": 187,
+          "chars": 6218,
+          "estimated_tokens": 1555
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-data-integration.md",
+          "lines": 480,
+          "chars": 15336,
+          "estimated_tokens": 3834
+        },
+        {
+          "path": "skills/cvpm/references/cvpm-validation.md",
+          "lines": 7,
+          "chars": 468,
+          "estimated_tokens": 117
+        },
+        {
+          "path": "skills/cvpm/references/fpsl-cvpm-operational-monitoring.md",
+          "lines": 866,
+          "chars": 51196,
+          "estimated_tokens": 12799
+        },
+        {
+          "path": "skills/cvpm/references/fpsl-process-steps-reference.md",
+          "lines": 2431,
+          "chars": 176145,
+          "estimated_tokens": 44037
+        },
+        {
+          "path": "docs-context/official/sap/fpsl-fsdm-2023-golden-source.md",
+          "lines": 449,
+          "chars": 15036,
+          "estimated_tokens": 3759
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        }
+      ],
+      "load_steps": 14,
+      "reference_count": 14,
+      "entrypoint_tokens": 2100,
+      "full_load_tokens": 82658,
+      "entrypoint_chars": 8397,
+      "full_load_chars": 330610,
+      "expansion_ratio": 39.36,
+      "avg_tokens_per_step": 5904.1
+    },
+    {
+      "skill": "config",
+      "instruction": {
+        "path": ".github/instructions/config.instructions.md",
+        "lines": 20,
+        "chars": 607,
+        "estimated_tokens": 152
+      },
+      "skill_file": {
+        "path": "skills/config/SKILL.md",
+        "lines": 58,
+        "chars": 3169,
+        "estimated_tokens": 793
+      },
+      "references": [
+        {
+          "path": "skills/config/references/configuration-core-rules.md",
+          "lines": 14,
+          "chars": 977,
+          "estimated_tokens": 245
+        },
+        {
+          "path": "skills/config/references/fpsl-installation-configuration.md",
+          "lines": 1002,
+          "chars": 56220,
+          "estimated_tokens": 14055
+        },
+        {
+          "path": "skills/config/references/validation-and-tcodes.md",
+          "lines": 38,
+          "chars": 766,
+          "estimated_tokens": 192
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        }
+      ],
+      "load_steps": 4,
+      "reference_count": 4,
+      "entrypoint_tokens": 945,
+      "full_load_tokens": 16149,
+      "entrypoint_chars": 3776,
+      "full_load_chars": 64584,
+      "expansion_ratio": 17.09,
+      "avg_tokens_per_step": 4037.2
+    },
+    {
+      "skill": "reconciliation",
+      "instruction": {
+        "path": ".github/instructions/reconciliation.instructions.md",
+        "lines": 20,
+        "chars": 709,
+        "estimated_tokens": 178
+      },
+      "skill_file": {
+        "path": "skills/reconciliation/SKILL.md",
+        "lines": 47,
+        "chars": 2524,
+        "estimated_tokens": 631
+      },
+      "references": [
+        {
+          "path": "skills/reconciliation/references/reconciliation-core-rules.md",
+          "lines": 19,
+          "chars": 910,
+          "estimated_tokens": 228
+        },
+        {
+          "path": "skills/reconciliation/references/reconciliation-core-patterns.md",
+          "lines": 48,
+          "chars": 1401,
+          "estimated_tokens": 351
+        },
+        {
+          "path": "skills/reconciliation/references/fpsl-monitoring-operations.md",
+          "lines": 865,
+          "chars": 51061,
+          "estimated_tokens": 12766
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        }
+      ],
+      "load_steps": 5,
+      "reference_count": 5,
+      "entrypoint_tokens": 809,
+      "full_load_tokens": 15094,
+      "entrypoint_chars": 3233,
+      "full_load_chars": 60360,
+      "expansion_ratio": 18.66,
+      "avg_tokens_per_step": 3018.8
+    },
+    {
+      "skill": "integration",
+      "instruction": {
+        "path": ".github/instructions/integration.instructions.md",
+        "lines": 25,
+        "chars": 1229,
+        "estimated_tokens": 308
+      },
+      "skill_file": {
+        "path": "skills/integration/SKILL.md",
+        "lines": 57,
+        "chars": 3653,
+        "estimated_tokens": 914
+      },
+      "references": [
+        {
+          "path": "skills/integration/references/integration-core-rules.md",
+          "lines": 40,
+          "chars": 1267,
+          "estimated_tokens": 317
+        },
+        {
+          "path": "skills/integration/references/integration-core-patterns.md",
+          "lines": 42,
+          "chars": 1365,
+          "estimated_tokens": 342
+        },
+        {
+          "path": "skills/integration/references/fpsl-fsdm-integration-architecture.md",
+          "lines": 37,
+          "chars": 1461,
+          "estimated_tokens": 366
+        },
+        {
+          "path": "skills/integration/references/fsdm-rfm-extraction-guide.md",
+          "lines": 37,
+          "chars": 1305,
+          "estimated_tokens": 327
+        },
+        {
+          "path": "skills/integration/references/integration-validation.md",
+          "lines": 37,
+          "chars": 1022,
+          "estimated_tokens": 256
+        },
+        {
+          "path": "skills/integration/references/integration-testing.md",
+          "lines": 33,
+          "chars": 888,
+          "estimated_tokens": 222
+        },
+        {
+          "path": "docs-context/official/sap/fpsl-fsdm-2023-golden-source.md",
+          "lines": 449,
+          "chars": 15036,
+          "estimated_tokens": 3759
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        }
+      ],
+      "load_steps": 9,
+      "reference_count": 9,
+      "entrypoint_tokens": 1222,
+      "full_load_tokens": 7751,
+      "entrypoint_chars": 4882,
+      "full_load_chars": 30981,
+      "expansion_ratio": 6.34,
+      "avg_tokens_per_step": 861.2
+    },
+    {
+      "skill": "mapping",
+      "instruction": {
+        "path": ".github/instructions/mapping.instructions.md",
+        "lines": 17,
+        "chars": 520,
+        "estimated_tokens": 130
+      },
+      "skill_file": {
+        "path": "skills/mapping/SKILL.md",
+        "lines": 52,
+        "chars": 2740,
+        "estimated_tokens": 685
+      },
+      "references": [
+        {
+          "path": "skills/mapping/references/mapping-core-rules.md",
+          "lines": 32,
+          "chars": 1242,
+          "estimated_tokens": 311
+        },
+        {
+          "path": "skills/mapping/references/mapping-core-patterns.md",
+          "lines": 176,
+          "chars": 5827,
+          "estimated_tokens": 1457
+        },
+        {
+          "path": "skills/mapping/references/metadata-sources.md",
+          "lines": 9,
+          "chars": 258,
+          "estimated_tokens": 65
+        },
+        {
+          "path": "skills/mapping/references/mapping-edge-cases.md",
+          "lines": 211,
+          "chars": 6391,
+          "estimated_tokens": 1598
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        }
+      ],
+      "load_steps": 6,
+      "reference_count": 6,
+      "entrypoint_tokens": 815,
+      "full_load_tokens": 5186,
+      "entrypoint_chars": 3260,
+      "full_load_chars": 20733,
+      "expansion_ratio": 6.36,
+      "avg_tokens_per_step": 864.3
+    },
+    {
+      "skill": "partitioning",
+      "instruction": {
+        "path": ".github/instructions/partitioning.instructions.md",
+        "lines": 24,
+        "chars": 1072,
+        "estimated_tokens": 268
+      },
+      "skill_file": {
+        "path": "skills/partitioning/SKILL.md",
+        "lines": 64,
+        "chars": 3504,
+        "estimated_tokens": 876
+      },
+      "references": [
+        {
+          "path": "skills/partitioning/references/partitioning-core-rules.md",
+          "lines": 8,
+          "chars": 587,
+          "estimated_tokens": 147
+        },
+        {
+          "path": "skills/partitioning/references/partitioning-core-concepts.md",
+          "lines": 21,
+          "chars": 696,
+          "estimated_tokens": 174
+        },
+        {
+          "path": "skills/partitioning/references/fpsl-partitioning-sap-notes.md",
+          "lines": 199,
+          "chars": 10276,
+          "estimated_tokens": 2569
+        },
+        {
+          "path": "skills/partitioning/references/partitioning-examples.md",
+          "lines": 38,
+          "chars": 1152,
+          "estimated_tokens": 288
+        },
+        {
+          "path": "skills/partitioning/references/partitioning-validation.md",
+          "lines": 7,
+          "chars": 455,
+          "estimated_tokens": 114
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        }
+      ],
+      "load_steps": 6,
+      "reference_count": 6,
+      "entrypoint_tokens": 1144,
+      "full_load_tokens": 5148,
+      "entrypoint_chars": 4576,
+      "full_load_chars": 20587,
+      "expansion_ratio": 4.5,
+      "avg_tokens_per_step": 858.0
+    },
+    {
+      "skill": "quality",
+      "instruction": {
+        "path": ".github/instructions/quality.instructions.md",
+        "lines": 19,
+        "chars": 599,
+        "estimated_tokens": 150
+      },
+      "skill_file": {
+        "path": "skills/quality/SKILL.md",
+        "lines": 51,
+        "chars": 2741,
+        "estimated_tokens": 686
+      },
+      "references": [
+        {
+          "path": "skills/quality/references/quality-core-rules.md",
+          "lines": 65,
+          "chars": 2259,
+          "estimated_tokens": 565
+        },
+        {
+          "path": "skills/quality/references/quality-core-patterns.md",
+          "lines": 265,
+          "chars": 6938,
+          "estimated_tokens": 1735
+        },
+        {
+          "path": "skills/quality/references/metadata-sources.md",
+          "lines": 9,
+          "chars": 341,
+          "estimated_tokens": 86
+        },
+        {
+          "path": "skills/quality/references/quality-validation-checklist.md",
+          "lines": 82,
+          "chars": 2455,
+          "estimated_tokens": 614
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        }
+      ],
+      "load_steps": 6,
+      "reference_count": 6,
+      "entrypoint_tokens": 836,
+      "full_load_tokens": 4776,
+      "entrypoint_chars": 3340,
+      "full_load_chars": 19088,
+      "expansion_ratio": 5.71,
+      "avg_tokens_per_step": 796.0
+    },
+    {
+      "skill": "amdp",
+      "instruction": {
+        "path": ".github/instructions/amdp.instructions.md",
+        "lines": 24,
+        "chars": 660,
+        "estimated_tokens": 165
+      },
+      "skill_file": {
+        "path": "skills/amdp/SKILL.md",
+        "lines": 65,
+        "chars": 3621,
+        "estimated_tokens": 906
+      },
+      "references": [
+        {
+          "path": "skills/amdp/references/amdp-core-rules.md",
+          "lines": 20,
+          "chars": 1184,
+          "estimated_tokens": 296
+        },
+        {
+          "path": "skills/amdp/references/amdp-query-patterns.md",
+          "lines": 22,
+          "chars": 1200,
+          "estimated_tokens": 300
+        },
+        {
+          "path": "skills/amdp/references/sql-and-performance-rules.md",
+          "lines": 11,
+          "chars": 604,
+          "estimated_tokens": 151
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        },
+        {
+          "path": "skills/amdp/references/hana-query-analysis-concepts.md",
+          "lines": 14,
+          "chars": 332,
+          "estimated_tokens": 83
+        }
+      ],
+      "load_steps": 6,
+      "reference_count": 6,
+      "entrypoint_tokens": 1071,
+      "full_load_tokens": 2841,
+      "entrypoint_chars": 4281,
+      "full_load_chars": 11356,
+      "expansion_ratio": 2.65,
+      "avg_tokens_per_step": 473.5
+    },
+    {
+      "skill": "abap",
+      "instruction": {
+        "path": ".github/instructions/abap.instructions.md",
+        "lines": 19,
+        "chars": 494,
+        "estimated_tokens": 124
+      },
+      "skill_file": {
+        "path": "skills/abap/SKILL.md",
+        "lines": 58,
+        "chars": 2975,
+        "estimated_tokens": 744
+      },
+      "references": [
+        {
+          "path": "skills/abap/references/abap-core-rules.md",
+          "lines": 22,
+          "chars": 1368,
+          "estimated_tokens": 342
+        },
+        {
+          "path": "skills/abap/references/abap-test-patterns.md",
+          "lines": 12,
+          "chars": 714,
+          "estimated_tokens": 179
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        }
+      ],
+      "load_steps": 4,
+      "reference_count": 4,
+      "entrypoint_tokens": 868,
+      "full_load_tokens": 2329,
+      "entrypoint_chars": 3469,
+      "full_load_chars": 9306,
+      "expansion_ratio": 2.68,
+      "avg_tokens_per_step": 582.2
+    },
+    {
+      "skill": "test-data",
+      "instruction": {
+        "path": ".github/instructions/test-data.instructions.md",
+        "lines": 18,
+        "chars": 552,
+        "estimated_tokens": 138
+      },
+      "skill_file": {
+        "path": "skills/test-data/SKILL.md",
+        "lines": 47,
+        "chars": 1989,
+        "estimated_tokens": 498
+      },
+      "references": [
+        {
+          "path": "skills/test-data/references/test-data-core-rules.md",
+          "lines": 8,
+          "chars": 375,
+          "estimated_tokens": 94
+        },
+        {
+          "path": "skills/test-data/references/test-data-builders.md",
+          "lines": 30,
+          "chars": 854,
+          "estimated_tokens": 214
+        },
+        {
+          "path": "skills/test-data/references/test-data-scenarios.md",
+          "lines": 27,
+          "chars": 779,
+          "estimated_tokens": 195
+        },
+        {
+          "path": "docs-context/shared/adt-handoff-rules.md",
+          "lines": 38,
+          "chars": 910,
+          "estimated_tokens": 228
+        },
+        {
+          "path": "docs-context/shared/official-sources-router.md",
+          "lines": 59,
+          "chars": 2845,
+          "estimated_tokens": 712
+        }
+      ],
+      "load_steps": 5,
+      "reference_count": 5,
+      "entrypoint_tokens": 636,
+      "full_load_tokens": 2079,
+      "entrypoint_chars": 2541,
+      "full_load_chars": 8304,
+      "expansion_ratio": 3.27,
+      "avg_tokens_per_step": 415.8
+    },
+    {
+      "skill": "projections",
+      "instruction": {
+        "path": ".github/instructions/projections.instructions.md",
+        "lines": 19,
+        "chars": 907,
+        "estimated_tokens": 227
+      },
+      "skill_file": {
+        "path": "skills/projections/SKILL.md",
+        "lines": 62,
+        "chars": 3236,
+        "estimated_tokens": 809
+      },
+      "references": [],
+      "load_steps": 0,
+      "reference_count": 0,
+      "entrypoint_tokens": 1036,
+      "full_load_tokens": 1036,
+      "entrypoint_chars": 4143,
+      "full_load_chars": 4143,
+      "expansion_ratio": 1.0,
+      "avg_tokens_per_step": 0.0
+    }
+  ]
+}

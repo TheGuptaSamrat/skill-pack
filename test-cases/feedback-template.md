@@ -6,14 +6,20 @@
 - Skill used:
 - Prompt used:
 - Metadata used:
+- Prompt size (short / medium / long):
 - Was the first draft usable:
 - How many prompt turns were needed:
+- Context efficiency rating (1-5):
+- Did the skill appear to load only relevant context:
 - Was the output easy to paste into Eclipse ADT:
 - Did the output include tests:
 - Did the output include validation:
+- Output accuracy rating (1-5):
+- How many factual corrections were needed:
 - Were any names or fields invented:
 - Were assumptions clearly labeled:
 - Was the output immediately usable:
+- Usability rating (1-5):
 - What was strong:
 - What was weak:
 - What metadata would have improved the result:

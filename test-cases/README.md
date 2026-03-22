@@ -20,3 +20,4 @@ How to run:
 2. ask them to use the named skill only
 3. ask them to keep the prompt short
 4. ask them to record the outcome in `feedback-template.md`
+5. capture the new scoring fields for context efficiency, output accuracy, factual correction count, and usability so test-case reviews can be compared against `docs-context/indexes/skill-efficiency-report.md`

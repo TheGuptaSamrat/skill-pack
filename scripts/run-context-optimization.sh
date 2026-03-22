@@ -8,6 +8,11 @@ python3 "$repo_root/scripts/audit_skill_pack_redundancy.py" \
   --out-md "docs-context/indexes/redundancy-audit.md" \
   --out-json "docs-context/indexes/redundancy-audit.json"
 
+python3 "$repo_root/scripts/measure_skill_efficiency.py" \
+  --repo-root "$repo_root" \
+  --out-md "docs-context/indexes/skill-efficiency-report.md" \
+  --out-json "docs-context/indexes/skill-efficiency-report.json"
+
 python3 "$repo_root/scripts/validate_skill_pack_links.py" \
   --repo-root "$repo_root" \
   --out-json "docs-context/indexes/validation-skill-pack.json"
@@ -15,4 +20,6 @@ python3 "$repo_root/scripts/validate_skill_pack_links.py" \
 echo "Context optimization audit completed."
 echo "- docs-context/indexes/redundancy-audit.md"
 echo "- docs-context/indexes/redundancy-audit.json"
+echo "- docs-context/indexes/skill-efficiency-report.md"
+echo "- docs-context/indexes/skill-efficiency-report.json"
 echo "- docs-context/indexes/validation-skill-pack.json"

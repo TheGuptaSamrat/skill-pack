@@ -21,6 +21,7 @@ required_files=(
   "$repo_root/.github/instructions/partitioning.instructions.md"
   "$repo_root/scripts/normalize_excel.py"
   "$repo_root/scripts/audit_skill_pack_redundancy.py"
+  "$repo_root/scripts/measure_skill_efficiency.py"
   "$repo_root/scripts/validate_skill_pack_links.py"
   "$repo_root/scripts/validate_file_naming.py"
   "$repo_root/scripts/run-context-optimization.sh"
