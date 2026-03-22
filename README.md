@@ -10,6 +10,10 @@ This repo is designed for:
 
 It is designed for teams developing in Eclipse ADT while using VS Code with GitHub Copilot as the AI interaction and context workspace.
 
+For a quick orientation to the codebase structure and key technologies, read:
+
+- `codebase.md`
+
 For the developer-value summary, read:
 
 - `how-it-accelerates.md`
