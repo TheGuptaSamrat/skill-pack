@@ -14,9 +14,10 @@ import re
 import sys
 from pathlib import Path
 
-ALLOWED_BASENAMES = {"README.md", "SKILL.md", ".gitignore"}
+ALLOWED_BASENAMES = {"README.md", "SKILL.md", ".gitignore", ".DS_Store"}
 ALLOWED_PREFIXES = {
     "metadata-drop/pdf-resources/",
+    "metadata-drop/fpsl/",  # Allow source .docx files
     ".git/",
 }
 VALID_NAME_RE = re.compile(r"^[a-z0-9.][a-z0-9._-]*$")
