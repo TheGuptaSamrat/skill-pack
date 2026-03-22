@@ -28,12 +28,6 @@ Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for 
 Use the config skill in this repo. Give me an evidence-first FPSL configuration walkthrough with prerequisites, impact notes, and validation steps. Keep assumptions explicit.
 ```
 
-### `docs`
-
-```text
-Use the docs skill in this repo. Build a concise technical design note from the available metadata. Separate confirmed structures from inferred relationships and list unresolved gaps.
-```
-
 ### `projections`
 
 ```text

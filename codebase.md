@@ -65,8 +65,7 @@ skill-pack/
 │       ├── test-data.instructions.md
 │       ├── cvpm.instructions.md
 │       ├── partitioning.instructions.md
-│       ├── projections.instructions.md
-│       └── docs.instructions.md     # Retired — guardrails folded into mapping/abap
+│       └── projections.instructions.md
 │
 ├── skills/                          # Canonical skill packs (11 total)
 │   ├── abap/                        # OO ABAP, orchestration, exceptions, ABAP Unit
@@ -160,7 +159,7 @@ skills/<skill-name>/
 | Core | `abap`, `amdp`, `config` | Always-relevant engineering disciplines |
 | Focused | `quality`, `reconciliation`, `mapping`, `test-data`, `cvpm`, `partitioning` | Task-specific |
 | Script-driven | `projections` | AI only for cold-start; use scripts for regular cadence |
-| Retired routing | `docs` | Reference files available; route new tasks to `mapping` or `abap` |
+
 
 ### Skill Boundary Quick Reference
 

@@ -58,10 +58,6 @@ Script-driven (no AI invocation):
 
 - `projections` — use `scripts/projections/` workflow; AI only for cold-start planning
 
-Retired routing (guardrails folded into primary skills):
-
-- `docs` — route to `mapping`, `abap`, or `amdp` instead
-
 ## Metadata Drop
 
 Use `metadata-drop/` for reusable evidence that improves output quality without expanding prompts.

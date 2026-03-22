@@ -28,8 +28,6 @@ Choose only one skill first.
   - configuration guidance, derivative rules, setup validation, upload checks
 - `quality`
   - DDIC-driven completeness, consistency, key, null, type, and domain checks
-- `docs`
-  - technical specs, mapping docs, metadata interpretation, handoff docs
 - `projections`
   - sizing estimates, volume trends, DB growth assumptions, sensitivity views
 - `reconciliation`
@@ -43,7 +41,7 @@ Choose only one skill first.
 - `partitioning`
   - HANA partitioning strategy for FPSL-relevant tables using volume, growth, and access-pattern evidence
 
-Use `quality` for SDL/RDL-style quality rules. Use `projections` for estimation and sizing outputs. Use `docs` for documentation and metadata interpretation. Use `mapping` for mapping specifications.
+Use `quality` for SDL/RDL-style quality rules. Use `projections` for estimation and sizing outputs. Use `mapping` for mapping specifications.
 
 Do not load all skills at once unless the task genuinely spans them.
 

@@ -15,8 +15,8 @@
 |---|---|---|
 | **DDIC field-level checks?** | `quality` | `reconciliation` |
 | **Cross-table totals balancing?** | `reconciliation` | `quality` |
-| **Source-to-target mapping?** | `mapping` | `docs` |
-| **Technical documentation?** | `docs` | `mapping` |
+| **Source-to-target mapping?** | `mapping` | `mapping` |
+| **Technical documentation?** | `mapping` | `mapping` |
 | **FPSL configuration setup?** | `config` | `cvpm` |
 | **FPSL process design?** | `cvpm` | `config` |
 | **SQLScript or AMDP code?** | `amdp` | `abap` |
@@ -341,11 +341,6 @@ All 11 skills now include explicit "Do not use for..." statements:
 ### CVPM SKILL.md
 ```
 "Route mapping work to `mapping`, validation SQL to `reconciliation`, quality rules to `quality`, and code artifacts to `abap` or `amdp`."
-```
-
-### Docs SKILL.md
-```
-"For finalized source-to-target specifications, use `mapping` skill."
 ```
 
 ---

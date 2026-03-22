@@ -448,6 +448,23 @@ CONSISTENCY SCORE: 6.3/10 (high variance suggests inconsistent expectations)
 
 ---
 
+### Phase 6: Complete Docs Skill Retirement
+**Start Date:** 2026-03-22
+**Completion Date:** 2026-03-22
+**Status:** ✅ COMPLETE — commit TBD
+
+**Scope:**
+- [x] Deleted `.github/instructions/docs.instructions.md` (retirement shim)
+- [x] Deleted `skills/docs/SKILL.md` (retired skill entry point)
+- [x] Deleted 3 low-value reference files: `documentation-core-rules.md`, `mapping-spec-rules.md`, `metadata-sources.md`
+- [x] Moved `fpsl-architecture-overview.md` and `fpsl-deployment-architecture.md` → `docs-context/training/fpsl/`
+- [x] Removed docs from 9 documentation files (copilot-instructions, README, codebase, routing matrix, examples, guidance)
+- [x] Updated test-case-04 to route to `mapping` skill
+
+**Result:** Clean active skill roster (9 skills, all invocable). Docs skill fully removed. Durable reference content preserved in training layer.
+
+---
+
 ## NEW BRANCH: feature/cvpm-optimization-phase-3-5
 
 **Created:** 2026-03-21 (post-Phase 1-2 merge)

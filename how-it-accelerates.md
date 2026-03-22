@@ -38,8 +38,6 @@ Each skill already carries task-specific rules:
   - modular ABAP, exceptions, tests
 - `config`
   - evidence-first configuration guidance
-- `docs`
-  - metadata-driven technical documentation
 - `cvpm`
   - process-step, method, worklist, and monitor-first design guidance
 - `partitioning`

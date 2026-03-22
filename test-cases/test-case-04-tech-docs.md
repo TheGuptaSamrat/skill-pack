@@ -2,7 +2,7 @@
 
 Skill:
 
-- `docs`
+- `mapping`
 
 Scenario:
 
