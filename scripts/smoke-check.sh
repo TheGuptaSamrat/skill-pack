@@ -64,6 +64,8 @@ required_files=(
   "$repo_root/metadata-drop/fsdm/README.md"
   "$repo_root/metadata-drop/configuration/README.md"
   "$repo_root/metadata-drop/samples/README.md"
+  "$repo_root/metadata-drop/samples/fsdm-fpsl-delta-load-scenario.md"
+  "$repo_root/metadata-drop/samples/integration-restart-recovery-scenario.md"
   "$repo_root/metadata-drop/raw-excel/README.md"
   "$repo_root/metadata-drop/normalized/README.md"
   "$repo_root/metadata-drop/manifest.csv"
@@ -82,6 +84,7 @@ required_files=(
   "$repo_root/test-cases/test-case-14-cvpm-focused.md"
   "$repo_root/test-cases/test-case-15-partitioning-focused.md"
   "$repo_root/test-cases/test-case-16-integration-focused.md"
+  "$repo_root/test-cases/test-case-17-integration-boundary.md"
 )
 
 for file in "${required_files[@]}"; do

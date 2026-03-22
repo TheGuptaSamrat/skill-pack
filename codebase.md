@@ -100,7 +100,7 @@ skill-pack/
 │   ├── fpsl/                        # FPSL core structure notes
 │   ├── fsdm/                        # FSDM model notes
 │   ├── configuration/               # Sample navigation paths and validation checklists
-│   ├── samples/                     # Safe sample rows (e.g., cashflow_rows.sample.csv)
+│   ├── samples/                     # Safe sample rows and integration-routing scenarios
 │   ├── raw-excel/                   # Trusted source Excel workbooks (input only)
 │   ├── normalized/                  # Active working CSVs (output of normalization script)
 │   ├── pdf-resources/               # Source PDFs for knowledge extraction
@@ -123,11 +123,11 @@ skill-pack/
 │       ├── db-size-snapshots.csv    # Append DB disk results here
 │       └── generate_projection_workbook.py  # Produces 7-sheet Excel workbook
 │
-├── test-cases/                      # 16 structured developer trial scenarios
+├── test-cases/                      # 17 structured developer trial scenarios
 │   ├── README.md
 │   ├── feedback-template.md
 │   ├── test-case-01-amdp.md         # … through …
-│   └── test-case-16-integration-focused.md
+│   └── test-case-17-integration-boundary.md
 │
 └── .vscode/
     └── tasks.json                   # VS Code task: run metadata normalization

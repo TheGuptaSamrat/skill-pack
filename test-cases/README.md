@@ -12,6 +12,7 @@ Goals:
 - verify the 6 use cases map cleanly to one primary skill each
 - verify added engineering-focused skills stay modular and do not blur into neighboring skills
 - verify integration-focused prompts route to `integration` instead of `mapping`, `reconciliation`, or `config`
+- verify boundary prompts still keep field-spec work in `mapping` and balancing work in `reconciliation`
 
 How to run:
 
