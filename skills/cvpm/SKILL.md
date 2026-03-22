@@ -139,5 +139,5 @@ Treat screenshot metrics (for example, package/record volumes) as scale indicato
 
 ## Local Evidence Pack
 
-- [extracted-ocr.md](../../metadata-drop/OtherDocs/CVPM/extracted-ocr.md)
+- [cvpm-amdp-implementation-walkthrough.md](./references/cvpm-amdp-implementation-walkthrough.md)
 - [cvpm-balance-snapshot-implementation.md](./references/cvpm-balance-snapshot-implementation.md)
