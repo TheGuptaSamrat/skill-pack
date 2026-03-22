@@ -140,7 +140,7 @@ Use-case mapping:
 - `mapping` for source-to-target mapping specs
 - `reconciliation` for SQL checks, counts, totals, and data-flow validation
 - `test-data` for synthetic FPSL/FSDM test data
-- `projections` — script-driven; use `scripts/projections/WORKFLOW.md` for all regular tracking; AI only for cold-start planning without snapshot data
+- `projections` — script-driven; use `scripts/projections/workflow.md` for all regular tracking; AI only for cold-start planning without snapshot data
 
 Additional focused engineering skills:
 

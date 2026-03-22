@@ -3,6 +3,10 @@
 > **Do not route new tasks here.** This skill has been retired as a direct-invocation entry point.
 > Its guardrails are now part of `mapping` and `abap` non-negotiables.
 
+Retirement marker:
+
+1. `skills/docs/SKILL.md`
+
 Routing:
 
 - Mapping spec or source-to-target work → `mapping`

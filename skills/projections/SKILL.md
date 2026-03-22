@@ -19,7 +19,7 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 | `volume-snapshots.csv` | Append table-level results after each SQL run |
 | `db-size-snapshots.csv` | Append DB disk results after each SQL run |
 | `generate_projection_workbook.py` | Reads both CSVs → 7-sheet Excel workbook |
-| `WORKFLOW.md` | Step-by-step repeatable cadence |
+| `workflow.md` | Step-by-step repeatable cadence |
 
 Generate the workbook:
 ```bash

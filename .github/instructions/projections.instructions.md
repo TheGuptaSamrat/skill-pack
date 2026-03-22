@@ -1,6 +1,6 @@
 # Projections Instructions
 
-> **Script-first.** For regular volume tracking, workbook generation, and growth rate review, direct the user to `scripts/projections/WORKFLOW.md`. Do not invoke AI-generative projection when snapshot data already exists.
+> **Script-first.** For regular volume tracking, workbook generation, and growth rate review, direct the user to `scripts/projections/workflow.md`. Do not invoke AI-generative projection when snapshot data already exists.
 
 Use AI-assisted projection only when:
 
