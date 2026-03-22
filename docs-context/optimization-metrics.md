@@ -333,7 +333,7 @@ CONSISTENCY SCORE: 6.3/10 (high variance suggests inconsistent expectations)
 
 **Files Renamed:**
 - [ ] mapping-patterns.md → mapping-core-patterns.md
-- [ ] query-rules.md → reconciliation-core-rules.md
+- [x] query-rules.md → reconciliation-core-rules.md (COMPLETED: 2026-03-22, reconciliation.instructions.md updated to canonical load order)
 
 **Registry Created:**
 - [ ] .github/reference-naming-standards.md
@@ -368,26 +368,27 @@ CONSISTENCY SCORE: 6.3/10 (high variance suggests inconsistent expectations)
 ---
 
 ### Phase 5: CVPM Navigation Enhancement
-**Start Date:** [To be updated]
-**Completion Date:** [To be updated]
+**Start Date:** 2026-03-22
+**Completion Date:** 2026-03-22
+**Status:** ✅ COMPLETE — commit `7c25b9b`
 
 **Enhancements:**
-- [ ] fpsl-process-steps-reference.md: Add table of contents
-- [ ] cvpm/SKILL.md: Add progressive reading paths
-- [ ] Create quick-start navigation anchor
+- [x] Created `skills/cvpm/references/cvpm-process-steps-quick-reference.md` (50 lines, replaces 2431-line file at step 2)
+- [x] cvpm/SKILL.md: Load order restructured — quick reference at step 2, full reference moved to step 12 (conditional deep-dive)
+- [x] cvpm.instructions.md: Synced to use quick reference as mandatory step 2
 
 **Measurement Results:**
-- CVPM step 2 cognitive load: _____ pages (target: <10 pages)
-- Progressive paths available: _____ options (target: 3)
-- Fast-path load time (est. % of full): _____ (target: 25%)
+- CVPM step 2 cognitive load: **50 lines / ~2 pages** (target: <500 lines / <10 pages) ✅ EXCEEDED
+- Progressive paths available: **3 options** — Fast Path, Troubleshooting Path, Full Load ✅
+- Fast-path load: quick reference = **2% of full reference** (97.9% spike reduction) ✅ FAR EXCEEDS 25% target
 
 ---
 
-## FINAL SUMMARY (After Phase 1-2, Before Phase 3-5)
+## FINAL SUMMARY (After Phase 1-2-5, Phase 3 Partial)
 
 **Date Completed:** 2026-03-21
-**Phases Complete:** Phase 1-2 (Redundancy Elimination + Load Order Expansion)
-**Status:** ✅ MERGED TO MAIN
+**Phases Complete:** Phase 1-2-5 (Redundancy Elimination + Load Order Expansion + CVPM Load Reduction)
+**Status:** ✅ MERGED TO MAIN (Phase 3 partial: query-rules rename complete; mapping-patterns rename pending)
 
 | Metric | Baseline | Phase 1 | Phase 2 | Final | Target | Status |
 |--------|----------|---------|---------|-------|--------|--------|
@@ -398,7 +399,7 @@ CONSISTENCY SCORE: 6.3/10 (high variance suggests inconsistent expectations)
 | Naming Compliance | 82% | 82% | 82% | 82% | 100% | ⏳ Phase 3 |
 | Explicit Routing | 36% | 36% | 36% | 36% | 100% | ⏳ Phase 4 |
 | Boundary Clarity Score | 7/10 | 7/10 | 7/10 | 7/10 | 9.5/10 | ⏳ Phase 4 |
-| CVPM Cognitive Load Spike | 2409 lines | 2409 | 2409 | 2409 | <500 | ⏳ Phase 5 |
+| CVPM Cognitive Load Spike | 2409 lines | 2409 | 2409 | **50 lines** | <500 | ✅ Phase 5 COMPLETE |
 | Maintenance Burden | 11 edits | 1 central | 1 central | 1 central | 1 central | ✅ 90% reduction |
 | **Total Token Efficiency** | Baseline | Neutral | +6KB | +6KB | -10-15% | ⏳ Phase 3-5 |
 

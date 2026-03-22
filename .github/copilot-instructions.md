@@ -38,7 +38,6 @@ VS Code routing files:
 - `.github/instructions/abap.instructions.md`
 - `.github/instructions/config.instructions.md`
 - `.github/instructions/quality.instructions.md`
-- `.github/instructions/docs.instructions.md`
 - `.github/instructions/projections.instructions.md`
 - `.github/instructions/reconciliation.instructions.md`
 - `.github/instructions/mapping.instructions.md`
