@@ -1,0 +1,4 @@
+version: 1
+display_name: Integration
+short_description: FSDM-to-FPSL integration orchestration, staging, restart, and validation skill
+default_prompt: Analyze or design SAP FSDM to FPSL integration flow with explicit extraction controls, staging checkpoints, restart logic, and technical validation notes.

@@ -25,6 +25,10 @@ Standard FPSL terminology, process framing, and non-customer-specific documentat
 - `fpsl-guided-configuration.md` - Product-standard guided configuration framing
 - `fpsl-fsdm-2023-golden-source.md` - Section 3.2 (Multi-GAAP Strategy), Section 4.4 (Value Mapping Tables)
 
+### Integration Skill
+- `fsdm-fpsl-integration.md` - Standard FSDM and FPSL integration framing
+- `fpsl-fsdm-2023-golden-source.md` - Section 4 (Data Loading workflow, /FSDL/EXTRACT, mapping-view consumption, value-mapping context)
+
 ### CVPM Skill
 - `fpsl-fsdm-2023-golden-source.md` - ⭐ **Comprehensive source** for Part 3 (Core Engines), accounting logic, EBA rules, multi-GAAP posting
 

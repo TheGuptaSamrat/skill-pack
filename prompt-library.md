@@ -28,6 +28,12 @@ Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for 
 Use the config skill in this repo. Give me an evidence-first FPSL configuration walkthrough with prerequisites, impact notes, and validation steps. Keep assumptions explicit.
 ```
 
+### `integration`
+
+```text
+Use the integration skill in this repo. Propose the smallest useful FSDM-to-FPSL data-loading design note with extract, stage, validate, and load checkpoints, restart logic, and technical control checks.
+```
+
 ### `projections`
 
 ```text
@@ -81,6 +87,7 @@ Add one line if needed:
 - `Do not invent object names; keep placeholders explicit.`
 - `Separate confirmed setup from inferred setup.`
 - `Route any follow-up coding to abap or amdp.`
+- `Route field-level mapping to mapping and posted-result balancing to reconciliation.`
 
 Repository hygiene note:
 

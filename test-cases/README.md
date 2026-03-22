@@ -11,6 +11,7 @@ Goals:
 - compare broad core skills versus narrower focused skills
 - verify the 6 use cases map cleanly to one primary skill each
 - verify added engineering-focused skills stay modular and do not blur into neighboring skills
+- verify integration-focused prompts route to `integration` instead of `mapping`, `reconciliation`, or `config`
 
 How to run:
 

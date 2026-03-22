@@ -59,6 +59,7 @@ skill-pack/
 │       ├── abap.instructions.md
 │       ├── amdp.instructions.md
 │       ├── config.instructions.md
+│       ├── integration.instructions.md
 │       ├── quality.instructions.md
 │       ├── reconciliation.instructions.md
 │       ├── mapping.instructions.md
@@ -67,22 +68,22 @@ skill-pack/
 │       ├── partitioning.instructions.md
 │       └── projections.instructions.md
 │
-├── skills/                          # Canonical skill packs (11 total)
+├── skills/                          # Canonical skill packs (11 active)
 │   ├── abap/                        # OO ABAP, orchestration, exceptions, ABAP Unit
 │   ├── amdp/                        # AMDP, SQLScript, CDS table functions
 │   ├── config/                      # FPSL guided configuration and checklists
+│   ├── integration/                 # FSDM-to-FPSL orchestration, staging, restart, validation
 │   ├── quality/                     # DDIC-driven data quality rules
 │   ├── reconciliation/              # Cross-process totals, counts, data-flow checks
 │   ├── mapping/                     # Source-to-target mapping specs
 │   ├── test-data/                   # Synthetic FPSL/FSDM test data and insert scripts
 │   ├── cvpm/                        # Calculation and valuation process design
 │   ├── partitioning/                # HANA partition strategy
-│   ├── projections/                 # Volume forecasting (script-driven; AI for cold-start only)
-│   └── docs/                        # Retired routing target; reference files still usable
+│   └── projections/                 # Volume forecasting (script-driven; AI for cold-start only)
 │
 ├── docs-context/                    # Knowledge corpora
 │   ├── README.md
-│   ├── official/sap/                # Official SAP-derived markdown (6 source documents)
+│   ├── official/sap/                # Official SAP-derived markdown
 │   ├── official/sap-fioneer/        # SAP Fioneer resources
 │   ├── training/fpsl/               # Training-derived FPSL conceptual notes
 │   ├── training/hana-sql/           # HANA query processing and performance concepts
@@ -122,11 +123,11 @@ skill-pack/
 │       ├── db-size-snapshots.csv    # Append DB disk results here
 │       └── generate_projection_workbook.py  # Produces 7-sheet Excel workbook
 │
-├── test-cases/                      # 15 structured developer trial scenarios
+├── test-cases/                      # 16 structured developer trial scenarios
 │   ├── README.md
 │   ├── feedback-template.md
 │   ├── test-case-01-amdp.md         # … through …
-│   └── test-case-15-partitioning-focused.md
+│   └── test-case-16-integration-focused.md
 │
 └── .vscode/
     └── tasks.json                   # VS Code task: run metadata normalization
@@ -156,7 +157,7 @@ skills/<skill-name>/
 
 | Category | Skills | Notes |
 |---|---|---|
-| Core | `abap`, `amdp`, `config` | Always-relevant engineering disciplines |
+| Core | `abap`, `amdp`, `config`, `integration` | Always-relevant engineering disciplines |
 | Focused | `quality`, `reconciliation`, `mapping`, `test-data`, `cvpm`, `partitioning` | Task-specific |
 | Script-driven | `projections` | AI only for cold-start; use scripts for regular cadence |
 
@@ -168,6 +169,7 @@ skills/<skill-name>/
 | DDIC field-level null/domain checks | `quality` |
 | Cross-process totals balancing | `reconciliation` |
 | FSDM → FPSL mapping spec | `mapping` |
+| FSDM → FPSL extract/stage/load orchestration | `integration` |
 | ABAP class, method, ABAP Unit | `abap` |
 | AMDP / SQLScript / CDS table function | `amdp` |
 | FPSL configuration walkthrough | `config` |

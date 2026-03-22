@@ -43,6 +43,14 @@ Do not point skills to raw source conversions in the public repo.
 ## FSDM Integration
 
 - `docs-context/official/sap/fsdm-fpsl-integration.md`
+- `docs-context/official/sap/fpsl-fsdm-2023-golden-source.md`
+
+## Integration Orchestration
+
+- `docs-context/official/sap/fsdm-fpsl-integration.md`
+- `docs-context/official/sap/fpsl-fsdm-2023-golden-source.md`
+- `skills/integration/references/fpsl-fsdm-integration-architecture.md`
+- `skills/integration/references/fsdm-rfm-extraction-guide.md`
 
 ## Mapping Specifications
 

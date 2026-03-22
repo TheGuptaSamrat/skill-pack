@@ -44,6 +44,7 @@ Core skills:
 - `amdp`
 - `abap`
 - `config`
+- `integration`
 
 Focused skills:
 
@@ -136,6 +137,7 @@ Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for 
 Use-case mapping:
 
 - `config` for setup and navigation guidance
+- `integration` for FSDM-to-FPSL extraction orchestration, staging flow, restart control design, and technical load validation
 - `quality` for SDL/RDL-style data quality rules
 - `mapping` for source-to-target mapping specs
 - `reconciliation` for SQL checks, counts, totals, and data-flow validation

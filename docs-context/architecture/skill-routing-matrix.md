@@ -18,6 +18,7 @@
 | **Source-to-target mapping?** | `mapping` | `mapping` |
 | **Technical documentation?** | `mapping` | `mapping` |
 | **FPSL configuration setup?** | `config` | `cvpm` |
+| **FSDM -> FPSL extract, stage, load orchestration?** | `integration` | `mapping` |
 | **FPSL process design?** | `cvpm` | `config` |
 | **SQLScript or AMDP code?** | `amdp` | `abap` |
 | **ABAP orchestration or Unit tests?** | `abap` | `amdp` |
@@ -167,6 +168,68 @@ Question: I'm doing FPSL configuration. Which skill?
 │  │  └─ → USE CVPM (for design) then AMDP/ABAP (for code)
 │  └─ NO (just configuration)
 │     └─ → USE CONFIG
+```
+
+---
+
+### 2A. INTEGRATION vs. MAPPING vs. RECONCILIATION
+
+#### Integration (Movement and Orchestration)
+**Question:** "How should data move from source to stage to target?"
+
+**Use INTEGRATION for:**
+- ✅ FSDM-to-FPSL extract -> stage -> validate -> load flow
+- ✅ Change-pointer based delta loading
+- ✅ RFM sequencing and extraction control markers
+- ✅ Restart, retry, and batch checkpoint design
+- ✅ Technical validation of extraction and staging completeness
+
+**Examples:**
+```
+"How do I design restartable FSDM to FPSL loading?" → Integration
+"What checkpoints should exist between extract and load?" → Integration
+"How should I sequence extraction RFMs and staging?" → Integration
+```
+
+#### Mapping (Field-Level Transformation)
+**Question:** "What fields and transformations map source data to target structure?"
+
+**Use MAPPING for:**
+- ✅ Field-level source-to-target transformations
+- ✅ Join conditions and cardinality
+- ✅ Lookup tables and code translations
+- ✅ Derivation/calculation logic
+- ✅ Mapping specifications (confirmed/inferred/unresolved)
+
+#### Reconciliation (Business Verification)
+**Question:** "Did the results balance after processing?"
+
+**Use RECONCILIATION for:**
+- ✅ totals and counts after posting or process completion
+- ✅ control balancing across systems or process steps
+- ✅ cross-process key integrity
+
+#### Decision Tree: Integration vs Mapping vs Reconciliation
+```
+Question: I need to validate or design FSDM -> FPSL data flow.
+
+├─ Am I defining HOW DATA MOVES across checkpoints?
+│  ├─ YES (extract, stage, load, restart, batch controls)
+│  │  └─ → USE INTEGRATION
+│  └─ NO
+│
+├─ Am I defining WHAT FIELDS MAP where?
+│  ├─ YES (field mappings, derivations, joins, lookups)
+│  │  └─ → USE MAPPING
+│  └─ NO
+│
+├─ Am I checking whether POSTED OR FINAL RESULTS balance?
+│  ├─ YES (totals, control counts, balancing after process)
+│  │  └─ → USE RECONCILIATION
+│  └─ NO
+│
+└─ If the ask is about technical extract or staging completeness,
+   └─ → USE INTEGRATION
 ```
 
 ---
@@ -341,6 +404,11 @@ All 11 skills now include explicit "Do not use for..." statements:
 ### CVPM SKILL.md
 ```
 "Route mapping work to `mapping`, validation SQL to `reconciliation`, quality rules to `quality`, and code artifacts to `abap` or `amdp`."
+```
+
+### Integration SKILL.md
+```
+"Do not turn this skill into field-by-field mapping documentation. Do not present business reconciliation as technical flow validation."
 ```
 
 ---
