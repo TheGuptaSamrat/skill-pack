@@ -1,0 +1,47 @@
+tabname,fieldname,position,keyflag,rollname,domname,datatype,leng,decimals,notnull,checktable,reftable,reffield,ddtext
+/BA1/HKAPA,CLIENT,1,X,,MANDT,CLNT,3,0,X,,,,Client
+/BA1/HKAPA,/BA1/K11PRTKY,2,X,,,CHAR,10,0,X,,,,Partitioning Key
+/BA1/HKAPA,VALID_TO_KD,3,X,,,DATS,8,0,X,,,,Key Date
+/BA1/HKAPA,/BA1/CR0TCGUID,4,X,,,RAW,16,0,X,,,,Technical Key in RDL (Raw)
+/BA1/HKAPA,/BA1/CR0CRUSER,5,,,,CHAR,12,0,,,,, Created By
+/BA1/HKAPA,VALID_TO_TS,6,,,,DEC,15,0,,,,,'Valid To' as Timestamp
+/BA1/HKAPA,/BA1/C93TCID,7,,,,CHAR,32,0,,,,,ID of Timestamp Collection
+/BA1/HKAPA,/BA1/CR0NDTP00,8,,,,CHAR,2,0,,,,,Result Node Type: Level 0
+/BA1/HKAPA,/BA1/KR0HKAPA,9,,,,INT4,10,0,,,,,Node Counter Key Figure for Result Node Category HKAPA
+/BA1/HKAPA,CURRENT_FLAG,10,,,,CHAR,1,0,,,,,Current Flag: Recent Version of Results Data for a Key Date
+/BA1/HKAPA,ARCHIVE_FLUD,11,,,,DATS,8,0,,,,,Resubmission Date
+/BA1/HKAPA,ARCHIVE_STATUS,12,,,,CHAR,1,0,,,,,Archiving Status
+/BA1/HKAPA,REJECTION,13,,,,CHAR,40,0,,,,,Rejection Reason
+/BA1/HKAPA,/BA1/CR0RDA,14,,,,CHAR,4,0,,,,,Results Data Area
+/BA1/HKAPA,/BA1/CR0TYPE,15,,,,CHAR,4,0,,,,,Result Type
+/BA1/HKAPA,/BA1/CR0KEYDAT,16,,,,DATS,8,0,,,,,Key Date
+/BA1/HKAPA,/BA1/C55ACCRCT,17,,,,CHAR,4,0,,,,,FPSL Result Category
+/BA1/HKAPA,/BA1/C55CONTID,18,,,,CHAR,20,0,,,,,Contract/Portfolio ID
+/BA1/HKAPA,/BA1/C55CONTCT,19,,,,CHAR,4,0,,,,,Contract/Portfolio Category
+/BA1/HKAPA,/BA1/C41FINST,20,,,,CHAR,20,0,,,,,Security
+/BA1/HKAPA,/BA1/C11NODENO,21,,,,CHAR,12,0,,,,,Node Number
+/BA1/HKAPA,/BA1/C55SECNNO,22,,,,CHAR,12,0,,,,,Node Number (Securities)
+/BA1/HKAPA,/BA1/CR4PFCT,23,,,,CHAR,4,0,,,,,Portfolio Category
+/BA1/HKAPA,/BA1/CIDPSEID,24,,,,CHAR,20,0,,,,,Coverage Identifier
+/BA1/HKAPA,/BA1/CRPTRDAT,25,,,,DATS,8,0,,,,,Tranche Start Date
+/BA1/HKAPA,/BA1/C55COVSPS,26,,,,DATS,8,0,,,,,Coverage Subperiod Start Date
+/BA1/HKAPA,/BA1/C55FSSUBS,27,,,,CHAR,4,0,,,,,Financial Statement Subsegment
+/BA1/HKAPA,/BA1/C55PFASS,28,,,,CHAR,4,0,,,,,Portfolio Assignment Category
+/BA1/HKAPA,/BA1/C55PFID,29,,,,CHAR,20,0,,,,,Portfolio ID
+/BA1/HKAPA,/BA1/C55INDBOD,30,,,,DEC,15,0,,,,,Time of Processing
+/BA1/HKAPA,/BA1/C55SPPER,31,,,,CHAR,1,0,,,,,Special Period
+/BA1/HKAPA,/BA1/C55ACCSC,32,,,,CHAR,10,0,,,,,Accounting Scenario
+/BA1/HKAPA,/BA1/C55PRCSCT,33,,,,CHAR,1,0,,,,,Process Category (Update Run, Trial Run, Scenario Run)
+/BA1/HKAPA,/BA1/CR0SCRFDT,34,,,,DATS,8,0,,,,,Scenario Reference Date
+/BA1/HKAPA,/BA1/C55ASCRID,35,,,,CHAR,10,0,,,,,Accounting Scenario Run
+/BA1/HKAPA,/BA1/C55NBSCEN,36,,,,CHAR,1,0,,,,,New Business Scenario
+/BA1/HKAPA,/BA1/C55SRCSYS,37,,,,CHAR,4,0,,,,,Source System
+/BA1/HKAPA,/BA1/CR2DLVPKG,38,,,,CHAR,10,0,,,,,Delivery Package
+/BA1/HKAPA,/BA1/CR0SRCRTM,39,,,,DEC,15,0,,,,,Creation Time of Result in Source System
+/BA1/HKAPA,/BA1/CR0TSTMP,40,,,,DEC,15,0,,,,,System Time
+/BA1/HKAPA,/BA1/C55INDPFA,41,,,,CHAR,1,0,,,,,Inactive Portfolio Assignment
+/BA1/HKAPA,/BA1/C55ACCSY,42,,,,CHAR,4,0,,,,,Accounting System
+/BA1/HKAPA,/BA1/K5SPFASR,43,,,,DEC,13,8,,,,,Portfolio Assignment Ratio
+/BA1/HKAPA,/BA1/CR0INARSN,44,,,,CHAR,4,0,,,,,Reason for Deactivation
+/BA1/HKAPA,DUMMY_APA_DB_CH_SAP,45,,,,CHAR,1,0,,,,,Dummy function in length 1
+/BA1/HKAPA,DUMMY_APA_DB_KF_SAP,46,,,,CHAR,1,0,,,,,Dummy function in length 1

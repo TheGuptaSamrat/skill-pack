@@ -1,0 +1,54 @@
+tabname,fieldname,position,keyflag,rollname,domname,datatype,leng,decimals,notnull,checktable,reftable,reffield,ddtext
+/BA1/HKAPD,CLIENT,1,X,,MANDT,CLNT,3,0,X,,,,Client
+/BA1/HKAPD,/BA1/K11PRTKY,2,X,,,CHAR,10,0,X,,,,Partitioning Key
+/BA1/HKAPD,VALID_TO_KD,3,X,,,DATS,8,0,X,,,,Key Date
+/BA1/HKAPD,/BA1/CR0TCGUID,4,X,,,RAW,16,0,X,,,,Technical Key in RDL (Raw)
+/BA1/HKAPD,/BA1/CR0CRUSER,5,,,,CHAR,12,0,,,,,Created By
+/BA1/HKAPD,VALID_TO_TS,6,,,,DEC,15,0,,,,,'Valid To' as Timestamp
+/BA1/HKAPD,/BA1/C93TCID,7,,,,CHAR,32,0,,,,,ID of Timestamp Collection
+/BA1/HKAPD,/BA1/CR0NDTP00,8,,,,CHAR,2,0,,,,,Result Node Type: Level 0
+/BA1/HKAPD,/BA1/KR0HKAPD,9,,,,INT4,10,0,,,,,Node Counter Key Figure for Result Node Category HKAPD
+/BA1/HKAPD,CURRENT_FLAG,10,,,,CHAR,1,0,,,,,Current Flag: Recent Version of Results Data for a Key Date
+/BA1/HKAPD,ARCHIVE_FLUD,11,,,,DATS,8,0,,,,,Resubmission Date
+/BA1/HKAPD,ARCHIVE_STATUS,12,,,,CHAR,1,0,,,,,Archiving Status
+/BA1/HKAPD,REJECTION,13,,,,CHAR,40,0,,,,,Rejection Reason
+/BA1/HKAPD,/BA1/CR0RDA,14,,,,CHAR,4,0,,,,,Results Data Area
+/BA1/HKAPD,/BA1/CR0TYPE,15,,,,CHAR,4,0,,,,,Result Type
+/BA1/HKAPD,/BA1/CR0KEYDAT,16,,,,DATS,8,0,,,,,Key Date
+/BA1/HKAPD,/BA1/C55ACCRCT,17,,,,CHAR,4,0,,,,,FPSL Result Category
+/BA1/HKAPD,/BA1/C55ACCSY,18,,,,CHAR,4,0,,,,,Accounting System
+/BA1/HKAPD,/BA1/C55PFID,19,,,,CHAR,20,0,,,,,Portfolio ID
+/BA1/HKAPD,/BA1/C55PRCSCT,20,,,,CHAR,1,0,,,,,Process Category (Update Run, Trial Run, Scenario Run)
+/BA1/HKAPD,/BA1/CR0SCRFDT,21,,,,DATS,8,0,,,,,Scenario Reference Date
+/BA1/HKAPD,/BA1/C55ASCRID,22,,,,CHAR,10,0,,,,,Accounting Scenario Run
+/BA1/HKAPD,/BA1/C55NBSCEN,23,,,,CHAR,1,0,,,,,New Business Scenario
+/BA1/HKAPD,/BA1/CR4PFCT,24,,,,CHAR,4,0,,,,,Portfolio Category
+/BA1/HKAPD,/BA1/C11PRDCTR,25,,,,CHAR,1,0,,,,,Production Control
+/BA1/HKAPD,/BA1/C20BPART,26,,,,CHAR,10,0,,,,,Business Partner Number
+/BA1/HKAPD,/BA1/C55ACQDAT,27,,,,DATS,8,0,,,,,Initial Recognition Date (Company)
+/BA1/HKAPD,/BA1/C55ACLDAT,28,,,,DATS,8,0,,,,,Initial Recognition Date (Company Code)
+/BA1/HKAPD,/BA1/C55LGENT,29,,,,CHAR,4,0,,,,,Legal Entity
+/BA1/HKAPD,/BA1/C55ONSTIR,30,,,,CHAR,2,0,,,,,Onerousness Status on Initial Recognition
+/BA1/HKAPD,/BA1/C55PFSTA,31,,,,CHAR,2,0,,,,,Portfolio Status
+/BA1/HKAPD,/BA1/C55SRCSYS,32,,,,CHAR,4,0,,,,,Source System
+/BA1/HKAPD,/BA1/C55TRAPR,33,,,,CHAR,2,0,,,,,Transition Approach
+/BA1/HKAPD,/BA1/C55COCNTD,34,,,,CHAR,10,0,,,,,Imported Contract Cost Center
+/BA1/HKAPD,/BA1/C55COAREA,35,,,,CHAR,4,0,,,,,Controlling Area
+/BA1/HKAPD,/BA1/C58SPTFCT,36,,,,CHAR,4,0,,,,,Subportfolio Category
+/BA1/HKAPD,/BA1/C58SPTFID,37,,,,CHAR,20,0,,,,,Subportfolio ID
+/BA1/HKAPD,/BA1/CIDCVCURR,38,,,,CUKY,5,0,,,,,Coverage Currency
+/BA1/HKAPD,/BA1/CIDPSEID,39,,,,CHAR,20,0,,,,,Coverage Identifier
+/BA1/HKAPD,/BA1/C80ORGUNI,40,,,,CHAR,10,0,,,,,Organizational Unit
+/BA1/HKAPD,/BA1/CR2DLVPKG,41,,,,CHAR,10,0,,,,,Delivery Package
+/BA1/HKAPD,/BA1/CR0SRCRTM,42,,,,DEC,15,0,,,,,Creation Time of Result in Source System
+/BA1/HKAPD,/BA1/CR0TSTMP,43,,,,DEC,15,0,,,,,System Time
+/BA1/HKAPD,/BA1/CRCCSDAT,44,,,,DATS,8,0,,,,,Start Date of Coverage
+/BA1/HKAPD,/BA1/CRPIBTY,45,,,,CHAR,3,0,,,,,Insurance Business Type
+/BA1/HKAPD,/BA1/CRPTRDAT,46,,,,DATS,8,0,,,,,Tranche Start Date
+/BA1/HKAPD,/BA1/CRPIIGR,47,,,,CHAR,2,0,,,,,Insurance Phase
+/BA1/HKAPD,/BA1/CRCLEID,48,,,,CHAR,20,0,,,,,Loss Event ID
+/BA1/HKAPD,/BA1/C11REFCON,49,,,,CHAR,20,0,,,,,Refinancing Contract
+/BA1/HKAPD,/BA1/CR0INACTV,50,,,,CHAR,1,0,,,,,Inactive
+/BA1/HKAPD,/BA1/CR0INARSN,51,,,,CHAR,4,0,,,,,Reason for Deactivation
+/BA1/HKAPD,DUMMY_APD_DB_CH_SAP,52,,,,CHAR,1,0,,,,,Dummy function in length 1
+/BA1/HKAPD,DUMMY_APD_DB_KF_SAP,53,,,,CHAR,1,0,,,,,Dummy function in length 1

@@ -11,11 +11,24 @@ Use this file to summarize whether a new source metadata drop changes active beh
 ## Current State
 
 - active metadata set:
-  - safe sample baseline only
+  - safe sample baseline + FPSL RDL table extractions (2026-03-24)
 - current status:
-  - `minor-review`
+  - `no-impact`
 - reason:
-  - repository currently contains illustrative metadata and awaits real normalized FPSL/FSDM drops
+  - FPSL RDL tables extracted from live HANA DDIC (photographed IMG_1791–1803); FIELDNAME and DDTEXT confirmed from live system; DATATYPE/LENG/DOMNAME are convention-inferred and accepted as working state — type verification bypassed by decision on 2026-03-24
+
+## 2026-03-24 — FPSL RDL Image Extraction
+
+- **Source**: Live HANA DDIC export photographed from Excel (IMG_1791–IMG_1802) + join diagram email (IMG_1803)
+- **Provenance**: Confirmed live system — field names (FIELDNAME) and descriptions (DDTEXT) are authoritative
+- **Tables added**:
+  - `/BA1/HFSPD` — Subledger Document — 230 fields
+  - `/BA1/HKAPA` — Accounting Portfolio Assignment — 46 fields
+  - `/BA1/HKAPD` — Accounting Portfolio Definition — 53 fields
+- **Confirmed from live system**: TABNAME, FIELDNAME, DDTEXT (field descriptions), table cardinality
+- **Status**: `no-impact` — accepted as working state; type verification bypassed by decision on 2026-03-24
+- **Next action**: use these CSVs directly in skill prompts, AMDP generation, and quality checks
+- **Requirement-specific note**: the photographed netting join logic is tracked in the netting implementation pack, not in shared metadata
 
 ## Review Rules
 

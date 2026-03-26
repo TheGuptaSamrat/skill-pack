@@ -1,0 +1,231 @@
+tabname,fieldname,position,keyflag,rollname,domname,datatype,leng,decimals,notnull,checktable,reftable,reffield,ddtext
+/BA1/HFSPD,CLIENT,1,X,,MANDT,CLNT,3,0,X,,,, Client
+/BA1/HFSPD,/BA1/C55POSTD,2,X,,,DATS,8,0,X,,,,Posting Date
+/BA1/HFSPD,/BA1/C55LGENT,3,X,,,CHAR,4,0,X,,,,Legal Entity
+/BA1/HFSPD,/BA1/C55DOCNUM,4,X,,,CHAR,10,0,X,,,,Journal Entry Number
+/BA1/HFSPD,/BA1/C55DOCITM,5,X,,,NUMC,6,0,X,,,,Journal Entry Line Item Number
+/BA1/HFSPD,/BA1/C55ACCSY,6,,,,CHAR,4,0,,,,, Accounting System
+/BA1/HFSPD,/BA1/C55PRCSCT,7,,,,CHAR,1,0,,,,, Process Category (Update Run, Trial Run, Scenario Run)
+/BA1/HFSPD,/BA1/K11PRTKY,8,,,,CHAR,10,0,,,,, Partitioning Key
+/BA1/HFSPD,/BA1/CRORDA,9,,,,CHAR,4,0,,,,, Results Data Area
+/BA1/HFSPD,/BA1/CROTYPE,10,,,,CHAR,4,0,,,,, Result Type
+/BA1/HFSPD,/BA1/CROCRUSER,11,,,,CHAR,12,0,,,,, Created By
+/BA1/HFSPD,/BA1/CROTSTMP,12,,,,DEC,15,0,,,,, System Time
+/BA1/HFSPD,/BA1/C93TCID,13,,,,CHAR,32,0,,,,, ID of Timestamp Collection
+/BA1/HFSPD,/BA1/K11RNDM,14,,,,INT4,10,0,,,,, Random Number
+/BA1/HFSPD,/BA1/CRONDTP00,15,,,,CHAR,2,0,,,,, Result Node Type: Level 0
+/BA1/HFSPD,/BA1/KROSPDHD,16,,,,INT4,10,0,,,,, Node Counter Key Figure for Result Node Category SPDHD
+/BA1/HFSPD,/BA1/CRONDTP01,17,,,,CHAR,2,0,,,,, Result Node Type: Level 1
+/BA1/HFSPD,/BA1/KROSPDIT,18,,,,INT4,10,0,,,,, Node Counter Key Figure for Result Node Category SPDIT
+/BA1/HFSPD,/BA1/CRONDTP02,19,,,,CHAR,2,0,,,,, Result Node Type: Level 2
+/BA1/HFSPD,/BA1/KROSPDGP,20,,,,INT4,10,0,,,,, Node Counter Key Figure for Result Node Category SPDGP
+/BA1/HFSPD,ARCHIVE_FLUD,21,,,,DATS,8,0,,,,, Resubmission Date
+/BA1/HFSPD,ARCHIVE_STATUS,22,,,,CHAR,1,0,,,,, Archiving Status
+/BA1/HFSPD,REJECTION,23,,,,CHAR,40,0,,,,, Rejection Reason
+/BA1/HFSPD,/BA1/C55ACCSC,24,,,,CHAR,10,0,,,,, Accounting Scenario
+/BA1/HFSPD,/BA1/CR0SCRFDT,25,,,,DATS,8,0,,,,, Scenario Reference Date
+/BA1/HFSPD,/BA1/C55ASCRID,26,,,,CHAR,10,0,,,,, Accounting Scenario Run
+/BA1/HFSPD,/BA1/C55DCHTXT,27,,,,CHAR,60,0,,,,, Journal Entry Header Text
+/BA1/HFSPD,/BA1/C55PPCRUS,28,,,,CHAR,12,0,,,,, Preliminary Subledger Journal Entry Created By
+/BA1/HFSPD,/BA1/C55PPRLUS,29,,,,CHAR,12,0,,,,, Preliminary Subledger Journal Entry Released by
+/BA1/HFSPD,/BA1/C55YEAR,30,,,,NUMC,4,0,,,,, Fiscal Year
+/BA1/HFSPD,/BA1/C55DOCDAT,31,,,,DATS,8,0,,,,, Journal Entry Date
+/BA1/HFSPD,/BA1/C55VALDT,32,,,,DATS,8,0,,,,, Value Date
+/BA1/HFSPD,/BA1/C55YPER,33,,,,NUMC,7,0,,,,, Fiscal Year and Period
+/BA1/HFSPD,/BA1/C55FXREF,34,,,,CHAR,10,0,,,,, Reference to Subledger Journal Entry for Fixing FX Postings
+/BA1/HFSPD,/BA1/C35BTRAN,35,,,,CHAR,20,0,,,,, Business Transaction ID
+/BA1/HFSPD,/BA1/C35BTSRC,36,,,,CHAR,4,0,,,,, Source System of Business Transaction
+/BA1/HFSPD,/BA1/C35TRXTYP,37,,,,CHAR,4,0,,,,, Transaction Type
+/BA1/HFSPD,/BA1/C55TRCCAT,38,,,,CHAR,4,0,,,,, Transaction Code Category
+/BA1/HFSPD,/BA1/C35REVIND,39,,,,CHAR,1,0,,,,, Reversal Business Transaction By Value
+/BA1/HFSPD,/BA1/C35RVRFBT,40,,,,CHAR,20,0,,,,, Business Transaction ID of Reversed Business Transaction
+/BA1/HFSPD,/BA1/C35BTIDRF,41,,,,CHAR,20,0,,,,, ID of Reference Business Transaction
+/BA1/HFSPD,/BA1/C35BTINRF,42,,,,CHAR,10,0,,,,, Reference Number of Business Transaction Item
+/BA1/HFSPD,/BA1/C20TPART,43,,,,CHAR,10,0,,,,, Trading Partner
+/BA1/HFSPD,/BA1/C35POSNR,44,,,,NUMC,6,0,,,,, Item Number
+/BA1/HFSPD,/BA1/C35DATSRC,45,,,,DATS,8,0,,,,, System Date in Source System
+/BA1/HFSPD,/BA1/C35TIMSRC,46,,,,TIMS,6,0,,,,, System Time in Source System
+/BA1/HFSPD,/BA1/C20TPORGU,47,,,,CHAR,10,0,,,,, Organizational Unit of Trading Partner
+/BA1/HFSPD,/BA1/C55TPCOCR,48,,,,CHAR,10,0,,,,, Trading Partner Cost Center
+/BA1/HFSPD,/BA1/C55TPCOCD,49,,,,CHAR,10,0,,,,, Imported Trading Partner Cost Center
+/BA1/HFSPD,/BA1/C55POSTRC,50,,,,CHAR,1,0,,,,, Posting Record
+/BA1/HFSPD,/BA1/C55BLART,51,,,,CHAR,2,0,,,,, Document Type
+/BA1/HFSPD,/BA1/C55COMP,52,,,,CHAR,6,0,,,,, Company
+/BA1/HFSPD,/BA1/C55BUKRS,53,,,,CHAR,4,0,,,T001,,Company Code
+/BA1/HFSPD,/BA1/C55COAREA,54,,,,CHAR,4,0,,,,, Controlling Area
+/BA1/HFSPD,/BA1/C55COCNTR,55,,,,CHAR,10,0,,,,, Cost Center
+/BA1/HFSPD,/BA1/C55CONTID,56,,,,CHAR,20,0,,,,, Contract/Portfolio ID
+/BA1/HFSPD,/BA1/C55CONTCT,57,,,,CHAR,4,0,,,,, Contract/Portfolio Category
+/BA1/HFSPD,/BA1/C41FINST,58,,,,CHAR,20,0,,,,, Security
+/BA1/HFSPD,/BA1/C11NODENO,59,,,,CHAR,12,0,,,,, Node Number
+/BA1/HFSPD,/BA1/C55SECNNO,60,,,,CHAR,12,0,,,,, Node Number (Securities)
+/BA1/HFSPD,/BA1/C55INVIND,61,,,,CHAR,1,0,,,,, Inverting Journal Entry (X = Inverter)
+/BA1/HFSPD,/BA1/C55INVREF,62,,,,CHAR,10,0,,,,, Reference to Inverted Journal Entry (Journal Entry Number)
+/BA1/HFSPD,/BA1/C55RESIND,63,,,,CHAR,1,0,,,,, Reset Document
+/BA1/HFSPD,/BA1/C55RESREF,64,,,,CHAR,10,0,,,,, Reference to Reset Journal Entry (Journal Entry Number)
+/BA1/HFSPD,/BA1/C55PRKREF,65,,,,CHAR,10,0,,,,, Reference to Parked Subledger Journal Entry (Jrnl Entry No.)
+/BA1/HFSPD,/BA1/C55PDRES,66,,,,DATS,8,0,,,,, Posting Date of Reset
+/BA1/HFSPD,/BA1/C55PROCID,67,,,,CHAR,20,0,,,,, Process Step ID for Process Controller
+/BA1/HFSPD,/BA1/C55SPROID,68,,,,CHAR,20,0,,,,, Subprocess Step ID
+/BA1/HFSPD,/BA1/C55RMCUCT,69,,,,CHAR,3,0,,,,, Remeasured Currency Type
+/BA1/HFSPD,/BA1/CIDPSEID,70,,,,CHAR,20,0,,,,, Coverage Identifier
+/BA1/HFSPD,/BA1/CRCLEID,71,,,,CHAR,20,0,,,,, Loss Event ID
+/BA1/HFSPD,/BA1/C55RSELIM,72,,,,CHAR,1,0,,,,, Result from Interunit Elimination
+/BA1/HFSPD,/BA1/C55R6CNID,73,,,,CHAR,20,0,,,,, Assigned Contract (Interunit Elimination)
+/BA1/HFSPD,/BA1/C55PCSRUN,74,,,,CHAR,4,0,,,,, Special Run Category
+/BA1/HFSPD,/BA1/C80BUSSG,75,,,,CHAR,10,0,,,,, Segment for Segment Reporting
+/BA1/HFSPD,/BA1/CP0PRFCTR,76,,,,CHAR,10,0,,,,, Profit Center
+/BA1/HFSPD,/BA1/C55PCOMP,77,,,,CHAR,6,0,,,,, Company of Business Partner
+/BA1/HFSPD,/BA1/C55PBUKRS,78,,,,CHAR,4,0,,,,, Company Code of Business Partner
+/BA1/HFSPD,/BA1/C80PBUSSG,79,,,,CHAR,10,0,,,,, Partner Segment for Segment Reporting
+/BA1/HFSPD,/BA1/CP0PARTPC,80,,,,CHAR,10,0,,,,, Partner Profit Center
+/BA1/HFSPD,/BA1/C55TPCOMP,81,,,,CHAR,6,0,,,,, Trading Partner Company
+/BA1/HFSPD,/BA1/C55TPBKRS,82,,,,CHAR,4,0,,,,, Company Code of Trading Partner
+/BA1/HFSPD,/BA1/C80TPBSSG,83,,,,CHAR,10,0,,,,, Trading Partner Segment for Segment Reporting
+/BA1/HFSPD,/BA1/C80TPPCTR,84,,,,CHAR,10,0,,,,, Trading Partner Profit Center for Segment Reporting
+/BA1/HFSPD,/BA1/C55DBCDF,85,,,,CHAR,1,0,,,,, Debit/Credit Indicator
+/BA1/HFSPD,/BA1/C55SLACC,86,,,,CHAR,20,0,,,,, Subledger Account
+/BA1/HFSPD,/BA1/C55SLACUR,87,,,,CUKY,5,0,,,,, Subledger Account Currency
+/BA1/HFSPD,/BA1/C55CONSRC,88,,,,CHAR,4,0,,,,, Contract Source System
+/BA1/HFSPD,/BA1/C55CONSTA,89,,,,CHAR,2,0,,,,, Contract Status
+/BA1/HFSPD,/BA1/C41SRCSYS,90,,,,CHAR,4,0,,,,, Securities Source System
+/BA1/HFSPD,/BA1/C41OBJSTA,91,,,,CHAR,2,0,,,,, Securities Status
+/BA1/HFSPD,/BA1/C55ONSTIR,92,,,,CHAR,2,0,,,,, Onerousness Status on Initial Recognition
+/BA1/HFSPD,/BA1/C55STATSG,93,,,,CHAR,4,0,,,,, Lifecycle Segment (Balance Sheet)
+/BA1/HFSPD,/BA1/C11PRDCTR,94,,,,CHAR,1,0,,,,, Production Control
+/BA1/HFSPD,/BA1/C55SACCCT,95,,,,CHAR,4,0,,,,, Securities Account Category
+/BA1/HFSPD,/BA1/C11FITYPE,96,,,,CHAR,4,0,,,,, Securities Type
+/BA1/HFSPD,/BA1/CR4PFCT,97,,,,CHAR,4,0,,,,, Portfolio Category
+/BA1/HFSPD,/BA1/C55TRAPR,98,,,,CHAR,2,0,,,,, Transition Approach
+/BA1/HFSPD,/BA1/C55PRODSG,99,,,,CHAR,4,0,,,,, Product Segment (Balance Sheet)
+/BA1/HFSPD,/BA1/C55SLALC,100,,,,CHAR,4,0,,,,, Lifecycle Stage (Subledger Account)
+/BA1/HFSPD,/BA1/C55OCYBAS,101,,,,NUMC,4,0,,,,, Occurrence Year
+/BA1/HFSPD,/BA1/C80ORGUNI,102,,,,CHAR,10,0,,,,, Organizational Unit
+/BA1/HFSPD,/BA1/C55COCNTD,103,,,,CHAR,10,0,,,,, Imported Contract Cost Center
+/BA1/HFSPD,/BA1/C55CHGRSN,104,,,,CHAR,4,0,,,,, Accounting Change
+/BA1/HFSPD,/BA1/C55CLCLTR,105,,,,CHAR,4,0,,,,, Calculator
+/BA1/HFSPD,/BA1/C55CMETH,106,,,,CHAR,4,0,,,,, Calculation Method
+/BA1/HFSPD,/BA1/C55CMETHY,107,,,,CHAR,4,0,,,,, Calculation Methodology
+/BA1/HFSPD,/BA1/C55IOIND,108,,,,CHAR,1,0,,,,, Inflow/Outflow
+/BA1/HFSPD,/BA1/C58CRMSTP,109,,,,CHAR,2,0,,,,, Granularity for Estimating Credit Risk Parameters
+/BA1/HFSPD,/BA1/C55ACCKEY,110,,,,CHAR,10,0,,,,, Transaction Key
+/BA1/HFSPD,/BA1/C58SPTFCT,111,,,,CHAR,4,0,,,,, Subportfolio Category
+/BA1/HFSPD,/BA1/C58SPTFID,112,,,,CHAR,20,0,,,,, Subportfolio ID
+/BA1/HFSPD,/BA1/CRCCSDAT,113,,,,DATS,8,0,,,,, Start Date of Coverage
+/BA1/HFSPD,/BA1/C55TCNTRY,114,,,,CHAR,3,0,,,,, Tax Country/Region
+/BA1/HFSPD,/BA1/C55TCODE,115,,,,CHAR,2,0,,,,, Tax Code
+/BA1/HFSPD,/BA1/C55TCODER,116,,,,CHAR,2,0,,,,, Reference Tax Code
+/BA1/HFSPD,/BA1/C55BPCOCR,117,,,,CHAR,10,0,,,,, Business Partner Cost Center
+/BA1/HFSPD,/BA1/C55BPCOCD,118,,,,CHAR,10,0,,,,, Imported Business Partner Cost Center
+/BA1/HFSPD,/BA1/C55BPINS,119,,,,CHAR,4,0,,,,, Industry
+/BA1/HFSPD,/BA1/C55BPINST,120,,,,CHAR,4,0,,,,, Industry System
+/BA1/HFSPD,/BA1/C55BPISGT,121,,,,CHAR,4,0,,,,, Industry Segment (Balance Sheet)
+/BA1/HFSPD,/BA1/C55ACQDAT,122,,,,DATS,8,0,,,,, Initial Recognition Date (Company)
+/BA1/HFSPD,/BA1/C55ACLDAT,123,,,,DATS,8,0,,,,, Initial Recognition Date (Company Code)
+/BA1/HFSPD,/BA1/C55OCYACQ,124,,,,CHAR,4,0,,,,, Time Reference for Purchase
+/BA1/HFSPD,/BA1/C55R5CNID,125,,,,CHAR,20,0,,,,, Assigned Master Data Object (Interunit Elimination)
+/BA1/HFSPD,/BA1/C11REFCON,126,,,,CHAR,20,0,,,,, Refinancing Contract
+/BA1/HFSPD,/BA1/C55SLAGRP,127,,,,CHAR,4,0,,,,, Subledger Account Group
+/BA1/HFSPD,/BA1/C20LITGST,128,,,,CHAR,2,0,,,,, Status of Legal Proceedings
+/BA1/HFSPD,/BA1/CRCBASAM,129,,,,CHAR,2,0,,,,, Basis of Actuarial Model
+/BA1/HFSPD,/BA1/CRCBECFVN,130,,,,NUMC,3,0,,,,, Cash Flow Version Number
+/BA1/HFSPD,/BA1/CRCBECFVR,131,,,,CHAR,20,0,,,,, Cancellation Reference
+/BA1/HFSPD,/BA1/CRCCANIND,132,,,,CHAR,1,0,,,,, Cancellation Indicator
+/BA1/HFSPD,/BA1/CRCCFCATG,133,,,,CHAR,2,0,,,,, Cash Flow Category
+/BA1/HFSPD,/BA1/CRCHDCF,134,,,,CHAR,2,0,,,,, Expectation Change Category
+/BA1/HFSPD,/BA1/CRCCRHCF,135,,,,CHAR,2,0,,,,, Expectation Change Reason (Cash Flow)
+/BA1/HFSPD,/BA1/CRPIBTY,136,,,,CHAR,3,0,,,,, Insurance Business Type
+/BA1/HFSPD,/BA1/CRPIIGR,137,,,,CHAR,2,0,,,,, Insurance Phase
+/BA1/HFSPD,/BA1/CRPTRDAT,138,,,,DATS,8,0,,,,, Tranche Start Date
+/BA1/HFSPD,/BA1/CRCPAYCAT,139,,,,CHAR,2,0,,,,, Cost or Revenue Element
+/BA1/HFSPD,/BA1/CRCCUREXP,140,,,,CUKY,5,0,,,,, Expected Payment Currency
+/BA1/HFSPD,/BA1/K5SAMOBJ,141,,,,CURR,15,2,,,,, Amount in Transaction Currency
+/BA1/HFSPD,/BA1/OBJ_CURR,142,,,,CUKY,5,0,,,,, Object Currency/Transaction Currency in Accounting
+/BA1/HFSPD,/BA1/K5SAMNOM,143,,,,CURR,15,2,,,,, Nominal Amount in Nominal Currency
+/BA1/HFSPD,/BA1/K5SAMNOMC,144,,,,CUKY,5,0,,,,, Key Figure Currency (Nominal)
+/BA1/HFSPD,/BA1/K5SQUANT,145,,,,QUAN,13,3,,,,, Quantity as a Key Figure
+/BA1/HFSPD,UNIT,146,,,,UNIT,3,0,,,,, Unit of Measure of a Key Figure
+/BA1/HFSPD,/BA1/K5SAMBAL,147,,,,CURR,15,2,,,,, Amount in Functional Currency
+/BA1/HFSPD,/BA1/BIL_CURR,148,,,,CUKY,5,0,,,,, Functional Currency
+/BA1/HFSPD,/BA1/K5SAMGRP,149,,,,CURR,15,2,,,,, Amount in Group Currency
+/BA1/HFSPD,/BA1/GRP_CURR,150,,,,CUKY,5,0,,,,, Group Currency
+/BA1/HFSPD,/BA1/K5SAMHRD,151,,,,CURR,15,2,,,,, Amount in Hard Currency
+/BA1/HFSPD,/BA1/HRD_CURR,152,,,,CUKY,5,0,,,,, Hard Currency
+/BA1/HFSPD,/BA1/K5SAMIDX,153,,,,CURR,15,2,,,,, Amount in Index-Based Currency
+/BA1/HFSPD,/BA1/IDX_CURR,154,,,,CUKY,5,0,,,,, Index-Based Currency
+/BA1/HFSPD,/BA1/K5SAMLOC,155,,,,CURR,15,2,,,,, Amount in Local Currency
+/BA1/HFSPD,/BA1/LOC_CURR,156,,,,CUKY,5,0,,,,, Local Currency
+/BA1/HFSPD,/BA1/K5SAMAC1,157,,,,CURR,15,2,,,,, Amount in Additional Currency 1
+/BA1/HFSPD,/BA1/K5SAMAC1C,158,,,,CUKY,5,0,,,,, Additional Currency 1
+/BA1/HFSPD,/BA1/K5SAMAC2,159,,,,CURR,15,2,,,,, Amount in Additional Currency 2
+/BA1/HFSPD,/BA1/K5SAMAC2C,160,,,,CUKY,5,0,,,,, Additional Currency 2
+/BA1/HFSPD,/BA1/K5SAMAC3,161,,,,CURR,15,2,,,,, Amount in Additional Currency 3
+/BA1/HFSPD,/BA1/K5SAMAC3C,162,,,,CUKY,5,0,,,,, Additional Currency 3
+/BA1/HFSPD,/BA1/K5SAMAC4,163,,,,CURR,15,2,,,,, Amount in Additional Currency 4
+/BA1/HFSPD,/BA1/K5SAMAC4C,164,,,,CUKY,5,0,,,,, Additional Currency 4
+/BA1/HFSPD,/BA1/K5STAXBO,165,,,,CURR,15,2,,,,, Tax Base Amount (Transaction Currency)
+/BA1/HFSPD,/BA1/K5STAXBR,166,,,,CURR,15,2,,,,, Tax Base Amount (Functional Currency)
+/BA1/HFSPD,DUMMY_SLDOC_ITM_PROCCHAR,167,,,,CHAR,1,0,,,,, Dummy function in length 1
+/BA1/HFSPD,/BA1/C55ACCPR,168,,,,CHAR,4,0,,,,, Accounting Principle
+/BA1/HFSPD,/BA1/C55LOTID,169,,,,CHAR,20,0,,,,, Lot ID
+/BA1/HFSPD,/BA1/C55COVSPS,170,,,,DATS,8,0,,,,, Coverage Subperiod Start Date
+/BA1/HFSPD,/BA1/C55CORIND,171,,,,CHAR,2,0,,,,, Payment Category
+/BA1/HFSPD,/BA1/C55MODCAT,172,,,,CHAR,2,0,,,,, Modification Category
+/BA1/HFSPD,/BA1/C55ALST,173,,,,CHAR,2,0,,,,, AS Asset/Liability Status
+/BA1/HFSPD,/BA1/C55HOLDCT,174,,,,CHAR,4,0,,,,, AS Classification for Financial Products
+/BA1/HFSPD,/BA1/C58ACCRST,175,,,,CHAR,2,0,,,,, AS Accrual Status
+/BA1/HFSPD,/BA1/C58IMPSTA,176,,,,CHAR,2,0,,,,, AS Credit Risk Status
+/BA1/HFSPD,/BA1/C58MCNFST,177,,,,CHAR,2,0,,,,, AS Market Conformity Status of Contract
+/BA1/HFSPD,/BA1/C58WDST,178,,,,CHAR,2,0,,,,, AS Write-Down Status
+/BA1/HFSPD,/BA1/C55FVLEVL,179,,,,CHAR,2,0,,,,, AS Level in Fair Value Hierarchy
+/BA1/HFSPD,/BA1/C55ONRST,180,,,,CHAR,2,0,,,,, AS Onerousness Status
+/BA1/HFSPD,/BA1/C55TERMSG,181,,,,CHAR,4,0,,,,, AS Term Segment (Balance Sheet)
+/BA1/HFSPD,/BA1/C58SIGNIF,182,,,,CHAR,2,0,,,,, AS Significance
+/BA1/HFSPD,/BA1/C58MODIST,183,,,,CHAR,2,0,,,,, AS Modification Status
+/BA1/HFSPD,/BA1/C58FORBST,184,,,,CHAR,2,0,,,,, AS Forbearance Status
+/BA1/HFSPD,/BA1/C55ALSTSR,185,,,,CHAR,4,0,,,,, Previous Status / Next Status Asset/Liability Status
+/BA1/HFSPD,/BA1/C55HCTSR,186,,,,CHAR,8,0,,,,, Previous Status / Next Status Classification
+/BA1/HFSPD,/BA1/C58ACCRSR,187,,,,CHAR,4,0,,,,, Previous Status / Next Status Accrual Status
+/BA1/HFSPD,/BA1/C58IMPSR,188,,,,CHAR,4,0,,,,, Previous Status / Next Status Credit Risk Status
+/BA1/HFSPD,/BA1/C58MCNFSR,189,,,,CHAR,4,0,,,,, Previous Status / Next Status Market Conformity Status
+/BA1/HFSPD,/BA1/C58WDSTSR,190,,,,CHAR,4,0,,,,, Previous Status / Next Status Write-Down Status
+/BA1/HFSPD,/BA1/C55FVLSR,191,,,,CHAR,4,0,,,,, Previous Status / Next Status Level in Fair Value Hierarchy
+/BA1/HFSPD,/BA1/C55ONSTSR,192,,,,CHAR,4,0,,,,, Previous Status / Next Status Onerousness Status
+/BA1/HFSPD,/BA1/C55TMSGSR,193,,,,CHAR,8,0,,,,, Previous Status / Next Status Term Segment (Balance Sheet)
+/BA1/HFSPD,/BA1/C58SIGNSR,194,,,,CHAR,4,0,,,,, Previous Status / Next Status Significance
+/BA1/HFSPD,/BA1/C58MODISR,195,,,,CHAR,4,0,,,,, Previous Status / Next Status Modification Status
+/BA1/HFSPD,/BA1/C58FORBSR,196,,,,CHAR,4,0,,,,, Previous Status / Next Status Forbearance Status
+/BA1/HFSPD,/BA1/C55R0CNID,197,,,,CHAR,20,0,,,,, Assigned Disclosure Level
+/BA1/HFSPD,/BA1/C55R1CNID,198,,,,CHAR,20,0,,,,, Assigned Portfolio (Profit Recognition)
+/BA1/HFSPD,/BA1/C55R2CNID,199,,,,CHAR,20,0,,,,, Assigned Profit Recognition Portfolio for Reinsurance
+/BA1/HFSPD,/BA1/C55R3CNID,200,,,,CHAR,20,0,,,,, Assigned Allocation Subportfolio
+/BA1/HFSPD,/BA1/C55R4CNID,201,,,,CHAR,20,0,,,,, Assigned Subportfolio for Allocation of Primary Costs
+/BA1/HFSPD,/BA1/C55R7CNID,202,,,,CHAR,20,0,,,,, Assigned Liquidity Risk Portfolio
+/BA1/HFSPD,/BA1/C55R8CNID,203,,,,CHAR,20,0,,,,, Assigned Credit Risk Portfolio (PD)
+/BA1/HFSPD,/BA1/C55R9CNID,204,,,,CHAR,20,0,,,,, Assigned Credit Risk Portfolio (LGD)
+/BA1/HFSPD,/BA1/C55RACNID,205,,,,CHAR,20,0,,,,, Assigned Credit Risk Portfolio (CCF)
+/BA1/HFSPD,/BA1/C55RBCNID,206,,,,CHAR,20,0,,,,, Assigned Hedge Portfolio
+/BA1/HFSPD,/BA1/C55HDGIND,207,,,,CHAR,1,0,,,,, Part of a Hedge Portfolio
+/BA1/HFSPD,/BA1/C55INCCAT,208,,,,CHAR,4,0,,,,, Financial Product Component Category
+/BA1/HFSPD,/BA1/C55INSEIN,209,,,,CHAR,4,0,,,,, Time of Service
+/BA1/HFSPD,/BA1/C55LOCOMP,210,,,,CHAR,1,0,,,,, Contributes to Loss Component
+/BA1/HFSPD,/BA1/C55LORECO,211,,,,CHAR,1,0,,,,, Contributes to Loss Recovery Component
+/BA1/HFSPD,/BA1/C55METH46,212,,,,CHAR,2,0,,,,, Calculation Method (Allocate Split Revenue)
+/BA1/HFSPD,/BA1/C55METHAL,213,,,,CHAR,2,0,,,,, Calculation Method (Allocate to Additional Dimensions)
+/BA1/HFSPD,/BA1/C55METHCO,214,,,,CHAR,2,0,,,,, Calculation Method (Allocation of Secondary Costs)
+/BA1/HFSPD,/BA1/C55METHC6,215,,,,CHAR,2,0,,,,, Calculation Method (Allocate to Disclosure Levels)
+/BA1/HFSPD,/BA1/C55MATGRP,216,,,,CHAR,4,0,,,,, Maturity Structure Band
+/BA1/HFSPD,/BA1/C55FCCOMP,217,,,,CHAR,4,0,,,,, Fulfillment Cash Flow Component
+/BA1/HFSPD,/BA1/IMOVE_TYPE,218,,,,CHAR,3,0,,,,, Consolidation Transaction Type
+/BA1/HFSPD,/BA1/IGL_ACCOUNT,219,,,,CHAR,10,0,,,SKA1,,G/L Account
+/BA1/HFSPD,/BA1/ICHRT_ACCTS,220,,,,CHAR,4,0,,,T004,,Chart of Accounts
+/BA1/HFSPD,/BA1/C55FSSUBS,221,,,,CHAR,4,0,,,,, Financial Statement Subsegment
+/BA1/HFSPD,DUMMY_SLDOC_GAAP_PROCCHAR,222,,,,CHAR,1,0,,,,, Dummy function in length 1
+/BA1/HFSPD,DUMMY_SPD_DB_CH_SAP,223,,,,CHAR,1,0,,,,, Dummy function in length 1
+/BA1/HFSPD,/BA1/C11BOOK,224,,,,CHAR,4,0,,,,, Banking/Trading Book
+/BA1/HFSPD,/BA1/C20BPART,225,,,,CHAR,10,0,,,,, Business Partner Number
+/BA1/HFSPD,/BA1/C20BPORGU,226,,,,CHAR,10,0,,,,, Organizational Unit of Partner
+/BA1/HFSPD,/BA1/C35DIRPCC,227,,,,CHAR,1,0,,,,, Posting Direction for Business Transaction
+/BA1/HFSPD,/BA1/C35PPSTAT,228,,,,CHAR,2,0,,,,, Postprocessing Status of Business Transaction
+/BA1/HFSPD,/BIC/ZFWPG,229,,,,CHAR,1,0,,,,, FW-Start/Prolongation
+/BA1/HFSPD,DUMMY_SPD_DB_KF_SAP,230,,,,CHAR,1,0,,,,, Dummy function in length 1

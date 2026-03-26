@@ -1,3 +1,7 @@
 artifact_id,source_type,source_name,status,uploaded_on,normalized_on,active_path,notes
 sample-ddic-v1,template-seed,tables-template.csv,active,2026-03-18,2026-03-18,metadata-drop/ddic/current/tables-template.csv,Initial DDIC template structure
 sample-fsdm-mapping-v1,synthetic-example,fsdm_to_fpsl_mapping.md,active,2026-03-18,2026-03-18,metadata-drop/samples/fsdm_to_fpsl_mapping.md,Initial safe mapping shape
+fpsl-rdl-tables-v1,live-hana-ddic,OtherDocs/IMG_1791-1803,active,2026-03-24,2026-03-24,metadata-drop/ddic/current/fpsl-rdl-tables.csv,Table registrations for HFSPD/HKAPA/HKAPD — TABNAME confirmed from live HANA; types inferred
+fpsl-hfspd-fields-v1,live-hana-ddic,OtherDocs/IMG_1791-1798,active,2026-03-24,2026-03-24,metadata-drop/ddic/current/fpsl-hfspd-fields.csv,230 fields of /BA1/HFSPD — FIELDNAME+DDTEXT confirmed live; DATATYPE/LENG inferred
+fpsl-hkapa-fields-v1,live-hana-ddic,OtherDocs/IMG_1799-1800,active,2026-03-24,2026-03-24,metadata-drop/ddic/current/fpsl-hkapa-fields.csv,46 fields of /BA1/HKAPA — FIELDNAME+DDTEXT confirmed live; DATATYPE/LENG inferred
+fpsl-hkapd-fields-v1,live-hana-ddic,OtherDocs/IMG_1801-1802,active,2026-03-24,2026-03-24,metadata-drop/ddic/current/fpsl-hkapd-fields.csv,53 fields of /BA1/HKAPD — FIELDNAME+DDTEXT confirmed live; DATATYPE/LENG inferred

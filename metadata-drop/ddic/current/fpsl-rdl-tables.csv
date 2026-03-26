@@ -1,0 +1,4 @@
+tabname,ddtext,tabclass,contflag,mainflag,sqltab,clidep,bufallow,exclass,as4local,as4vers
+/BA1/HFSPD,Subledger Document,TRANSP,A,,/BA1/HFSPD,X,,,A,0000
+/BA1/HKAPA,Accounting Portfolio Assignment,TRANSP,A,,/BA1/HKAPA,X,,,A,0000
+/BA1/HKAPD,Accounting Portfolio Definition,TRANSP,A,,/BA1/HKAPD,X,,,A,0000

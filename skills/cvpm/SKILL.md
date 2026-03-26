@@ -19,13 +19,14 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 6. Read [cvpm-process-design-guide.md](./references/cvpm-process-design-guide.md) for method mapping and run strategy.
 7. Read [cvpm-configuration-tables.md](./references/cvpm-configuration-tables.md) for configuration object hierarchy and customizing setup.
 8. Read [cvpm-method-design.md](./references/cvpm-method-design.md) for method type patterns and implementation guidance.
-9. Read [cvpm-balance-snapshot-implementation.md](./references/cvpm-balance-snapshot-implementation.md) for image-derived implementation order, sequence design, and monitor evidence patterns.
-10. Read [cvpm-data-integration.md](./references/cvpm-data-integration.md) for data staging and integration workflows.
-11. Read [cvpm-validation.md](./references/cvpm-validation.md).
-12. Read [fpsl-cvpm-operational-monitoring.md](./references/fpsl-cvpm-operational-monitoring.md) for monitor guidance, periodic task verification, and troubleshooting frameworks.
-13. Read [fpsl-process-steps-reference.md](./references/fpsl-process-steps-reference.md) only when deep process-step semantics are required.
-14. Read [fpsl-fsdm-2023-golden-source.md](../../docs-context/official/sap/fpsl-fsdm-2023-golden-source.md) for comprehensive FPSL/FSDM 2023 architecture, data models, integration mechanics, and banking domain reference.
-15. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when standard FPSL framing matters.
+9. Read [cvpm-build-sequence-guide.md](./references/cvpm-build-sequence-guide.md) for image-derived implementation order, configuration sequence, and monitor evidence patterns.
+10. Read [cvpm-balance-snapshot-implementation.md](./references/cvpm-balance-snapshot-implementation.md) when a balance-snapshot style pattern is specifically relevant.
+11. Read [cvpm-data-integration.md](./references/cvpm-data-integration.md) for data staging and integration workflows.
+12. Read [cvpm-validation.md](./references/cvpm-validation.md).
+13. Read [fpsl-cvpm-operational-monitoring.md](./references/fpsl-cvpm-operational-monitoring.md) for monitor guidance, periodic task verification, and troubleshooting frameworks.
+14. Read [fpsl-process-steps-reference.md](./references/fpsl-process-steps-reference.md) only when deep process-step semantics are required.
+15. Read [fpsl-fsdm-2023-golden-source.md](../../docs-context/official/sap/fpsl-fsdm-2023-golden-source.md) for comprehensive FPSL/FSDM 2023 architecture, data models, integration mechanics, and banking domain reference.
+16. Read [official-sources.md](../../docs-context/shared/official-sources-router.md) when standard FPSL framing matters.
 
 ## Progressive Reading Paths
 
@@ -41,7 +42,8 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 4. cvpm-core-rules.md
 5. cvpm-implementation-patterns.md (skim patterns only, don't memorize)
 6. cvpm-process-design-guide.md → Introduction section only
-7. cvpm-configuration-tables.md → Process Type Master section only
+7. cvpm-build-sequence-guide.md
+8. cvpm-configuration-tables.md → Process Type Master section only
 
 **Optional deep-dive:** open [fpsl-process-steps-reference.md](./references/fpsl-process-steps-reference.md) only when step semantics need deeper detail.
 
@@ -70,9 +72,10 @@ See [Skill Routing Matrix](../../docs-context/architecture/skill-routing-matrix.
 2. cvpm-process-steps-quick-reference.md
 3. fpsl-2306-core-engines.md (Section 5: Practical CVPM Workflow)
 4. cvpm-core-rules.md (rules section only)
-5. cvpm-validation.md (all)
-6. fpsl-cvpm-operational-monitoring.md (all)
-7. fpsl-process-steps-reference.md → **optional deep-dive** (operations sections only)
+5. cvpm-build-sequence-guide.md
+6. cvpm-validation.md (all)
+7. fpsl-cvpm-operational-monitoring.md (all)
+8. fpsl-process-steps-reference.md → **optional deep-dive** (operations sections only)
 
 **Skip:** method design, configuration hierarchy (unless config issue)
 
