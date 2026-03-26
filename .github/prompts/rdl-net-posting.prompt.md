@@ -17,6 +17,19 @@ Load implementation context from:
 
 Treat this prompt file as the primary requirement contract. If the implementation pack differs, follow this prompt file and call out the mismatch explicitly.
 
+## Output style for GHCP
+
+Generate the next result in a simple-first style:
+
+- produce one simple end-to-end implementation path first
+- explain each major artifact before the code block
+- keep the flow linear and easy to follow for an average ABAP developer
+- keep tests close to the implementation when they live in the same class or include
+- move optional hardening, restart logic, monitoring detail, and CVPM extension notes after the core build path
+- avoid A/B/C track storytelling
+- avoid unnecessary interfaces, helper layers, or framework-style decomposition in the first pass
+- prefer the smallest maintainable working design over the most theoretically modular one
+
 ## Source constraints — confirmed
 
 - **Source**: FPSL only.

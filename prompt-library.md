@@ -8,25 +8,27 @@ Working rule:
 - keep the prompt to the task delta
 - rely on repo metadata instead of prompt bloat
 - name the skill explicitly only when the task is ambiguous or you want to override routing
+- ask for one simple working path before optional hardening
+- ask for descriptions before code when you want output that an average developer can follow quickly
 
 ## Pack-First Prompts
 
 ### Build from an implementation pack
 
 ```text
-Build from this implementation pack. Use approved metadata first, keep placeholders explicit where object names are not confirmed, and return the smallest useful next artifact.
+Build from this implementation pack. Use approved metadata first, keep placeholders explicit where object names are not confirmed, and return one simple working path with the smallest useful next artifact.
 ```
 
 ### Enhance an existing implementation
 
 ```text
-Enhance this existing implementation pack. Reuse the confirmed metadata and example patterns already captured here, keep new assumptions explicit, and propose only the delta needed for the enhancement.
+Enhance this existing implementation pack. Reuse the confirmed metadata and example patterns already captured here, keep new assumptions explicit, and propose only the delta needed for the enhancement. Keep the solution easy to understand and maintain.
 ```
 
 ### Debug an implementation
 
 ```text
-Debug this implementation using the pack evidence first. Compare the current behavior against the documented logic and examples, call out confirmed versus inferred causes, and suggest the smallest useful fix path.
+Debug this implementation using the pack evidence first. Compare the current behavior against the documented logic and examples, call out confirmed versus inferred causes, and suggest the smallest useful fix path. Keep the explanation linear and practical.
 ```
 
 ### Generate checks from approved metadata and the pack
@@ -35,18 +37,24 @@ Debug this implementation using the pack evidence first. Compare the current beh
 Generate validation checks from the approved metadata and this implementation pack. Keep counts, totals, key checks, and evidence gaps explicit.
 ```
 
+### Generate a cleaner implementation pack draft
+
+```text
+Generate a cleaner implementation-pack draft from this requirement and prompt context. Use one minimum working path, explain each artifact before the code, keep tests near the implementation when appropriate, and move optional hardening after the core build path.
+```
+
 ## Core Skills
 
 ### `abap`
 
 ```text
-Use the abap skill in this repo. Generate the smallest clean ABAP artifact for this FPSL task. Keep placeholders explicit where object names are not confirmed. Include tests and validation.
+Use the abap skill in this repo. Generate the smallest clean ABAP artifact for this FPSL task. Keep placeholders explicit where object names are not confirmed. Explain the artifact before the code and keep tests and validation close to the implementation.
 ```
 
 ### `amdp`
 
 ```text
-Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for this FPSL or FSDM transformation. Keep SQL staged and explain why AMDP is justified.
+Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for this FPSL or FSDM transformation. Keep SQL staged, explain why AMDP is justified, and avoid extra abstraction unless it clearly helps maintainability.
 ```
 
 ### `config`
@@ -111,6 +119,9 @@ Add one line if needed:
 
 - `Use normalized metadata first.`
 - `Return one ADT-ready artifact block at a time.`
+- `Lead with one minimum working path before optional hardening.`
+- `Explain each artifact before presenting code.`
+- `Keep tests close to the implementation when they live in the same class or include.`
 - `Do not invent object names; keep placeholders explicit.`
 - `Separate confirmed setup from inferred setup.`
 - `Route any follow-up coding to abap or amdp.`

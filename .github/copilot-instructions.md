@@ -13,10 +13,21 @@ When responding:
 - do not invent SAP object names, package names, CDS names, DDIC fields, or `Z*` artifacts
 - use placeholders when exact objects are not confirmed by repository metadata or user input
 - keep outputs compact, modular, and paste-friendly for Eclipse ADT
+- prefer one simple working path before optional hardening
+- explain purpose before code when generating implementation guidance
+- optimize for an average developer's readability and maintainability, not architect-only elegance
+- avoid over-modularization, interface-heavy designs, or framework-style decomposition unless the requirement clearly justifies them
+- keep advanced operational patterns, restart logic, and monitoring detail separate from the first implementation pass unless they are required by the requirement
 
 Routing note:
 
 - GHCP should usually route correctly from task intent, but pilot users should name the skill explicitly in the prompt when they want the most reliable behavior.
+
+Implementation-pack style note:
+
+- implementation packs should read like a build guide, not a framework
+- avoid multi-track output by default; use a single linear flow unless the user explicitly asks for alternatives
+- when tests live with the same class/include, present them inline rather than as a disconnected later track
 
 Recommended mapping:
 
