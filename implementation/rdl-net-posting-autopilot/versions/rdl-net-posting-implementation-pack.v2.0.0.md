@@ -1,6 +1,6 @@
 # RDL Net Posting Implementation Pack
 
-Version: 2.1.0
+Version: 2.0.0
 Date: 2026-03-26
 Primary contract: `.github/prompts/rdl-net-posting.prompt.md`
 
@@ -61,10 +61,8 @@ Done criteria:
 - Mandatory HKAPA filter: `/BA1/CR4PFCT = '2100'`
 - Mandatory HKAPD filter: `/BA1/C55ACCRCT = '601'`
 - Temporal filter pattern: latest `/BA1/CR0KEYDAT <= /BA1/C55POSTD`, with `CURRENT_FLAG = 'X'`
-- Source exclusion (explicit downgrade in this release):
-  - GL and GR posting blocks are conceptually excluded by requirement.
-  - Implementation default does not yet enforce a discriminator filter in AMDP Stage 1.
-  - Activate GL/GR exclusion only after confirming exact `/BA1/HFSPD` discriminator field/value in landscape metadata.
+- Source exclusion:
+  - GL and GR posting blocks from the sample workbook are not netting source rows
 - Netting model:
   - netting group excludes contract ID
   - minimum confirmed netting-group dimensions:
@@ -147,7 +145,7 @@ Inferred and still to be revalidated in the target landscape:
 - Allocation validation errors (division by zero, missing contract data) logged to separate error table/log (not inline in output)
 - Precision: maintain original precision from source field throughout calculation
 
-## 3) Development path (ADT paste-ready sequence)
+## Track A - Development (ADT paste-ready sequence)
 
 ## 3) Artifact: Resume control table (DDIC) - deferred in current iteration
 
@@ -532,11 +530,7 @@ Checks:
 - Asset/Liability Indicator placeholder confirmed in AMDP output (enriched in ABAP layer)
 - Allocation Amount correctly reflects proportional formula
 
-## 6) Artifact: ABAP orchestration class definition (simple first pass)
-
-Implementation note:
-- For first pass, keep class structure simple and direct.
-- Interface-heavy decomposition is downgraded to optional hardening, not default build path.
+## 6) Artifact: ABAP orchestration class definition
 
 Paste target: Class definition section of `<ZCL_RDL_NET_POSTING_JOB>`
 Action: create
@@ -959,12 +953,9 @@ Checks:
 - Test 1 package run with tiny date range.
 - Rerun behavior in this iteration is full reprocessing (resume deferred).
 
-## 9) Testing and validation
+## Track B - Testing and validation
 
-## 9.1) Artifact: ABAP Unit test scaffold (inline with implementation path)
-
-Execution order note:
-- In implementation flow, execute this test section immediately after section 7 implementation, before moving to report/cvpm run steps.
+## 9) Artifact: ABAP Unit test scaffold
 
 Paste target: Local test class include in `<ZCL_RDL_NET_POSTING_JOB>`
 Action: append
@@ -1463,7 +1454,7 @@ Checks:
 - Include anchor ambiguity case that must skip target write and route to error handling.
 - Include rerun determinism check for identical input fixtures.
 
-## 10) Operations and monitoring (post-core path)
+## Track C - Operations and monitoring
 
 ## 10) CVPM setup and worklist support
 

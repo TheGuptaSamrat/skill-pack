@@ -29,6 +29,19 @@ Use this file to summarize whether a new source metadata drop changes active beh
   - Kept AMDP + ABAP artifact guidance aligned with `.github/prompts/rdl-net-posting.prompt.md`.
   - Moved hardening items (CVPM extensions, checkpoint, re-drive) after core implementation path.
 
+## 2026-03-26 — Implementation Pack v2.1.0 (Implementation Start)
+
+- **Artifact**: `implementation/rdl-net-posting-autopilot/rdl-net-posting-implementation-pack.md`
+- **Version**: `2.1.0`
+- **Change type**: major (implementation-path simplification and execution alignment)
+- **Archive snapshot**: `implementation/rdl-net-posting-autopilot/versions/rdl-net-posting-implementation-pack.v2.0.0.md`
+- **Status impact**: `no-impact` (design/instructional pack changes only)
+- **Notes**:
+  - Implemented explicit GL/GR exclusion downgrade until discriminator confirmation.
+  - Enforced one linear build path with no track-based execution framing.
+  - Replaced interface-heavy first-pass design with simpler default class flow.
+  - Moved test guidance inline with implementation path.
+
 ## 2026-03-24 — FPSL RDL Image Extraction
 
 - **Source**: Live HANA DDIC export photographed from Excel (IMG_1791–IMG_1802) + join diagram email (IMG_1803)
