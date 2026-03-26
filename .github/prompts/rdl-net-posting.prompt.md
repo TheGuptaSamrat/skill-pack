@@ -1,10 +1,6 @@
 ---
-mode: agent
+agent: "agent"
 description: GHCP-ready requirement contract for the RDL net posting autopilot. Use this as the primary requirement input when proposing design corrections, AMDP artifacts, ABAP artifacts, or validation SQL for the netting flow.
-tools:
-  - read_file
-  - semantic_search
-  - grep_search
 ---
 
 Use the `amdp` and `abap` skills.
