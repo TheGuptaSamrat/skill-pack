@@ -5,3 +5,7 @@ __pycache__/
 docs-context/indexes/redundancy-audit.md
 docs-context/indexes/redundancy-audit.json
 docs-context/indexes/validation-skill-pack.json
+local-work/
+scratch/
+metadata-drop/OtherDocs/
+metadata-drop/fpsl/rdl-join-logic.md

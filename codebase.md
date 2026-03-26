@@ -33,7 +33,7 @@ conventions every session. See `how-it-accelerates.md` for the value model.
 | Database | SAP HANA | Runtime for AMDP / SQLScript pushdown |
 | Content format | Markdown, CSV | Skills, references, and metadata |
 | Agent definitions | YAML (OpenAI format) | Skill-level agent configuration |
-| Automation scripts | Python 3 | Excel normalization, link validation, PDF ingestion, redundancy audit |
+| Automation scripts | Python 3 | Maintainer/admin utilities for normalization, validation, ingestion, and audits |
 | Smoke testing | Bash + Python | Filename convention and link checks |
 | Task integration | VS Code `tasks.json` | One-click metadata normalization |
 | Context files | JSON | PDF extraction configuration for `docs-context/inbox/` |
@@ -50,7 +50,8 @@ skill-pack/
 ├── how-it-accelerates.md            # Value summary, metrics, expected outcomes
 ├── vs-code-ghcp-step-by-step.md     # Step-by-step workflow for Eclipse ADT + VS Code + GHCP
 ├── metadata-normalization.md        # Excel → CSV normalization process
-├── prompt-library.md                # Starter prompts for every skill
+├── prompt-library.md                # Task-first starter prompts with optional skill overrides
+├── implementation/                  # Requirement-specific implementation packs
 │
 ├── .github/
 │   ├── copilot-instructions.md      # Master routing and trust rules for GitHub Copilot
@@ -97,19 +98,23 @@ skill-pack/
 │   ├── ddic/current/                # CSV templates for tables, fields, keys, domains, elements
 │   ├── ddic/sql/                    # HANA SQL for DDIC extraction
 │   ├── cds/                         # CDS DDL snippets
-│   ├── fpsl/                        # FPSL core structure notes
+│   ├── fpsl/                        # Reusable FPSL core structure notes
 │   ├── fsdm/                        # FSDM model notes
 │   ├── configuration/               # Sample navigation paths and validation checklists
 │   ├── samples/                     # Safe sample rows and integration-routing scenarios
-│   ├── raw-excel/                   # Trusted source Excel workbooks (input only)
+│   ├── raw-excel/                   # Trusted source Excel workbooks (input only; local use is common)
 │   ├── normalized/                  # Active working CSVs (output of normalization script)
 │   ├── pdf-resources/               # Source PDFs for knowledge extraction
 │   ├── manifest.csv                 # Source-to-normalized tracking
 │   └── change-log.md                # Structural change history and reverification notes
 │
+├── implementation/                  # Shared project memory for requirement-specific logic
+│   ├── README.md
+│   └── rdl-net-posting-autopilot/   # Example pack with design, examples, and implementation notes
+│
 ├── scripts/                         # Automation and validation
 │   ├── normalize_excel.py           # Converts Excel workbooks to normalized CSVs
-│   ├── validate_file_naming.py      # Enforces lowercase kebab-case filename convention
+│   ├── validate_file_naming.py      # Enforces lowercase kebab-case filename convention (filenames only)
 │   ├── validate_skill_pack_links.py # Checks internal markdown links
 │   ├── audit_skill_pack_redundancy.py  # Detects duplicated content across skill files
 │   ├── ingest_pdf_context.py        # Converts PDFs to markdown for docs-context/
@@ -214,6 +219,9 @@ metadata-drop/normalized/         ← active working CSVs (default context for s
 DDIC evidence (tables, fields, keys, domains) lives in `metadata-drop/ddic/current/` as CSV
 template files. Real DDIC exports replace the templates once available from the SAP system.
 
+Requirement-specific joins, filters, examples, and debugging notes do not belong in shared
+metadata. Those belong in `implementation/`.
+
 ---
 
 ## Validation and Scripts
@@ -226,7 +234,7 @@ Run the full validation suite from the repository root:
 
 This checks:
 
-- Filename conventions (lowercase kebab-case for all non-special files)
+- Filename conventions (lowercase kebab-case for all non-special filenames; SAP object names in content keep SAP case)
 - Internal markdown link integrity
 
 For content redundancy auditing:

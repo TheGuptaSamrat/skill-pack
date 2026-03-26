@@ -62,12 +62,14 @@ Script-driven (no AI invocation):
 ## Metadata Drop
 
 Use `metadata-drop/` for reusable evidence that improves output quality without expanding prompts.
+Treat it as shared golden context, not as the place for requirement-specific working notes.
 
 Operating rule:
 
 - raw Excel is treated as trusted source metadata
 - normalized metadata is the active working format used by skills by default
 - when new source metadata changes the active model materially, impacted outputs should be reverified
+- requirement-specific logic should move into `implementation/`, not shared metadata
 
 - `fpsl/`
   - core structure notes and sample table references
@@ -91,6 +93,25 @@ Operating rule:
   - summary of structural changes and reverification needs
 - `test-cases/`
   - developer trial cases and feedback pack
+
+## Implementation Packs
+
+Use `implementation/` as the shared memory for project-specific work.
+
+Each implementation pack should hold:
+
+- requirement summary and intent
+- confirmed metadata references
+- requirement-specific logic
+- curated examples
+- implementation notes
+- validation, debugging, and enhancement history
+
+Operating rule:
+
+- raw Excel, PDF, DOCX, screenshots, and temporary extraction outputs may stay local
+- commit only curated outputs that help future delivery
+- if something proves reusable across multiple requirements, it can later be promoted into `metadata-drop/`
 
 ## Docs Context
 
@@ -125,13 +146,14 @@ For VS Code with GitHub Copilot:
 - treat `.github/instructions/` as the primary GHCP activation and routing layer for day-to-day use
 - use `skills/` as the deeper canonical design layer when the task needs stricter delivery rules or more context
 - load `metadata-drop/` evidence only for the current task
-- for the most reliable pilot behavior, name the skill explicitly in the prompt even when the task intent is clear
+- prefer task-first prompts that reference an implementation pack when one exists
+- name the skill explicitly only when the task is ambiguous or you want to override routing
 - keep prompts short and task-specific
 
 Example:
 
 ```text
-Use the amdp skill in this repo. Design the smallest AMDP plus ABAP wrapper for transforming FSDM contract cashflow rows into FPSL posting input. Include tests and validation.
+Build from the implementation pack for this requirement. Use approved metadata first and keep placeholders explicit where object names are not confirmed.
 ```
 
 Use-case mapping:
@@ -157,6 +179,7 @@ Additional focused engineering skills:
 - placeholder names must remain placeholders unless repo or DDIC evidence confirms exact SAP objects
 - user-provided training material should be integrated as derived conceptual guidance, not as the top trust source for object names or active metadata
 - keep durable guidance in skill references and indexed docs; avoid session or review-style summary files in the root workflow
+- requirement-specific logic should accumulate in implementation packs, not shared metadata
 
 ## Validation
 
@@ -167,6 +190,7 @@ Run:
 ```
 
 Smoke check now includes filename-convention validation (`scripts/validate_file_naming.py`) so non-special files remain lowercase kebab-style.
+This convention applies to filenames only. SAP technical identifiers inside content and outputs must preserve SAP casing (for example `/BA1/C55POSTD`, `/BA1/HFSPD`).
 
 For redundancy and context-efficiency auditing, run:
 

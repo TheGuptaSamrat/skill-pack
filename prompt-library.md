@@ -4,9 +4,36 @@ Use these as short starting prompts in VS Code with GitHub Copilot.
 
 Working rule:
 
-- name the skill explicitly
+- start from the implementation pack when one exists
 - keep the prompt to the task delta
 - rely on repo metadata instead of prompt bloat
+- name the skill explicitly only when the task is ambiguous or you want to override routing
+
+## Pack-First Prompts
+
+### Build from an implementation pack
+
+```text
+Build from this implementation pack. Use approved metadata first, keep placeholders explicit where object names are not confirmed, and return the smallest useful next artifact.
+```
+
+### Enhance an existing implementation
+
+```text
+Enhance this existing implementation pack. Reuse the confirmed metadata and example patterns already captured here, keep new assumptions explicit, and propose only the delta needed for the enhancement.
+```
+
+### Debug an implementation
+
+```text
+Debug this implementation using the pack evidence first. Compare the current behavior against the documented logic and examples, call out confirmed versus inferred causes, and suggest the smallest useful fix path.
+```
+
+### Generate checks from approved metadata and the pack
+
+```text
+Generate validation checks from the approved metadata and this implementation pack. Keep counts, totals, key checks, and evidence gaps explicit.
+```
 
 ## Core Skills
 
@@ -91,5 +118,5 @@ Add one line if needed:
 
 Repository hygiene note:
 
-- keep prompts and outputs anchored to skill-owned references and indexed metadata
+- keep prompts and outputs anchored to implementation packs, skill-owned references, and indexed metadata
 - avoid relying on root-level session or review summary files for active guidance
