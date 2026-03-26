@@ -300,8 +300,8 @@ METHOD read_aggregates
   -- NETTING LOGIC: Proportional Allocation across Positive or Negative Contracts
   -- ============================================================================
   -- Stage 1: select candidate contract rows from HFSPD with business filters
-  -- TODO: Confirm that /BA1/C55POSTRC = 'FPSL' is the correct field/value pair
-  -- for excluding the GL and GR workbook blocks in the productive landscape.
+  -- TODO: Confirm exact HFSPD discriminator field/value for excluding
+  -- GL and GR workbook blocks in the productive landscape.
   lt_keys =
     SELECT DISTINCT
       h."CLIENT"          AS client,
@@ -314,7 +314,6 @@ METHOD read_aggregates
     WHERE h."/BA1/C55POSTD" BETWEEN :iv_postd_from AND :iv_postd_to
       AND (CARDINALITY(:it_lgent) = 0 OR h."/BA1/C55LGENT" IN (SELECT low FROM :it_lgent WHERE sign = 'I' AND option = 'EQ'))
       AND (CARDINALITY(:it_contid) = 0 OR h."/BA1/C55CONTID" IN (SELECT low FROM :it_contid WHERE sign = 'I' AND option = 'EQ'))
-      AND h."/BA1/C55POSTRC" = 'FPSL'
     ORDER BY
       h."/BA1/C55POSTD",
       h."/BA1/C55CONTID",
@@ -333,7 +332,7 @@ METHOD read_aggregates
       a."/BA1/C55PFID" AS pfid,
       ROW_NUMBER() OVER (
         PARTITION BY k.client, k.postd, k.contid, k.nodeno, k.accsy
-        ORDER BY a."/BA1/CR0KEYDAT" DESC
+        ORDER BY a."/BA1/CR0KEYDAT" DESC, a."/BA1/C55PFID" DESC
       ) AS rn
     FROM :lt_keys k
     INNER JOIN "/BA1/HKAPA" a
@@ -360,7 +359,7 @@ METHOD read_aggregates
       a.accsy,
       ROW_NUMBER() OVER (
         PARTITION BY a.client, a.postd, a.contid, a.nodeno, a.accsy
-        ORDER BY d."/BA1/CR0KEYDAT" DESC
+        ORDER BY d."/BA1/CR0KEYDAT" DESC, d."/BA1/C55PFID" DESC
       ) AS rn
     FROM :lt_apa a
     INNER JOIN "/BA1/HKAPD" d
@@ -381,53 +380,69 @@ METHOD read_aggregates
     FROM :lt_apd_ranked
     WHERE rn = 1;
 
+  -- Stage 3b: prepare one row per contract with balances and anchor candidates
+  lt_contract_bal =
+    SELECT
+      h."CLIENT"                                  AS client,
+      h."/BA1/C55POSTD"                           AS postd,
+      h."/BA1/C55LGENT"                           AS lgent,
+      h."/BA1/C55CONTID"                          AS contid,
+      h."/BA1/C11NODENO"                          AS nodeno,
+      h."/BA1/C55ACCSY"                           AS accsy,
+      MIN(h."/BA1/C55DOCNUM")                     AS anchor_docnum,
+      MIN(h."/BA1/C55DOCITM")                     AS anchor_docitm,
+      CAST(SUM(h."/BA1/K5SAMBAL") AS DECFLOAT34) AS contract_sambal,
+      CAST(SUM(h."/BA1/K5SAMGRP") AS DECFLOAT34) AS contract_samgrp
+    FROM :lt_valid_keys v
+    INNER JOIN "/BA1/HFSPD" h
+      ON h."CLIENT" = v.client
+     AND h."/BA1/C55POSTD" = v.postd
+     AND h."/BA1/C55CONTID" = v.contid
+     AND h."/BA1/C11NODENO" = v.nodeno
+     AND h."/BA1/C55ACCSY" = v.accsy
+    GROUP BY
+      h."CLIENT",
+      h."/BA1/C55POSTD",
+      h."/BA1/C55LGENT",
+      h."/BA1/C55CONTID",
+      h."/BA1/C11NODENO",
+      h."/BA1/C55ACCSY";
+
   -- Stage 4a: aggregate all eligible contracts within the netting group to compute net balance
   -- Netting group excludes contract ID.
   lt_grain_net =
     SELECT
-      v.client,
-      v.postd,
-      h."/BA1/C55LGENT" AS lgent,
-      v.nodeno,
-      v.accsy,
-      CAST(SUM(h."/BA1/K5SAMGRP") AS DECFLOAT34) AS net_samgrp
-    FROM :lt_valid_keys v
-    INNER JOIN "/BA1/HFSPD" h
-      ON h."CLIENT" = v.client
-     AND h."/BA1/C55POSTD" = v.postd
-     AND h."/BA1/C55CONTID" = v.contid
-     AND h."/BA1/C11NODENO" = v.nodeno
-     AND h."/BA1/C55ACCSY" = v.accsy
+      c.client,
+      c.postd,
+      c.lgent,
+      c.nodeno,
+      c.accsy,
+      CAST(SUM(c.contract_samgrp) AS DECFLOAT34) AS net_samgrp
+    FROM :lt_contract_bal c
     GROUP BY
-      v.client,
-      v.postd,
-      h."/BA1/C55LGENT",
-      v.nodeno,
-      v.accsy;
+      c.client,
+      c.postd,
+      c.lgent,
+      c.nodeno,
+      c.accsy;
 
   -- Stage 4b: compute same-sign denominators within the netting group
   lt_grain_abs_sum =
     SELECT
-      v.client,
-      v.postd,
-      h."/BA1/C55LGENT" AS lgent,
-      v.nodeno,
-      v.accsy,
-      CAST(SUM(CASE WHEN h."/BA1/K5SAMGRP" > 0 THEN h."/BA1/K5SAMGRP" ELSE 0 END) AS DECFLOAT34) AS sum_pos_grp,
-      CAST(SUM(CASE WHEN h."/BA1/K5SAMGRP" < 0 THEN -h."/BA1/K5SAMGRP" ELSE 0 END) AS DECFLOAT34) AS sum_neg_grp
-    FROM :lt_valid_keys v
-    INNER JOIN "/BA1/HFSPD" h
-      ON h."CLIENT" = v.client
-     AND h."/BA1/C55POSTD" = v.postd
-     AND h."/BA1/C55CONTID" = v.contid
-     AND h."/BA1/C11NODENO" = v.nodeno
-     AND h."/BA1/C55ACCSY" = v.accsy
+      c.client,
+      c.postd,
+      c.lgent,
+      c.nodeno,
+      c.accsy,
+      CAST(SUM(CASE WHEN c.contract_samgrp > 0 THEN c.contract_samgrp ELSE 0 END) AS DECFLOAT34) AS sum_pos_grp,
+      CAST(SUM(CASE WHEN c.contract_samgrp < 0 THEN -c.contract_samgrp ELSE 0 END) AS DECFLOAT34) AS sum_neg_grp
+    FROM :lt_contract_bal c
     GROUP BY
-      v.client,
-      v.postd,
-      h."/BA1/C55LGENT",
-      v.nodeno,
-      v.accsy;
+      c.client,
+      c.postd,
+      c.lgent,
+      c.nodeno,
+      c.accsy;
 
   -- Stage 5: FINAL netting output with allocation amounts
   -- For each contract in the netting group:
@@ -439,16 +454,16 @@ METHOD read_aggregates
   --   - alloc_amount = computed allocation (0 if not applicable)
   et_agg =
     SELECT
-      h."CLIENT"                                 AS client,
-      h."/BA1/C55POSTD"                         AS postd,
-      h."/BA1/C55LGENT"                         AS lgent,
-      h."/BA1/C55CONTID"                        AS contid,
-      h."/BA1/C11NODENO"                        AS nodeno,
-      h."/BA1/C55ACCSY"                         AS accsy,
-      MIN(h."/BA1/C55DOCNUM")                   AS anchor_docnum,
-      MIN(h."/BA1/C55DOCITM")                   AS anchor_docitm,
-      CAST(h."/BA1/K5SAMBAL" AS DECFLOAT34)    AS sum_sambal,
-      CAST(h."/BA1/K5SAMGRP" AS DECFLOAT34)    AS sum_samgrp,
+      c.client                                   AS client,
+      c.postd                                    AS postd,
+      c.lgent                                    AS lgent,
+      c.contid                                   AS contid,
+      c.nodeno                                   AS nodeno,
+      c.accsy                                    AS accsy,
+      c.anchor_docnum                            AS anchor_docnum,
+      c.anchor_docitm                            AS anchor_docitm,
+      c.contract_sambal                          AS sum_sambal,
+      c.contract_samgrp                          AS sum_samgrp,
       -- Asset/Liability Indicator (DDIC reference: /BA1/C55ALST)
       -- TODO: Verify DDIC field semantics and derivation rule (value-dependent on contract type or posting level)
       CAST(' ' AS NVARCHAR(1))                  AS asset_liab_ind,
@@ -457,48 +472,30 @@ METHOD read_aggregates
       -- If net < 0: |contract| / SUM_NEG × |net|
       -- If net = 0: 0 (no allocation)
       CASE
-        WHEN n.net_samgrp > 0 AND h."/BA1/K5SAMGRP" > 0 AND a.sum_pos_grp > 0
-          THEN ( ABS(h."/BA1/K5SAMGRP") / a.sum_pos_grp ) * n.net_samgrp
-        WHEN n.net_samgrp < 0 AND h."/BA1/K5SAMGRP" < 0 AND a.sum_neg_grp > 0
-          THEN ( ABS(h."/BA1/K5SAMGRP") / a.sum_neg_grp ) * ABS(n.net_samgrp)
+        WHEN n.net_samgrp > 0 AND c.contract_samgrp > 0 AND a.sum_pos_grp > 0
+          THEN ( ABS(c.contract_samgrp) / a.sum_pos_grp ) * n.net_samgrp
+        WHEN n.net_samgrp < 0 AND c.contract_samgrp < 0 AND a.sum_neg_grp > 0
+          THEN ( ABS(c.contract_samgrp) / a.sum_neg_grp ) * ABS(n.net_samgrp)
         ELSE CAST(0 AS DECFLOAT34)
       END AS alloc_amount
-    FROM :lt_valid_keys v
-    INNER JOIN "/BA1/HFSPD" h
-      ON h."CLIENT" = v.client
-     AND h."/BA1/C55POSTD" = v.postd
-     AND h."/BA1/C55CONTID" = v.contid
-     AND h."/BA1/C11NODENO" = v.nodeno
-     AND h."/BA1/C55ACCSY" = v.accsy
+    FROM :lt_contract_bal c
     INNER JOIN :lt_grain_net n
-      ON n.client = v.client
-     AND n.postd = v.postd
-     AND n.lgent = h."/BA1/C55LGENT"
-     AND n.nodeno = v.nodeno
-     AND n.accsy = v.accsy
+      ON n.client = c.client
+     AND n.postd = c.postd
+     AND n.lgent = c.lgent
+     AND n.nodeno = c.nodeno
+     AND n.accsy = c.accsy
     INNER JOIN :lt_grain_abs_sum a
-      ON a.client = v.client
-     AND a.postd = v.postd
-     AND a.lgent = h."/BA1/C55LGENT"
-     AND a.nodeno = v.nodeno
-     AND a.accsy = v.accsy
-    GROUP BY
-      h."CLIENT",
-      h."/BA1/C55POSTD",
-      h."/BA1/C55LGENT",
-      h."/BA1/C55CONTID",
-      h."/BA1/C11NODENO",
-      h."/BA1/C55ACCSY",
-      h."/BA1/K5SAMBAL",
-      h."/BA1/K5SAMGRP",
-      n.net_samgrp,
-      a.sum_pos_grp,
-      a.sum_neg_grp
+      ON a.client = c.client
+     AND a.postd = c.postd
+     AND a.lgent = c.lgent
+     AND a.nodeno = c.nodeno
+     AND a.accsy = c.accsy
     ORDER BY
-      v.postd,
-      v.contid,
-      v.nodeno,
-      v.accsy;
+      c.postd,
+      c.contid,
+      c.nodeno,
+      c.accsy;
 
 ENDMETHOD.
 ```
@@ -678,6 +675,9 @@ CLASS lcl_reader_prod IMPLEMENTATION.
       FOR ALL ENTRIES IN @it_agg
       WHERE client           = @it_agg-client
         AND "/BA1/C55POSTD"  = @it_agg-postd
+        AND "/BA1/C55CONTID" = @it_agg-contid
+        AND "/BA1/C11NODENO" = @it_agg-nodeno
+        AND "/BA1/C55ACCSY"  = @it_agg-accsy
         AND "/BA1/C55DOCNUM" = @it_agg-anchor_docnum
         AND "/BA1/C55DOCITM" = @it_agg-anchor_docitm
       INTO TABLE @rt_anchor.
@@ -746,7 +746,8 @@ METHOD run.
         lt_errors    TYPE STANDARD TABLE OF z_net_posting_err WITH EMPTY KEY,
         ls_target    TYPE z_net_posting,
         ls_error     TYPE z_net_posting_err,
-        lv_error_msg TYPE string.
+      lv_error_msg TYPE string,
+      lv_anchor_hits TYPE i.
 
   FIELD-SYMBOLS: <ls_agg>    TYPE <ZCL_RDL_NET_POSTING_AMDP>=>ty_s_agg,
                  <ls_anchor> TYPE /ba1/hfspd,
@@ -770,10 +771,41 @@ METHOD run.
 
     LOOP AT lt_agg ASSIGNING <ls_agg>.
       " Stage C: Per-contract enrichment with netting delta
+
+      CLEAR lv_anchor_hits.
+      LOOP AT lt_anchor TRANSPORTING NO FIELDS
+        WHERE client            = <ls_agg>-client
+          AND "/BA1/C55POSTD"  = <ls_agg>-postd
+          AND "/BA1/C55CONTID" = <ls_agg>-contid
+          AND "/BA1/C11NODENO" = <ls_agg>-nodeno
+          AND "/BA1/C55ACCSY"  = <ls_agg>-accsy
+          AND "/BA1/C55DOCNUM" = <ls_agg>-anchor_docnum
+          AND "/BA1/C55DOCITM" = <ls_agg>-anchor_docitm.
+        lv_anchor_hits = lv_anchor_hits + 1.
+      ENDLOOP.
+
+      IF lv_anchor_hits > 1.
+        " Validation error: ambiguous anchor candidate in source
+        CLEAR ls_error.
+        ls_error-mandt      = sy-mandt.
+        ls_error-client_id  = <ls_agg>-client.
+        ls_error-postd      = <ls_agg>-postd.
+        ls_error-contid     = <ls_agg>-contid.
+        ls_error-nodeno     = <ls_agg>-nodeno.
+        ls_error-accsy      = <ls_agg>-accsy.
+        ls_error-error_msg  = 'Ambiguous anchor row in HFSPD for contract output key'.
+        ls_error-created_at = sy-datum.
+        ls_error-created_by = sy-uname.
+        APPEND ls_error TO lt_errors.
+        CONTINUE.
+      ENDIF.
       
       READ TABLE lt_anchor ASSIGNING <ls_anchor>
         WITH KEY client            = <ls_agg>-client
                  "/BA1/C55POSTD"  = <ls_agg>-postd
+                 "/BA1/C55CONTID" = <ls_agg>-contid
+                 "/BA1/C11NODENO" = <ls_agg>-nodeno
+                 "/BA1/C55ACCSY"  = <ls_agg>-accsy
                  "/BA1/C55DOCNUM" = <ls_agg>-anchor_docnum
                  "/BA1/C55DOCITM" = <ls_agg>-anchor_docitm.
       IF sy-subrc <> 0.
@@ -949,6 +981,8 @@ CLASS ltc_net_posting_job DEFINITION FINAL FOR TESTING
     METHODS empty_agg_exits_cleanly FOR TESTING.
     METHODS writes_rows_for_one_package FOR TESTING.
     METHODS anchor_mismatch_skips_row FOR TESTING.
+    METHODS anchor_ambiguous_skips_row FOR TESTING.
+    METHODS rerun_is_deterministic FOR TESTING.
     METHODS selective_filters_propagated FOR TESTING.
     METHODS multi_row_collapse_sums_amounts FOR TESTING.
 ENDCLASS.
@@ -1048,10 +1082,22 @@ CLASS ltc_net_posting_job IMPLEMENTATION.
     APPEND INITIAL LINE TO lo_reader->mt_anchor ASSIGNING FIELD-SYMBOL(<ls_anchor1>).
     <ls_anchor1>-client = sy-mandt.
     ASSIGN COMPONENT '/BA1/C55POSTD' OF STRUCTURE <ls_anchor1> TO <lv_postd>.
+    ASSIGN COMPONENT '/BA1/C55CONTID' OF STRUCTURE <ls_anchor1> TO FIELD-SYMBOL(<lv_contid>).
+    ASSIGN COMPONENT '/BA1/C11NODENO' OF STRUCTURE <ls_anchor1> TO FIELD-SYMBOL(<lv_nodeno>).
+    ASSIGN COMPONENT '/BA1/C55ACCSY' OF STRUCTURE <ls_anchor1> TO FIELD-SYMBOL(<lv_accsy>).
     ASSIGN COMPONENT '/BA1/C55DOCNUM' OF STRUCTURE <ls_anchor1> TO <lv_docnum>.
     ASSIGN COMPONENT '/BA1/C55DOCITM' OF STRUCTURE <ls_anchor1> TO <lv_docitm>.
     IF <lv_postd> IS ASSIGNED.
       <lv_postd> = '20260115'.
+    ENDIF.
+    IF <lv_contid> IS ASSIGNED.
+      <lv_contid> = 'CONT_1'.
+    ENDIF.
+    IF <lv_nodeno> IS ASSIGNED.
+      <lv_nodeno> = 'NODE_1'.
+    ENDIF.
+    IF <lv_accsy> IS ASSIGNED.
+      <lv_accsy> = 'IFRS'.
     ENDIF.
     IF <lv_docnum> IS ASSIGNED.
       <lv_docnum> = '0000000001'.
@@ -1117,6 +1163,234 @@ CLASS ltc_net_posting_job IMPLEMENTATION.
     cl_abap_unit_assert=>assert_equals( act = lo_target->mv_call_count exp = 0 ).
   ENDMETHOD.
 
+  METHOD anchor_ambiguous_skips_row.
+    DATA lo_reader TYPE REF TO lcl_reader_fake.
+    DATA lo_ckp    TYPE REF TO lcl_checkpoint_fake.
+    DATA lo_target TYPE REF TO lcl_target_fake.
+    DATA lo_job    TYPE REF TO <zcl_rdl_net_posting_job>.
+    DATA ls_sel    TYPE <zif_net_posting_types>=>ty_s_selection.
+    DATA ls_res    TYPE <zif_net_posting_types>=>ty_s_result.
+    FIELD-SYMBOLS <lv_postd>  TYPE any.
+    FIELD-SYMBOLS <lv_contid> TYPE any.
+    FIELD-SYMBOLS <lv_nodeno> TYPE any.
+    FIELD-SYMBOLS <lv_accsy>  TYPE any.
+    FIELD-SYMBOLS <lv_docnum> TYPE any.
+    FIELD-SYMBOLS <lv_docitm> TYPE any.
+
+    CREATE OBJECT lo_reader.
+    CREATE OBJECT lo_ckp.
+    CREATE OBJECT lo_target.
+
+    APPEND VALUE #( client = sy-mandt
+                    postd = '20260115'
+                    lgent = '1000'
+                    contid = 'CONT_AMB'
+                    nodeno = 'NODE_AMB'
+                    accsy = 'IFRS'
+                    anchor_docnum = '0000000009'
+                    anchor_docitm = '000001'
+                    sum_sambal = '70'
+                    sum_samgrp = '75' ) TO lo_reader->mt_agg.
+
+    DO 2 TIMES.
+      APPEND INITIAL LINE TO lo_reader->mt_anchor ASSIGNING FIELD-SYMBOL(<ls_anchor_amb>).
+      <ls_anchor_amb>-client = sy-mandt.
+      ASSIGN COMPONENT '/BA1/C55POSTD' OF STRUCTURE <ls_anchor_amb> TO <lv_postd>.
+      ASSIGN COMPONENT '/BA1/C55CONTID' OF STRUCTURE <ls_anchor_amb> TO <lv_contid>.
+      ASSIGN COMPONENT '/BA1/C11NODENO' OF STRUCTURE <ls_anchor_amb> TO <lv_nodeno>.
+      ASSIGN COMPONENT '/BA1/C55ACCSY' OF STRUCTURE <ls_anchor_amb> TO <lv_accsy>.
+      ASSIGN COMPONENT '/BA1/C55DOCNUM' OF STRUCTURE <ls_anchor_amb> TO <lv_docnum>.
+      ASSIGN COMPONENT '/BA1/C55DOCITM' OF STRUCTURE <ls_anchor_amb> TO <lv_docitm>.
+      IF <lv_postd> IS ASSIGNED.
+        <lv_postd> = '20260115'.
+      ENDIF.
+      IF <lv_contid> IS ASSIGNED.
+        <lv_contid> = 'CONT_AMB'.
+      ENDIF.
+      IF <lv_nodeno> IS ASSIGNED.
+        <lv_nodeno> = 'NODE_AMB'.
+      ENDIF.
+      IF <lv_accsy> IS ASSIGNED.
+        <lv_accsy> = 'IFRS'.
+      ENDIF.
+      IF <lv_docnum> IS ASSIGNED.
+        <lv_docnum> = '0000000009'.
+      ENDIF.
+      IF <lv_docitm> IS ASSIGNED.
+        <lv_docitm> = '000001'.
+      ENDIF.
+    ENDDO.
+
+    CREATE OBJECT lo_job
+      EXPORTING
+        io_reader = lo_reader
+        io_target = lo_target.
+
+    ls_sel-postd_from = '20260101'.
+    ls_sel-postd_to = '20260131'.
+    ls_sel-pfct = '2100'.
+    ls_sel-accrct = '601'.
+    ls_sel-package_size = 10.
+
+    ls_res = lo_job->run( is_sel = ls_sel ).
+
+    cl_abap_unit_assert=>assert_equals( act = ls_res-rows_written exp = 0 ).
+    cl_abap_unit_assert=>assert_equals( act = lo_target->mv_call_count exp = 0 ).
+  ENDMETHOD.
+
+  METHOD rerun_is_deterministic.
+    DATA lo_reader_1 TYPE REF TO lcl_reader_fake.
+    DATA lo_target_1 TYPE REF TO lcl_target_fake.
+    DATA lo_job_1    TYPE REF TO <zcl_rdl_net_posting_job>.
+    DATA lo_reader_2 TYPE REF TO lcl_reader_fake.
+    DATA lo_target_2 TYPE REF TO lcl_target_fake.
+    DATA lo_job_2    TYPE REF TO <zcl_rdl_net_posting_job>.
+    DATA ls_sel      TYPE <zif_net_posting_types>=>ty_s_selection.
+    DATA ls_res_1    TYPE <zif_net_posting_types>=>ty_s_result.
+    DATA ls_res_2    TYPE <zif_net_posting_types>=>ty_s_result.
+
+    FIELD-SYMBOLS <lv_postd>   TYPE any.
+    FIELD-SYMBOLS <lv_contid>  TYPE any.
+    FIELD-SYMBOLS <lv_nodeno>  TYPE any.
+    FIELD-SYMBOLS <lv_accsy>   TYPE any.
+    FIELD-SYMBOLS <lv_docnum>  TYPE any.
+    FIELD-SYMBOLS <lv_docitm>  TYPE any.
+    FIELD-SYMBOLS <ls_tgt_1>   TYPE any.
+    FIELD-SYMBOLS <ls_tgt_2>   TYPE any.
+    FIELD-SYMBOLS <lv_t_postd_1> TYPE any.
+    FIELD-SYMBOLS <lv_t_postd_2> TYPE any.
+    FIELD-SYMBOLS <lv_t_samgrp_1> TYPE any.
+    FIELD-SYMBOLS <lv_t_samgrp_2> TYPE any.
+
+    ls_sel-postd_from = '20260101'.
+    ls_sel-postd_to = '20260131'.
+    ls_sel-pfct = '2100'.
+    ls_sel-accrct = '601'.
+    ls_sel-package_size = 10.
+
+    " Run #1
+    CREATE OBJECT lo_reader_1.
+    CREATE OBJECT lo_target_1.
+
+    APPEND VALUE #( client = sy-mandt
+                    postd = '20260115'
+                    lgent = '1000'
+                    contid = 'CONT_RERUN'
+                    nodeno = 'NODE_RERUN'
+                    accsy = 'IFRS'
+                    anchor_docnum = '0000000011'
+                    anchor_docitm = '000001'
+                    sum_sambal = '90'
+                    sum_samgrp = '95' ) TO lo_reader_1->mt_agg.
+
+    APPEND INITIAL LINE TO lo_reader_1->mt_anchor ASSIGNING FIELD-SYMBOL(<ls_anchor_1>).
+    <ls_anchor_1>-client = sy-mandt.
+    ASSIGN COMPONENT '/BA1/C55POSTD' OF STRUCTURE <ls_anchor_1> TO <lv_postd>.
+    ASSIGN COMPONENT '/BA1/C55CONTID' OF STRUCTURE <ls_anchor_1> TO <lv_contid>.
+    ASSIGN COMPONENT '/BA1/C11NODENO' OF STRUCTURE <ls_anchor_1> TO <lv_nodeno>.
+    ASSIGN COMPONENT '/BA1/C55ACCSY' OF STRUCTURE <ls_anchor_1> TO <lv_accsy>.
+    ASSIGN COMPONENT '/BA1/C55DOCNUM' OF STRUCTURE <ls_anchor_1> TO <lv_docnum>.
+    ASSIGN COMPONENT '/BA1/C55DOCITM' OF STRUCTURE <ls_anchor_1> TO <lv_docitm>.
+    IF <lv_postd> IS ASSIGNED.
+      <lv_postd> = '20260115'.
+    ENDIF.
+    IF <lv_contid> IS ASSIGNED.
+      <lv_contid> = 'CONT_RERUN'.
+    ENDIF.
+    IF <lv_nodeno> IS ASSIGNED.
+      <lv_nodeno> = 'NODE_RERUN'.
+    ENDIF.
+    IF <lv_accsy> IS ASSIGNED.
+      <lv_accsy> = 'IFRS'.
+    ENDIF.
+    IF <lv_docnum> IS ASSIGNED.
+      <lv_docnum> = '0000000011'.
+    ENDIF.
+    IF <lv_docitm> IS ASSIGNED.
+      <lv_docitm> = '000001'.
+    ENDIF.
+
+    CREATE OBJECT lo_job_1
+      EXPORTING
+        io_reader = lo_reader_1
+        io_target = lo_target_1.
+
+    ls_res_1 = lo_job_1->run( is_sel = ls_sel ).
+
+    " Run #2 with identical fixture
+    CREATE OBJECT lo_reader_2.
+    CREATE OBJECT lo_target_2.
+
+    APPEND VALUE #( client = sy-mandt
+                    postd = '20260115'
+                    lgent = '1000'
+                    contid = 'CONT_RERUN'
+                    nodeno = 'NODE_RERUN'
+                    accsy = 'IFRS'
+                    anchor_docnum = '0000000011'
+                    anchor_docitm = '000001'
+                    sum_sambal = '90'
+                    sum_samgrp = '95' ) TO lo_reader_2->mt_agg.
+
+    APPEND INITIAL LINE TO lo_reader_2->mt_anchor ASSIGNING FIELD-SYMBOL(<ls_anchor_2>).
+    <ls_anchor_2>-client = sy-mandt.
+    ASSIGN COMPONENT '/BA1/C55POSTD' OF STRUCTURE <ls_anchor_2> TO <lv_postd>.
+    ASSIGN COMPONENT '/BA1/C55CONTID' OF STRUCTURE <ls_anchor_2> TO <lv_contid>.
+    ASSIGN COMPONENT '/BA1/C11NODENO' OF STRUCTURE <ls_anchor_2> TO <lv_nodeno>.
+    ASSIGN COMPONENT '/BA1/C55ACCSY' OF STRUCTURE <ls_anchor_2> TO <lv_accsy>.
+    ASSIGN COMPONENT '/BA1/C55DOCNUM' OF STRUCTURE <ls_anchor_2> TO <lv_docnum>.
+    ASSIGN COMPONENT '/BA1/C55DOCITM' OF STRUCTURE <ls_anchor_2> TO <lv_docitm>.
+    IF <lv_postd> IS ASSIGNED.
+      <lv_postd> = '20260115'.
+    ENDIF.
+    IF <lv_contid> IS ASSIGNED.
+      <lv_contid> = 'CONT_RERUN'.
+    ENDIF.
+    IF <lv_nodeno> IS ASSIGNED.
+      <lv_nodeno> = 'NODE_RERUN'.
+    ENDIF.
+    IF <lv_accsy> IS ASSIGNED.
+      <lv_accsy> = 'IFRS'.
+    ENDIF.
+    IF <lv_docnum> IS ASSIGNED.
+      <lv_docnum> = '0000000011'.
+    ENDIF.
+    IF <lv_docitm> IS ASSIGNED.
+      <lv_docitm> = '000001'.
+    ENDIF.
+
+    CREATE OBJECT lo_job_2
+      EXPORTING
+        io_reader = lo_reader_2
+        io_target = lo_target_2.
+
+    ls_res_2 = lo_job_2->run( is_sel = ls_sel ).
+
+    cl_abap_unit_assert=>assert_equals( act = ls_res_1-rows_written exp = ls_res_2-rows_written ).
+    cl_abap_unit_assert=>assert_equals( act = ls_res_1-packages exp = ls_res_2-packages ).
+    cl_abap_unit_assert=>assert_equals( act = lo_target_1->mv_call_count exp = lo_target_2->mv_call_count ).
+    cl_abap_unit_assert=>assert_equals( act = lines( lo_target_1->mt_rows ) exp = lines( lo_target_2->mt_rows ) ).
+
+    READ TABLE lo_target_1->mt_rows ASSIGNING <ls_tgt_1> INDEX 1.
+    READ TABLE lo_target_2->mt_rows ASSIGNING <ls_tgt_2> INDEX 1.
+
+    IF <ls_tgt_1> IS ASSIGNED AND <ls_tgt_2> IS ASSIGNED.
+      ASSIGN COMPONENT '/BA1/C55POSTD' OF STRUCTURE <ls_tgt_1> TO <lv_t_postd_1>.
+      ASSIGN COMPONENT '/BA1/C55POSTD' OF STRUCTURE <ls_tgt_2> TO <lv_t_postd_2>.
+      ASSIGN COMPONENT '/BA1/K5SAMGRP' OF STRUCTURE <ls_tgt_1> TO <lv_t_samgrp_1>.
+      ASSIGN COMPONENT '/BA1/K5SAMGRP' OF STRUCTURE <ls_tgt_2> TO <lv_t_samgrp_2>.
+
+      IF <lv_t_postd_1> IS ASSIGNED AND <lv_t_postd_2> IS ASSIGNED.
+        cl_abap_unit_assert=>assert_equals( act = <lv_t_postd_1> exp = <lv_t_postd_2> ).
+      ENDIF.
+      IF <lv_t_samgrp_1> IS ASSIGNED AND <lv_t_samgrp_2> IS ASSIGNED.
+        cl_abap_unit_assert=>assert_equals( act = <lv_t_samgrp_1> exp = <lv_t_samgrp_2> ).
+      ENDIF.
+    ELSE.
+      cl_abap_unit_assert=>fail( msg = 'Expected deterministic target rows in both runs' ).
+    ENDIF.
+  ENDMETHOD.
+
   METHOD selective_filters_propagated.
     DATA lo_reader TYPE REF TO lcl_reader_fake.
     DATA lo_ckp    TYPE REF TO lcl_checkpoint_fake.
@@ -1160,6 +1434,8 @@ ENDCLASS.
 Checks:
 - Tests use deterministic in-memory doubles, not real database state.
 - Include one collapse test for summed-amount correctness at target-write seam.
+- Include anchor ambiguity case that must skip target write and route to error handling.
+- Include rerun determinism check for identical input fixtures.
 
 ## Track C - Operations and monitoring
 
@@ -1218,49 +1494,121 @@ Use this sequence (evidence-aligned pattern):
 
 SQL checks (run in HANA SQL console):
 
-1. Join eligibility volume
+1. Per-group row parity (eligible contracts vs target output)
 
 ```sql
-SELECT COUNT(*) AS eligible_groups
-FROM (
-  SELECT h."/BA1/C55POSTD", h."/BA1/C55CONTID", h."/BA1/C11NODENO", h."/BA1/C55ACCSY"
-  FROM "/BA1/HFSPD" h
-  GROUP BY h."/BA1/C55POSTD", h."/BA1/C55CONTID", h."/BA1/C11NODENO", h."/BA1/C55ACCSY"
-) x;
-```
-
-2. Compare aggregate totals (source vs target)
-
-```sql
-SELECT
-  SUM(src_sum_sambal) AS src_total,
-  SUM(tgt_sum_sambal) AS tgt_total
-FROM (
+WITH eligible AS (
   SELECT
-    h."/BA1/C55POSTD",
-    h."/BA1/C55CONTID",
-    h."/BA1/C11NODENO",
-    h."/BA1/C55ACCSY",
-    SUM(h."/BA1/K5SAMBAL") AS src_sum_sambal,
-    0 AS tgt_sum_sambal
+    h."/BA1/C55POSTD"  AS postd,
+    h."/BA1/C11NODENO" AS nodeno,
+    h."/BA1/C55ACCSY"  AS accsy,
+    h."/BA1/C55CONTID" AS contid
   FROM "/BA1/HFSPD" h
-  GROUP BY h."/BA1/C55POSTD", h."/BA1/C55CONTID", h."/BA1/C11NODENO", h."/BA1/C55ACCSY"
-
-  UNION ALL
-
+  WHERE h."/BA1/C55POSTD" BETWEEN '20260101' AND '20260131'
+  GROUP BY h."/BA1/C55POSTD", h."/BA1/C11NODENO", h."/BA1/C55ACCSY", h."/BA1/C55CONTID"
+),
+tgt AS (
   SELECT
-    z."/BA1/C55POSTD",
-    z."/BA1/C55CONTID",
-    z."/BA1/C11NODENO",
-    z."/BA1/C55ACCSY",
-    0 AS src_sum_sambal,
-    SUM(z."/BA1/K5SAMBAL") AS tgt_sum_sambal
+    z."/BA1/C55POSTD"  AS postd,
+    z."/BA1/C11NODENO" AS nodeno,
+    z."/BA1/C55ACCSY"  AS accsy,
+    z."/BA1/C55CONTID" AS contid
   FROM "Z_NET_POSTING" z
-  GROUP BY z."/BA1/C55POSTD", z."/BA1/C55CONTID", z."/BA1/C11NODENO", z."/BA1/C55ACCSY"
-) t;
+  WHERE z."/BA1/C55POSTD" BETWEEN '20260101' AND '20260131'
+  GROUP BY z."/BA1/C55POSTD", z."/BA1/C11NODENO", z."/BA1/C55ACCSY", z."/BA1/C55CONTID"
+)
+SELECT COUNT(*) AS eligible_rows FROM eligible;
+
+SELECT COUNT(*) AS target_rows FROM tgt;
 ```
 
-3. Optional extension check (only if checkpoint module is enabled)
+2. Allocation sum must reconcile to net per netting group
+
+```sql
+WITH src_contract AS (
+  SELECT
+    h."/BA1/C55POSTD"  AS postd,
+    h."/BA1/C11NODENO" AS nodeno,
+    h."/BA1/C55ACCSY"  AS accsy,
+    h."/BA1/C55CONTID" AS contid,
+    SUM(h."/BA1/K5SAMGRP") AS contract_bal
+  FROM "/BA1/HFSPD" h
+  WHERE h."/BA1/C55POSTD" BETWEEN '20260101' AND '20260131'
+  GROUP BY h."/BA1/C55POSTD", h."/BA1/C11NODENO", h."/BA1/C55ACCSY", h."/BA1/C55CONTID"
+),
+src_group AS (
+  SELECT postd, nodeno, accsy, SUM(contract_bal) AS net_samgrp
+  FROM src_contract
+  GROUP BY postd, nodeno, accsy
+),
+tgt_group AS (
+  SELECT
+    z."/BA1/C55POSTD"  AS postd,
+    z."/BA1/C11NODENO" AS nodeno,
+    z."/BA1/C55ACCSY"  AS accsy,
+    SUM(z."/BA1/K5SAMGRP") AS alloc_sum
+  FROM "Z_NET_POSTING" z
+  WHERE z."/BA1/C55POSTD" BETWEEN '20260101' AND '20260131'
+  GROUP BY z."/BA1/C55POSTD", z."/BA1/C11NODENO", z."/BA1/C55ACCSY"
+)
+SELECT
+  s.postd,
+  s.nodeno,
+  s.accsy,
+  s.net_samgrp,
+  COALESCE(t.alloc_sum, 0) AS alloc_sum,
+  s.net_samgrp - COALESCE(t.alloc_sum, 0) AS delta
+FROM src_group s
+LEFT JOIN tgt_group t
+  ON t.postd = s.postd
+ AND t.nodeno = s.nodeno
+ AND t.accsy = s.accsy
+ORDER BY s.postd, s.nodeno, s.accsy;
+```
+
+3. Same-sign allocation rule check
+
+```sql
+WITH src_contract AS (
+  SELECT
+    h."/BA1/C55POSTD"  AS postd,
+    h."/BA1/C11NODENO" AS nodeno,
+    h."/BA1/C55ACCSY"  AS accsy,
+    h."/BA1/C55CONTID" AS contid,
+    SUM(h."/BA1/K5SAMGRP") AS contract_bal
+  FROM "/BA1/HFSPD" h
+  WHERE h."/BA1/C55POSTD" BETWEEN '20260101' AND '20260131'
+  GROUP BY h."/BA1/C55POSTD", h."/BA1/C11NODENO", h."/BA1/C55ACCSY", h."/BA1/C55CONTID"
+),
+src_group AS (
+  SELECT postd, nodeno, accsy, SUM(contract_bal) AS net_samgrp
+  FROM src_contract
+  GROUP BY postd, nodeno, accsy
+)
+SELECT
+  z."/BA1/C55POSTD"  AS postd,
+  z."/BA1/C11NODENO" AS nodeno,
+  z."/BA1/C55ACCSY"  AS accsy,
+  z."/BA1/C55CONTID" AS contid,
+  s.net_samgrp,
+  c.contract_bal,
+  z."/BA1/K5SAMGRP"  AS alloc_amount
+FROM "Z_NET_POSTING" z
+INNER JOIN src_contract c
+  ON c.postd = z."/BA1/C55POSTD"
+ AND c.nodeno = z."/BA1/C11NODENO"
+ AND c.accsy = z."/BA1/C55ACCSY"
+ AND c.contid = z."/BA1/C55CONTID"
+INNER JOIN src_group s
+  ON s.postd = z."/BA1/C55POSTD"
+ AND s.nodeno = z."/BA1/C11NODENO"
+ AND s.accsy = z."/BA1/C55ACCSY"
+WHERE (s.net_samgrp > 0 AND (c.contract_bal <= 0 AND z."/BA1/K5SAMGRP" <> 0))
+   OR (s.net_samgrp < 0 AND (c.contract_bal >= 0 AND z."/BA1/K5SAMGRP" <> 0))
+ORDER BY postd, nodeno, accsy, contid;
+```
+
+4. Optional extension check (only if checkpoint module is enabled)
 
 ```sql
 SELECT * FROM "<ZNET_POSTING_RUN>"
@@ -1276,3 +1624,88 @@ ORDER BY CHANGED_AT_UTC DESC;
 - Placeholder rule contracts for Asset/Liability Indicator and Allocation Amount are agreed before implementation.
 
 If any of the above differs, keep the architecture and adjust only the affected method/filter.
+
+## 14) Prompt contract closure checklist
+
+Use this checklist to confirm alignment with `.github/prompts/rdl-net-posting.prompt.md`:
+
+- FPSL-only source intent is implemented; GL and GR exclusion uses an explicitly confirmed discriminator in landscape metadata.
+- Netting group excludes contract ID for net calculation, while output remains one row per contract.
+- Netted delta is written to target group-currency amount field; pre-netted group amount is not posted.
+- Anchor strategy is treated as candidate logic; missing and ambiguous anchors are routed to separate error handling.
+- Allocation follows same-sign rule (`net > 0` -> positive contracts, `net < 0` -> negative contracts, `net = 0` -> no effective allocation).
+- Currency handling keeps `/BA1/K5SAMGRP` as already USD with no FX conversion step.
+- No forced rounding is introduced unless business confirms posting-boundary rounding policy.
+
+## 15) Email-ready implementation kickoff guidelines
+
+Use this template to announce implementation start and align Dev, Test, and Ops.
+
+Subject:
+- `RDL Net Posting: Implementation Start + Validation Plan`
+
+Recipients:
+- Dev owner
+- QA owner
+- FPSL/CVPM operations owner
+- Business approver for netting/allocation semantics
+
+Email body template:
+
+```text
+Hello Team,
+
+We are starting implementation for the RDL net posting flow using the agreed contract and pack artifacts.
+
+Scope included in this iteration
+- AMDP netting + proportional allocation logic
+- ABAP orchestration and anchor-row handling
+- Validation SQL checks and ABAP Unit scaffolding
+- CVPM run path and monitoring guidance
+
+Confirmed behavior
+- Source: FPSL only
+- Netting group excludes contract ID
+- Output is one row per eligible contract
+- Same-sign allocation rule is applied
+- Group currency is already USD (no FX conversion in this flow)
+- Separate error handling path for missing/ambiguous anchors
+
+Open confirmations before production move
+- Exact HFSPD discriminator for GL/GR exclusion in this landscape
+- Final business decision for Group Category derivation (A/C/D)
+- Rounding policy at posting boundary (current behavior: no forced rounding)
+
+Execution plan
+1. Activate artifacts in ADT sequence
+2. Run ABAP Unit and SQL validation checks
+3. Execute limited-scope trial run by date range
+4. Review reconciliation deltas and error log entries
+5. Approve scale-up window for wider run
+
+Evidence to attach
+- Implementation pack section: Track A/Track B/Track C
+- Validation SQL output screenshots or result extracts
+- /BAL/PW_PROCMON run monitor snapshot
+
+Please reply with GO/NO-GO for the limited-scope trial run and any blocking concerns.
+
+Regards,
+<owner>
+```
+
+Send criteria:
+- Run this email only after checklist items in section 14 are reviewed.
+- Keep evidence attachments from the same run window used in SQL validation.
+
+Leadership summary variant (5-7 lines):
+
+```text
+Subject: RDL Net Posting - Implementation Start (Status and Decision)
+
+We are ready to begin controlled implementation for RDL net posting with AMDP, ABAP orchestration, and validation controls in place.
+The design is aligned to FPSL-only sourcing, per-contract output, and same-sign allocation logic.
+ABAP Unit and SQL reconciliation checks are prepared, including missing/ambiguous anchor handling.
+Open confirmations before production scale-up: GL/GR discriminator field, Group Category derivation (A/C/D), and posting-boundary rounding policy.
+Next step is a limited-scope trial run followed by GO/NO-GO decision using validation evidence and process-monitor output.
+```
