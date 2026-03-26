@@ -13,6 +13,12 @@ Load implementation context from:
 
 Treat this prompt file as the primary requirement contract. If the implementation pack differs, follow this prompt file and call out the mismatch explicitly.
 
+Truth-label rule for this prompt:
+
+- `Confirmed business rule`: business intent is known and should stay visible in generated output
+- `Technical enforcement pending`: exact implementation filter or discriminator is not yet confirmed in landscape metadata
+- `Open technical mapping`: do not silently invent a field/value pair just to enforce the business rule
+
 ## Output style for GHCP
 
 Generate the next result in a simple-first style:
@@ -29,7 +35,6 @@ Generate the next result in a simple-first style:
 ## Source constraints — confirmed
 
 - **Source**: FPSL only.
-- **Excluded**: GL and GR posting blocks visible in the sample workbook are not netting source rows.
 - **Driver table**: `/BA1/HFSPD`
 - **Validation dim 1**: `/BA1/HKAPA`
   - Hard filter: `/BA1/CR4PFCT = '2100'`
@@ -37,6 +42,13 @@ Generate the next result in a simple-first style:
 - **Validation dim 2**: `/BA1/HKAPD`
   - Hard filter: `/BA1/C55ACCRCT = '601'`
   - Temporal: latest `/BA1/CR0KEYDAT` ≤ `/BA1/C55POSTD` where `CURRENT_FLAG = 'X'`
+
+## GL/GR exclusion status
+
+- `Confirmed business rule`: GL and GR posting blocks visible in the sample workbook must be excluded from the netting source.
+- `Technical enforcement pending`: the exact `/BA1/HFSPD` discriminator field/value is not yet confirmed in landscape metadata.
+- `Current first-pass implementation`: do not enforce a GL/GR discriminator until that mapping is confirmed.
+- Keep the exclusion visible in the design notes, but do not silently invent or hard-code an unverified technical filter.
 
 ## Netting model — confirmed
 
@@ -114,7 +126,7 @@ Derive from allocation outcome. Add inline comment `TODO: confirm Group Category
 
 ## Inline comment anchors — keep in generated code
 
-1. GL and GR rows are excluded from the source set.
+1. GL and GR exclusion is a confirmed business rule, but technical enforcement stays pending until the HFSPD discriminator is confirmed.
 2. Anchor row strategy must be revalidated in the landscape.
 3. Pre-netting balance is not posted; only `netted-delta` goes to `Z_NET_POSTING`.
 4. `/BA1/K5SAMGRP` is always USD — no FX step.
