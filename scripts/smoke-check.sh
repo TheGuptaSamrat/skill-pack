@@ -8,6 +8,7 @@ required_files=(
   "$repo_root/prompt-library.md"
   "$repo_root/metadata-normalization.md"
   "$repo_root/.github/copilot-instructions.md"
+  "$repo_root/.github/prompts/rdl-net-posting.prompt.md"
   "$repo_root/.github/instructions/amdp.instructions.md"
   "$repo_root/.github/instructions/abap.instructions.md"
   "$repo_root/.github/instructions/config.instructions.md"

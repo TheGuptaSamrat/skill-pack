@@ -16,14 +16,15 @@ Build or review the RDL net-posting implementation using approved RDL table evid
 ## Transformation intent
 
 - identify eligible HFSPD rows
+- exclude GL and GR posting blocks from the netting source set
 - resolve latest valid HKAPA and HKAPD relationships
-- aggregate at the approved netting grain
-- write one netted output row per eligible group
+- compute net at the approved contract-excluded netting-group level
+- write one output row per eligible contract inside that group
 
 ## Expected output shape
 
-- one output row per approved netting group
-- aggregated functional and group currency amounts
+- one output row per eligible contract
+- allocation amount written only for contracts on the same sign side as the net
 - retained anchor document values for traceability
 
 ## Validation checks
@@ -31,3 +32,4 @@ Build or review the RDL net-posting implementation using approved RDL table evid
 - counts and sums reconcile with validation SQL
 - filters are applied exactly once
 - latest-valid-date logic is preserved
+- opposite-sign contracts do not receive allocation

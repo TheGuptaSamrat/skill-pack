@@ -18,6 +18,7 @@ ALLOWED_BASENAMES = {"README.md", "SKILL.md", ".gitignore", ".DS_Store"}
 ALLOWED_PREFIXES = {
     "metadata-drop/pdf-resources/",
     "metadata-drop/fpsl/",  # Allow source .docx files
+    "metadata-drop/OtherDocs/",  # Local evidence screenshots and reference images
     ".git/",
 }
 VALID_NAME_RE = re.compile(r"^[a-z0-9.][a-z0-9._-]*$")

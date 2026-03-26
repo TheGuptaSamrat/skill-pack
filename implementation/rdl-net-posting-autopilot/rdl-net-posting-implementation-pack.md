@@ -5,6 +5,9 @@ Purpose: implement a modular, selective, CVPM-compatible data flow that applies 
 This pack is split into ADT-ready artifacts and a non-ABAP runbook.
 All custom technical object names except `Z_NET_POSTING` are placeholders and must be replaced with your confirmed namespace/object names.
 
+This pack implements the GHCP requirement contract in `.github/prompts/rdl-net-posting.prompt.md`.
+If the pack and the prompt differ, the prompt is the primary requirement source until corrected evidence is added here.
+
 ## Pack usage
 
 - reusable RDL table and field evidence comes from `metadata-drop/ddic/current/`
@@ -33,7 +36,7 @@ Done criteria:
 - validation SQL checks pass on test scope
 - CVPM process can be configured and monitored
 
-## 1) Confirmed inputs from uploaded metadata
+## 1) Confirmed inputs from uploaded metadata and prompt contract
 
 - Driver table: `/BA1/HFSPD`
 - Join table 1: `/BA1/HKAPA`
@@ -41,14 +44,18 @@ Done criteria:
 - Mandatory HKAPA filter: `/BA1/CR4PFCT = '2100'`
 - Mandatory HKAPD filter: `/BA1/C55ACCRCT = '601'`
 - Temporal filter pattern: latest `/BA1/CR0KEYDAT <= /BA1/C55POSTD`, with `CURRENT_FLAG = 'X'`
-- Grouping grain from diagram:
-  - `/BA1/C55CONTID`
-  - `/BA1/C11NODENO`
-  - `/BA1/C55ACCSY`
-  - Note: Grain used for net calculation and contract grouping; **output is per-contract** (not per-grain aggregated)
+- Source exclusion:
+  - GL and GR posting blocks from the sample workbook are not netting source rows
+- Netting model:
+  - netting group excludes contract ID
+  - minimum confirmed netting-group dimensions:
+    - `/BA1/C55POSTD`
+    - `/BA1/C11NODENO`
+    - `/BA1/C55ACCSY`
+  - contract ID is part of the output/result row, not the aggregation key for net calculation
 - Aggregates:
-  - `SUM(/BA1/K5SAMBAL)` functional currency amount
-  - `SUM(/BA1/K5SAMGRP)` group currency amount
+  - `SUM(/BA1/K5SAMGRP)` for net computation at group level
+  - `/BA1/K5SAMBAL` retained from the chosen anchor row for the contract result
 
 ## 1a) Requirement-specific references in this pack
 
@@ -64,15 +71,17 @@ Confirmed from approved metadata and this implementation pack:
 - `/BA1/HKAPA` and `/BA1/HKAPD` are the validation dimensions.
 - `CURRENT_FLAG = 'X'` and latest `/BA1/CR0KEYDAT <= /BA1/C55POSTD` are part of the temporal validity rule.
 - hard filters are `/BA1/CR4PFCT = '2100'` and `/BA1/C55ACCRCT = '601'`.
-- aggregation grain is `/BA1/C55POSTD`, `/BA1/C55CONTID`, `/BA1/C11NODENO`, `/BA1/C55ACCSY`.
-- aggregated measures are `/BA1/K5SAMBAL` and `/BA1/K5SAMGRP`.
+- GL and GR posting blocks are excluded from netting source rows.
+- netting group excludes contract ID and the output remains one row per eligible contract.
+- `SUM(/BA1/K5SAMGRP)` is the net basis and allocation is restricted to the same-sign side only.
 - target table `Z_NET_POSTING` is approved to have the same structure as `/BA1/HFSPD`.
 
 Inferred and still to be revalidated in the target landscape:
 
 - `/BA1/HFSPD` joins to `/BA1/HKAPA` on `/BA1/C55CONTID`, `/BA1/C11NODENO`, `/BA1/C55ACCSY`.
 - `/BA1/HKAPA` joins to `/BA1/HKAPD` on `/BA1/C55PFID` and `/BA1/C55ACCSY`.
-- `MIN( /BA1/C55DOCNUM )` plus `MIN( /BA1/C55DOCITM )` is acceptable as the anchor-row selector for copying the rest of the `/BA1/HFSPD` structure into `Z_NET_POSTING`.
+- `MIN( /BA1/C55DOCNUM )` plus `MIN( /BA1/C55DOCITM )` is only a candidate anchor strategy and must be revalidated per contract result.
+- the exact HFSPD field/value used to exclude the GL and GR workbook blocks is still a candidate mapping and must be confirmed before productive use.
 - the resume cursor can be ordered lexicographically by `(POSTD, CONTID, NODENO, ACCSY)` without missing or duplicating groups.
 
 ## 2) Runtime architecture
@@ -88,10 +97,11 @@ Inferred and still to be revalidated in the target landscape:
 
 ## 2a) Business logic implementation (netting & allocation)
 
-**Netting logic (from test samples):**
+**Netting logic (from prompt and test samples):**
 
-- Grouping grain: (Entity, Posting Date, Profit Center, Contract, Node, Accounting System)
-- Within each grain: calculate net of all balances
+- Exclude GL and GR posting blocks from the source set.
+- Netting group excludes contract ID.
+- Within each netting group: calculate net of all balances.
 - If net > 0: allocate proportionally across **positive contracts only**
 - If net < 0: allocate proportionally across **negative contracts only**
 - If net = 0: no allocation (logical block kept for future clarity)
@@ -274,7 +284,8 @@ Action: create
 Purpose: Per-contract netting with proportional allocation
 - Reads eligible groups from HFSPD based on temporal/business filters
 - Validates contracts against HKAPA (production control) and HKAPD (accounting principle)
-- Computes net for each grain: net = SUM(all balances in grain)
+- Excludes GL and GR posting blocks from the source set
+- Computes net for each netting group: net = SUM(all balances in the group without contract ID)
 - Allocates proportionally: allocation = |contract| / SUM(|same-sign contracts|) × |net|
 - Emits one output row **per contract** (not one row per grain) with its allocation amount
 
@@ -288,7 +299,9 @@ METHOD read_aggregates
   -- ============================================================================
   -- NETTING LOGIC: Proportional Allocation across Positive or Negative Contracts
   -- ============================================================================
-  -- Stage 1: select candidate keys from HFSPD with business filters
+  -- Stage 1: select candidate contract rows from HFSPD with business filters
+  -- TODO: Confirm that /BA1/C55POSTRC = 'FPSL' is the correct field/value pair
+  -- for excluding the GL and GR workbook blocks in the productive landscape.
   lt_keys =
     SELECT DISTINCT
       h."CLIENT"          AS client,
@@ -301,6 +314,7 @@ METHOD read_aggregates
     WHERE h."/BA1/C55POSTD" BETWEEN :iv_postd_from AND :iv_postd_to
       AND (CARDINALITY(:it_lgent) = 0 OR h."/BA1/C55LGENT" IN (SELECT low FROM :it_lgent WHERE sign = 'I' AND option = 'EQ'))
       AND (CARDINALITY(:it_contid) = 0 OR h."/BA1/C55CONTID" IN (SELECT low FROM :it_contid WHERE sign = 'I' AND option = 'EQ'))
+      AND h."/BA1/C55POSTRC" = 'FPSL'
     ORDER BY
       h."/BA1/C55POSTD",
       h."/BA1/C55CONTID",
@@ -367,13 +381,13 @@ METHOD read_aggregates
     FROM :lt_apd_ranked
     WHERE rn = 1;
 
-  -- Stage 4a: aggregate all contracts within grain to compute net balance
-  -- Net = SUM(all K5SAMGRP in grain)
+  -- Stage 4a: aggregate all eligible contracts within the netting group to compute net balance
+  -- Netting group excludes contract ID.
   lt_grain_net =
     SELECT
       v.client,
       v.postd,
-      v.contid,
+      h."/BA1/C55LGENT" AS lgent,
       v.nodeno,
       v.accsy,
       CAST(SUM(h."/BA1/K5SAMGRP") AS DECFLOAT34) AS net_samgrp
@@ -387,18 +401,16 @@ METHOD read_aggregates
     GROUP BY
       v.client,
       v.postd,
-      v.contid,
+      h."/BA1/C55LGENT",
       v.nodeno,
       v.accsy;
 
-  -- Stage 4b: compute sum of absolute balances by sign (for allocation denominator)
-  -- SUM_POS = SUM(|K5SAMGRP|) where K5SAMGRP > 0 in grain
-  -- SUM_NEG = SUM(|K5SAMGRP|) where K5SAMGRP < 0 in grain
+  -- Stage 4b: compute same-sign denominators within the netting group
   lt_grain_abs_sum =
     SELECT
       v.client,
       v.postd,
-      v.contid,
+      h."/BA1/C55LGENT" AS lgent,
       v.nodeno,
       v.accsy,
       CAST(SUM(CASE WHEN h."/BA1/K5SAMGRP" > 0 THEN h."/BA1/K5SAMGRP" ELSE 0 END) AS DECFLOAT34) AS sum_pos_grp,
@@ -413,17 +425,17 @@ METHOD read_aggregates
     GROUP BY
       v.client,
       v.postd,
-      v.contid,
+      h."/BA1/C55LGENT",
       v.nodeno,
       v.accsy;
 
   -- Stage 5: FINAL netting output with allocation amounts
-  -- For each contract in grain:
+  -- For each contract in the netting group:
   --   If Net > 0: only positive contracts get allocation = |contract| / SUM_POS × |Net|
   --   If Net < 0: only negative contracts get allocation = |contract| / SUM_NEG × |Net|
   --   If Net = 0: no allocation (logical block; no clarity yet on edge case behavior)
-  -- Emit one row per HFSPD record with:
-  --   - anchor_docnum, anchor_docitm for structural copyback to Z_NET_POSTING
+  -- Emit one row per contract result with:
+  --   - one anchor strategy per contract result
   --   - alloc_amount = computed allocation (0 if not applicable)
   et_agg =
     SELECT
@@ -433,8 +445,8 @@ METHOD read_aggregates
       h."/BA1/C55CONTID"                        AS contid,
       h."/BA1/C11NODENO"                        AS nodeno,
       h."/BA1/C55ACCSY"                         AS accsy,
-      h."/BA1/C55DOCNUM"                        AS anchor_docnum,
-      h."/BA1/C55DOCITM"                        AS anchor_docitm,
+      MIN(h."/BA1/C55DOCNUM")                   AS anchor_docnum,
+      MIN(h."/BA1/C55DOCITM")                   AS anchor_docitm,
       CAST(h."/BA1/K5SAMBAL" AS DECFLOAT34)    AS sum_sambal,
       CAST(h."/BA1/K5SAMGRP" AS DECFLOAT34)    AS sum_samgrp,
       -- Asset/Liability Indicator (DDIC reference: /BA1/C55ALST)
@@ -445,10 +457,10 @@ METHOD read_aggregates
       -- If net < 0: |contract| / SUM_NEG × |net|
       -- If net = 0: 0 (no allocation)
       CASE
-        WHEN n.net_samgrp > 0 AND a.sum_pos_grp > 0
+        WHEN n.net_samgrp > 0 AND h."/BA1/K5SAMGRP" > 0 AND a.sum_pos_grp > 0
           THEN ( ABS(h."/BA1/K5SAMGRP") / a.sum_pos_grp ) * n.net_samgrp
-        WHEN n.net_samgrp < 0 AND a.sum_neg_grp > 0
-          THEN ( ABS(h."/BA1/K5SAMGRP") / a.sum_neg_grp ) * n.net_samgrp
+        WHEN n.net_samgrp < 0 AND h."/BA1/K5SAMGRP" < 0 AND a.sum_neg_grp > 0
+          THEN ( ABS(h."/BA1/K5SAMGRP") / a.sum_neg_grp ) * ABS(n.net_samgrp)
         ELSE CAST(0 AS DECFLOAT34)
       END AS alloc_amount
     FROM :lt_valid_keys v
@@ -461,15 +473,27 @@ METHOD read_aggregates
     INNER JOIN :lt_grain_net n
       ON n.client = v.client
      AND n.postd = v.postd
-     AND n.contid = v.contid
+     AND n.lgent = h."/BA1/C55LGENT"
      AND n.nodeno = v.nodeno
      AND n.accsy = v.accsy
     INNER JOIN :lt_grain_abs_sum a
       ON a.client = v.client
      AND a.postd = v.postd
-     AND a.contid = v.contid
+     AND a.lgent = h."/BA1/C55LGENT"
      AND a.nodeno = v.nodeno
      AND a.accsy = v.accsy
+    GROUP BY
+      h."CLIENT",
+      h."/BA1/C55POSTD",
+      h."/BA1/C55LGENT",
+      h."/BA1/C55CONTID",
+      h."/BA1/C11NODENO",
+      h."/BA1/C55ACCSY",
+      h."/BA1/K5SAMBAL",
+      h."/BA1/K5SAMGRP",
+      n.net_samgrp,
+      a.sum_pos_grp,
+      a.sum_neg_grp
     ORDER BY
       v.postd,
       v.contid,
@@ -481,12 +505,14 @@ ENDMETHOD.
 
 Checks:
 - SQLScript activates.
-- For one known grain with 3+ contracts, verify:
-  - Output row count = number of contracts in grain (not 1 aggregated row)
+- For one known netting group with 3+ contracts, verify:
+  - Output row count = number of eligible contracts in the group
   - Net calculation = SUM of all contract balances
   - Allocation amounts per contract = proportional shares (sum to net)
   - Positive/negative sign handling correct (e.g., if net > 0, only positive contracts get allocation)
-- Validate precision (DECFLOAT34 maintains accuracy; ABAP layer rounds to 0.01 at write time)
+- GL and GR rows are not used
+- the exact HFSPD discriminator used for GL/GR exclusion is confirmed in the target landscape before productive use
+- Validate precision (DECFLOAT34 is preserved; no forced rounding in ABAP layer)
 - Asset/Liability Indicator placeholder confirmed in AMDP output (enriched in ABAP layer)
 - Allocation Amount correctly reflects proportional formula
 
@@ -790,7 +816,7 @@ METHOD run.
       IF sy-subrc = 0.
         " Group currency (always USD per clarification): override with allocation amount only
         " Do NOT use sum_samgrp pre-netted; use alloc_amount as netted-delta
-        <lv_samgrp> = ROUND( <ls_agg>-alloc_amount, 2 ).  " Precision: round to 0.01 (cents)
+        <lv_samgrp> = <ls_agg>-alloc_amount.
       ENDIF.
 
       APPEND ls_target TO lt_target.
@@ -827,12 +853,12 @@ ENDMETHOD.
 
 Checks:
 - Run once in foreground for a small date range and verify:
-  - Row count in `Z_NET_POSTING` = number of contracts (after netting) matching grain
+  - Row count in `Z_NET_POSTING` = number of eligible contracts in the netting group
   - All allocation amounts are either zero (net=0 case) or proportional shares (positive/negative net cases)
-  - Each contract appears with its allocation amount (not aggregated to one row per grain)
+  - Each contract appears with its allocation amount (not aggregated to one row per group)
 - Errors captured in `Z_NET_POSTING_ERR` (e.g., missing anchor rows, validation failures)
 - Re-run same parameters: verify deterministic output (same allocation amounts, same error set)
-- Verify precision: amounts rounded to 0.01 (USD cents) in target
+- Verify precision: no forced rounding is introduced unless later confirmed by business or posting constraints
 
 ## 8) Artifact: Report for selective execution
 
