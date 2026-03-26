@@ -17,6 +17,18 @@ Use this file to summarize whether a new source metadata drop changes active beh
 - reason:
   - FPSL RDL tables extracted from live HANA DDIC (photographed IMG_1791–1803); FIELDNAME and DDTEXT confirmed from live system; DATATYPE/LENG/DOMNAME are convention-inferred and accepted as working state — type verification bypassed by decision on 2026-03-24
 
+## 2026-03-26 — Implementation Pack Versioning and Rewrite
+
+- **Artifact**: `implementation/rdl-net-posting-autopilot/rdl-net-posting-implementation-pack.md`
+- **Version**: `2.0.0`
+- **Change type**: major (structure rewrite to single linear build path)
+- **Archive snapshot**: `implementation/rdl-net-posting-autopilot/versions/rdl-net-posting-implementation-pack.v1.0.0.md`
+- **Status impact**: `no-impact` (documentation/implementation guidance restructuring only)
+- **Notes**:
+  - Reordered content to one simple end-to-end path first.
+  - Kept AMDP + ABAP artifact guidance aligned with `.github/prompts/rdl-net-posting.prompt.md`.
+  - Moved hardening items (CVPM extensions, checkpoint, re-drive) after core implementation path.
+
 ## 2026-03-24 — FPSL RDL Image Extraction
 
 - **Source**: Live HANA DDIC export photographed from Excel (IMG_1791–IMG_1802) + join diagram email (IMG_1803)

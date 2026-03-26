@@ -1,9 +1,5 @@
 # RDL Net Posting Implementation Pack
 
-Version: 2.0.0
-Date: 2026-03-26
-Primary contract: `.github/prompts/rdl-net-posting.prompt.md`
-
 Purpose: implement a modular, selective, CVPM-compatible data flow that applies the requirement-specific join logic from `design/netting-join-logic.md` and loads `Z_NET_POSTING` (same structure as `/BA1/HFSPD`).
 
 This pack is split into ADT-ready artifacts and a non-ABAP runbook.
@@ -18,24 +14,20 @@ If the pack and the prompt differ, the prompt is the primary requirement source 
 - requirement-specific joins, filters, and examples stay in this pack
 - raw Excel or screenshots used during development should stay local and not be committed by default
 
-## Start here (simple end-to-end path)
+## Start here (execution map)
 
-Use one linear build sequence first:
-
-1. DDIC targets (`Z_NET_POSTING`, `Z_NET_POSTING_ERR`)
-2. AMDP implementation (`READ_AGGREGATES`)
-3. ABAP orchestration (`RUN`) with anchor handling + target write
-4. ABAP Unit tests in the same class/include
-5. Report wrapper for selective runs
-6. Validation SQL checks
-
-Optional hardening (checkpoint resume, advanced CVPM run control, re-drive jobs) is intentionally moved after the core path.
+- Track A: Development (ADT paste-ready sequence)
+  - DDIC -> AMDP -> ABAP -> CVPM wiring
+- Track B: Testing and validation
+  - ABAP Unit -> SQL validation -> focused smoke execution
+- Track C: Operations and monitoring
+  - CVPM runbook -> `/BAL/PW_PROCMON` checks -> troubleshooting quick table
 
 Current iteration scope:
 
-- keep one simple working path as default
-- keep AMDP and ABAP responsibilities explicit and minimal
-- keep checkpoint/restart as optional hardening, not first-pass implementation
+- keep CVPM wiring in scope
+- keep the architecture modular (AMDP, ABAP orchestration, CVPM config split)
+- defer service resumption/checkpoint restart logic for now
 
 Done criteria:
 
@@ -43,15 +35,6 @@ Done criteria:
 - ABAP Unit tests pass
 - validation SQL checks pass on test scope
 - CVPM process can be configured and monitored
-
-## Versioning policy for this pack
-
-- Canonical file: `implementation/rdl-net-posting-autopilot/rdl-net-posting-implementation-pack.md`
-- Archived snapshots: `implementation/rdl-net-posting-autopilot/versions/`
-- Version bump policy:
-  - patch: typo-only or wording-only edits
-  - minor: additive, non-breaking implementation guidance improvements
-  - major: structural rewrite of build flow or artifact sequence
 
 ## 1) Confirmed inputs from uploaded metadata and prompt contract
 
