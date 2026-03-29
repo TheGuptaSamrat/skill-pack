@@ -6,6 +6,45 @@ Primary contract: `.github/prompts/rdl-net-posting.prompt.md`
 
 Purpose: deliver one simple, ADT-ready first-pass implementation for RDL net posting using AMDP + ABAP orchestration, with tests inline and optional abstractions deferred.
 
+## Process Flow
+
+```mermaid
+flowchart TD
+    A([Start: Report ZR_RDL_NET_POSTING_RUN]) --> B[ZCL_RDL_NET_POSTING_JOB::RUN\npostd_from / postd_to / pfct / accrct]
+
+    B --> C[AMDP: ZCL_RDL_NET_POSTING_AMDP\n::READ_AGGREGATES]
+
+    C --> D[Stage 1 — HFSPD candidates\nfilter by postd range + package_size\nTODO: GL/GR exclusion when discriminator confirmed]
+    D --> E[Stage 2 — HKAPA temporal filter\nCR4PFCT = 2100, CR0KEYDAT ≤ postd\nCURRENT_FLAG = X]
+    E --> F[Stage 3 — HKAPD temporal filter\nC55ACCRCT = 601, CR0KEYDAT ≤ postd\nCURRENT_FLAG = X]
+    F --> G[Stage 4 — Inner-join both dimensions\naggregate per contract]
+    G --> H[Stage 5 — Same-sign netting denominator\nper netting group]
+    H --> I[Stage 6 — Proportional allocation\nalloc_amount per contract row]
+
+    I --> J{Results empty?}
+    J -- Yes --> K([End: no rows, return])
+    J -- No --> L[Loop over et_agg per contract]
+
+    L --> M[SELECT anchor row from HFSPD\nby anchor_docnum + anchor_docitm]
+
+    M --> N{Anchor rows found?}
+    N -- 0 rows --> O[INSERT Z_NET_POSTING_ERR\nANCHOR_NOT_FOUND]
+    N -- >1 row --> P[INSERT Z_NET_POSTING_ERR\nANCHOR_AMBIGUOUS]
+    N -- exactly 1 --> Q[MOVE-CORRESPONDING anchor to Z_NET_POSTING\nset K5SAMGRP = alloc_amount]
+
+    O --> L
+    P --> L
+
+    Q --> R[MODIFY Z_NET_POSTING]
+    R --> S{MODIFY ok?}
+    S -- subrc ne 0 --> T[INSERT Z_NET_POSTING_ERR\nTARGET_MODIFY_FAILED]
+    S -- ok --> U[rows_written + 1]
+    T --> L
+    U --> L
+
+    L --> V([End: return rs_result\nrows_written / packages])
+```
+
 ## 0) First-pass build path (single linear flow)
 
 1. Create DDIC targets (`Z_NET_POSTING`, `Z_NET_POSTING_ERR`)
